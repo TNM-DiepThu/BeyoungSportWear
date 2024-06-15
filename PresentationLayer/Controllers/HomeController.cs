@@ -34,7 +34,7 @@ namespace PresentationLayer.Controllers
         {
             return View();
         }
-        public IActionResult ProDuctDetail()
+        public IActionResult ProductDetail()
         {
             return View();
         }
