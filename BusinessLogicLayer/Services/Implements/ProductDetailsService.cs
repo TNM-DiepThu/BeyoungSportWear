@@ -190,7 +190,6 @@ namespace BusinessLogicLayer.Services.Implements
             {
                 try
                 {
-                    // Ensuring required entities exist or creating them
                     var checkBrand = await _dbcontext.Brand.FirstOrDefaultAsync(c => c.ID == request.IDBrand);
                     var checkMaterial = await _dbcontext.Material.FirstOrDefaultAsync(c => c.ID == request.IDMaterial);
                     var checkManufacturer = await _dbcontext.Manufacturer.FirstOrDefaultAsync(c => c.ID == request.IDManufacturers);

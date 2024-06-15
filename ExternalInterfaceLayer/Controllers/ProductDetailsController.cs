@@ -17,7 +17,7 @@ namespace ExternalInterfaceLayer.Controllers
             _IProductDetailsService = IProductDetailsService;
         }
         [HttpPost]
-        [Route("create")]
+        [Route("productdetails_create")]
         public async Task<IActionResult> Create([FromBody] ProductDetailsCreateVM request)
         {
             if (request.ImagePaths == null)

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7xjzr/X5bngdqrH/1iVXFJqnl1B+/zpFCpCkGgw3Nnk=",
+  "Hash": "fdjQWYXwpBTaZVBEKRGR46nY8g8fToXe2BEl0cFrX38=",
   "Source": "PresentationLayer",
   "BasePath": "_content/PresentationLayer",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\BeyoungSportWear\\PresentationLayer\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PresentationLayer.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\productdetails.js",
+      "SourceId": "PresentationLayer",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\",
+      "BasePath": "_content/PresentationLayer",
+      "RelativePath": "ajax/productdetails.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ajax\\productdetails.js"
     },
     {
       "Identity": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ckeditor\\adapters\\jquery.js",
