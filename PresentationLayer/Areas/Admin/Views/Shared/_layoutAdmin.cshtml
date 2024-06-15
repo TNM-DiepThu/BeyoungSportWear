@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 </head>
-<body onload="time()" class="app sidebar-mini rtl">
+<body class="app sidebar-mini rtl">
     <header class="app-header">
         <a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
            aria-label="Hide Sidebar"></a>
@@ -56,7 +56,7 @@
                 </a>
             </li>
             <li>
-                <a class="app-menu__item " href="table-data-table.html">
+                <a class="app-menu__item " asp-area="Admin" asp-controller="ManagerStaff" asp-action="Index">
                     <i class='app-menu__icon bx bx-id-card'></i>
                     <span class="app-menu__label">Quản lý nhân viên</span>
                 </a>
@@ -75,7 +75,7 @@
             </li>
 
             <li>
-                <a class="app-menu__item" href="table-data-oder.html">
+                <a class="app-menu__item" asp-area="Admin" asp-controller="ManagerOrder" asp-action="Index">
                     <i class='app-menu__icon bx bx-task'></i>
                     <span class="app-menu__label">Quản lý đơn hàng</span>
                 </a>
@@ -95,7 +95,7 @@
                 </a>
             </li>
             <li>
-                <a class="app-menu__item" href="quan-ly-bao-cao.html">
+                <a class="app-menu__item" asp-area="Admin" asp-controller="ManagementRevenue" asp-action="Index">
                     <i class='app-menu__icon bx bx-pie-chart-alt-2'></i>
                     <span class="app-menu__label">Báo cáo doanh thu</span>
                 </a>
@@ -128,6 +128,8 @@
           </script> Phần mềm quản lý bán hàng | Dev By TDat
         </b></p>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
     <script src="~/js/jquery-3.2.1.min.js"></script>
     <script src="~/js/popper.min.js"></script>
     <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
