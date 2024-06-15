@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\PresentationLayer.bundle.scp.css"
     },
     {
+      "Id": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\productdetails.js",
+      "PackagePath": "staticwebassets\\ajax\\productdetails.js"
+    },
+    {
       "Id": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ckeditor\\CHANGES.md",
       "PackagePath": "staticwebassets\\ckeditor\\CHANGES.md"
     },
