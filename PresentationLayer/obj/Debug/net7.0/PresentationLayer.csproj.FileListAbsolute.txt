@@ -221,7 +221,6 @@ D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\runtimes\win\lib\net6.0\S
 D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\BeyoungSportWear\PresentationLayer\obj\Debug\net7.0\PresentationLayer.csproj.AssemblyReference.cache
-D:\BeyoungSportWear\PresentationLayer\obj\Debug\net7.0\PresentationLayer.csproj.CopyComplete
 D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\package-lock.json
 D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\package.json
 D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\CloudinaryDotNet.dll
@@ -267,3 +266,8 @@ D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\DataAccessLayer.dll
 D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\BusinessLogicLayer.pdb
 D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\DataAccessLayer.pdb
 D:\BeyoungSportWear\PresentationLayer\obj\Debug\net7.0\PresentationLayer.MvcApplicationPartsAssemblyInfo.cs
+D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\Mono.TextTemplating.dll
+D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\System.CodeDom.dll
+D:\BeyoungSportWear\PresentationLayer\obj\Debug\net7.0\Presenta.9C561136.Up2Date

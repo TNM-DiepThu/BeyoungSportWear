@@ -75,7 +75,6 @@ D:\BeyoungSportWear\ExternalInterfaceLayer\obj\Debug\net7.0\staticwebassets\msbu
 D:\BeyoungSportWear\ExternalInterfaceLayer\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.ExternalInterfaceLayer.props
 D:\BeyoungSportWear\ExternalInterfaceLayer\obj\Debug\net7.0\staticwebassets.pack.json
 D:\BeyoungSportWear\ExternalInterfaceLayer\obj\Debug\net7.0\scopedcss\bundle\ExternalInterfaceLayer.styles.css
-D:\BeyoungSportWear\ExternalInterfaceLayer\obj\Debug\net7.0\ExternalInterfaceLayer.csproj.CopyComplete
 D:\BeyoungSportWear\ExternalInterfaceLayer\obj\Debug\net7.0\ExternalInterfaceLayer.dll
 D:\BeyoungSportWear\ExternalInterfaceLayer\obj\Debug\net7.0\refint\ExternalInterfaceLayer.dll
 D:\BeyoungSportWear\ExternalInterfaceLayer\obj\Debug\net7.0\ExternalInterfaceLayer.pdb
@@ -85,3 +84,4 @@ D:\BeyoungSportWear\ExternalInterfaceLayer\bin\Debug\net7.0\Microsoft.AspNetCore
 D:\BeyoungSportWear\ExternalInterfaceLayer\bin\Debug\net7.0\CloudinaryDotNet.dll
 D:\BeyoungSportWear\ExternalInterfaceLayer\bin\Debug\net7.0\Newtonsoft.Json.dll
 D:\BeyoungSportWear\ExternalInterfaceLayer\obj\Debug\net7.0\ExternalInterfaceLayer.MvcApplicationPartsAssemblyInfo.cs
+D:\BeyoungSportWear\ExternalInterfaceLayer\obj\Debug\net7.0\External.008A2778.Up2Date

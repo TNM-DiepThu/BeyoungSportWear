@@ -1,0 +1,1583 @@
+[
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ApplicationUserController",
+    "Method": "Remove",
+    "RelativePath": "api/ApplicationUser/{ID}/{IDUserDelete}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDUserDelete",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ApplicationUserController",
+    "Method": "GetAllActiveInformationUserAsync",
+    "RelativePath": "api/ApplicationUser/GetAllActiveInformationUserAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ApplicationUserController",
+    "Method": "GetAllInformationUserAsync",
+    "RelativePath": "api/ApplicationUser/GetAllInformationUserAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ApplicationUserController",
+    "Method": "GetInformationUser",
+    "RelativePath": "api/ApplicationUser/GetInformationUser/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BusinessLogicLayer.Viewmodels.ApplicationUser.UserDataVM",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ApplicationUserController",
+    "Method": "Login",
+    "RelativePath": "api/ApplicationUser/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLogicLayer.Viewmodels.ApplicationUser.UserLoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ApplicationUserController",
+    "Method": "Register",
+    "RelativePath": "api/ApplicationUser/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerUser",
+        "Type": "BusinessLogicLayer.Viewmodels.ApplicationUser.RegisterUser",
+        "IsRequired": true
+      },
+      {
+        "Name": "role",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.BrandController",
+    "Method": "Create",
+    "RelativePath": "api/Brand/BrandCreate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.Brand.BrandCreateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.BrandController",
+    "Method": "Remove",
+    "RelativePath": "api/Brand/BrandRemove/{ID}/{IDUserDelete}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDUserDelete",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.BrandController",
+    "Method": "Update",
+    "RelativePath": "api/Brand/BrandUpdate/{ID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.Brand.BrandUpdateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.BrandController",
+    "Method": "GetAll",
+    "RelativePath": "api/Brand/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.BrandController",
+    "Method": "GetAllActive",
+    "RelativePath": "api/Brand/GetAllActive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.BrandController",
+    "Method": "GetByID",
+    "RelativePath": "api/Brand/GetByID/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.CartController",
+    "Method": "Update",
+    "RelativePath": "api/Cart/{ID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.Cart.CartUpdateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.CartController",
+    "Method": "Delete",
+    "RelativePath": "api/Cart/{ID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDUserdelete",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.CartController",
+    "Method": "Create",
+    "RelativePath": "api/Cart/CartCreate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLogicLayer.Viewmodels.Cart.CartCreateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.CartController",
+    "Method": "GetAll",
+    "RelativePath": "api/Cart/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.CartController",
+    "Method": "GetAllActive",
+    "RelativePath": "api/Cart/GetAllActive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.CartController",
+    "Method": "GetById",
+    "RelativePath": "api/Cart/GetByID/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.CartProductDetailsController",
+    "Method": "GetByIdAsync",
+    "RelativePath": "api/CartProductDetails/{IDCart}/{IDProductDetails}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IDCart",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDProductDetails",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.CartProductDetailsController",
+    "Method": "RemoveAsync",
+    "RelativePath": "api/CartProductDetails/{IDCart}/{IDProductDetails}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IDCart",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDProductDetails",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.CartProductDetailsController",
+    "Method": "UpdateAsync",
+    "RelativePath": "api/CartProductDetails/{IDCart}/{IDProductDetails}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IDCart",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDProductDetails",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.CartProductDetails.CartProductDetailsUpdateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.CartProductDetailsController",
+    "Method": "AddAsync",
+    "RelativePath": "api/CartProductDetails/AddToCart",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.CartProductDetails.CartProductDetailsCreateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.CartProductDetailsController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/CartProductDetails/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.CartProductDetailsController",
+    "Method": "GetAllActiveAsync",
+    "RelativePath": "api/CartProductDetails/GetAllActive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.CartProductDetailsController",
+    "Method": "GetAllByCartIDAsync",
+    "RelativePath": "api/CartProductDetails/GetAllByCartIDAsync/{ID_Cart}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID_Cart",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ColorsController",
+    "Method": "Create",
+    "RelativePath": "api/Colors/ColorsCreate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.Colors.ColorCreateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ColorsController",
+    "Method": "Remove",
+    "RelativePath": "api/Colors/ColorsRemove/{ID}/{IDUserDelete}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDUserDelete",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ColorsController",
+    "Method": "Update",
+    "RelativePath": "api/Colors/ColorsUpdate/{ID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.Colors.ColorUpdateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ColorsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Colors/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ColorsController",
+    "Method": "GetAllActive",
+    "RelativePath": "api/Colors/GetAllActive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ColorsController",
+    "Method": "GetByID",
+    "RelativePath": "api/Colors/GetByID/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YourProject.Controllers.ImageController",
+    "Method": "GetAll",
+    "RelativePath": "api/images",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YourProject.Controllers.ImageController",
+    "Method": "GetById",
+    "RelativePath": "api/images/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YourProject.Controllers.ImageController",
+    "Method": "Delete",
+    "RelativePath": "api/images/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YourProject.Controllers.ImageController",
+    "Method": "Create",
+    "RelativePath": "api/images/upload_images",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CreateBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IDProductDetails",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "IDOptions",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Path",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ManufacturerController",
+    "Method": "GetAll",
+    "RelativePath": "api/Manufacturer/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ManufacturerController",
+    "Method": "GetAllActive",
+    "RelativePath": "api/Manufacturer/GetAllActive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ManufacturerController",
+    "Method": "GetByID",
+    "RelativePath": "api/Manufacturer/GetByID/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ManufacturerController",
+    "Method": "Create",
+    "RelativePath": "api/Manufacturer/ManufacturerCreate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.Manufacturer.ManufacturerCreateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ManufacturerController",
+    "Method": "Remove",
+    "RelativePath": "api/Manufacturer/ManufacturerRemove/{ID}/{IDUserDelete}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDUserDelete",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ManufacturerController",
+    "Method": "Update",
+    "RelativePath": "api/Manufacturer/ManufacturerUpdate/{ID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.Manufacturer.ManufacturerUpdateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.MaterialController",
+    "Method": "GetAll",
+    "RelativePath": "api/Material/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.MaterialController",
+    "Method": "GetAllActive",
+    "RelativePath": "api/Material/GetAllActive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.MaterialController",
+    "Method": "GetByID",
+    "RelativePath": "api/Material/GetByID/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.MaterialController",
+    "Method": "Create",
+    "RelativePath": "api/Material/MaterialCreate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.Material.MaterialCreateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.MaterialController",
+    "Method": "Remove",
+    "RelativePath": "api/Material/MaterialRemove/{ID}/{IDUserDelete}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDUserDelete",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.MaterialController",
+    "Method": "Update",
+    "RelativePath": "api/Material/MaterialUpdate/{ID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.Material.MaterialUpdateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OptionsController",
+    "Method": "Create",
+    "RelativePath": "api/Options/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CreateBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IDProductDetails",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "IDColor",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ColorName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IDSize",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "SizesName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "StockQuantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "CostPrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "RetailPrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Discount",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImagePaths",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OptionsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Options/getall",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OptionsController",
+    "Method": "GetAllActive",
+    "RelativePath": "api/Options/getallactive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OptionsController",
+    "Method": "GetByID",
+    "RelativePath": "api/Options/GetByID/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OptionsController",
+    "Method": "GetProductDetailsByID",
+    "RelativePath": "api/Options/GetProductDetailsByID/{IDOptions}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IDOptions",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OptionsController",
+    "Method": "UpdateOption",
+    "RelativePath": "api/Options/update/{ID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "ModifiedBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "IDProductDetails",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "IDColor",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ColorName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IDSize",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "SizesName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "StockQuantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "CostPrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "RetailPrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Discount",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImagePaths",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OrderController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/Order/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OrderController",
+    "Method": "GetAllActiveAsync",
+    "RelativePath": "api/Order/allactive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OrderController",
+    "Method": "AddAsync",
+    "RelativePath": "api/Order/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.Order.OrderCreateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OrderController",
+    "Method": "GetByCustomerID",
+    "RelativePath": "api/Order/customer/{ID_User}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID_User",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OrderController",
+    "Method": "GetOrderDetailsByID",
+    "RelativePath": "api/Order/GetOrderDetailsByID/{ID_Order}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID_Order",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OrderDetailsController",
+    "Method": "GetAllActiveAsync",
+    "RelativePath": "api/OrderDetails/allactive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OrderDetailsController",
+    "Method": "AddAsync",
+    "RelativePath": "api/OrderDetails/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.OrderDetails.OrderDetailsCreateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OrderDetailsController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/OrderDetails/getall",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.OrderDetailsController",
+    "Method": "GetByIDAsync",
+    "RelativePath": "api/OrderDetails/GetByID/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ProductController",
+    "Method": "GetAll",
+    "RelativePath": "api/Product/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ProductController",
+    "Method": "GetAllActive",
+    "RelativePath": "api/Product/GetAllActive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ProductController",
+    "Method": "GetByID",
+    "RelativePath": "api/Product/GetByID/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ProductController",
+    "Method": "Create",
+    "RelativePath": "api/Product/ProductCreate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.Product.ProductCreateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ProductController",
+    "Method": "Remove",
+    "RelativePath": "api/Product/ProductRemove/{ID}/{IDUserDelete}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDUserDelete",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ProductController",
+    "Method": "Update",
+    "RelativePath": "api/Product/ProductUpdate/{ID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.Product.ProductUpdateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ProductDetailsController",
+    "Method": "GetAll",
+    "RelativePath": "api/ProductDetails/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ProductDetailsController",
+    "Method": "GetAllActive",
+    "RelativePath": "api/ProductDetails/GetAllActive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ProductDetailsController",
+    "Method": "GetByID",
+    "RelativePath": "api/ProductDetails/GetByID/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.ProductDetailsController",
+    "Method": "Create",
+    "RelativePath": "api/ProductDetails/productdetails_create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.ProductDetails.ProductDetailsCreateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.SizesController",
+    "Method": "GetAll",
+    "RelativePath": "api/Sizes/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.SizesController",
+    "Method": "GetAllActive",
+    "RelativePath": "api/Sizes/GetAllActive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.SizesController",
+    "Method": "GetByID",
+    "RelativePath": "api/Sizes/GetByID/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.SizesController",
+    "Method": "Remove",
+    "RelativePath": "api/Sizes/SizeRemove/{ID}/{IDUserDelete}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDUserDelete",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.SizesController",
+    "Method": "Create",
+    "RelativePath": "api/Sizes/SizesCreate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.Sizes.SizeCreateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.SizesController",
+    "Method": "Update",
+    "RelativePath": "api/Sizes/SizesUpdate/{ID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "BusinessLogicLayer.Viewmodels.Sizes.SizeUpdateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.VoucherController",
+    "Method": "DeleteVoucher",
+    "RelativePath": "api/Voucher/{ID}/{IDUserDelete}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDUserDelete",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.VoucherController",
+    "Method": "GetUserInPromotionAsync",
+    "RelativePath": "api/Voucher/{ID}/User",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BusinessLogicLayer.Viewmodels.VoucherUser.VoucherUserVM, BusinessLogicLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.VoucherController",
+    "Method": "Create",
+    "RelativePath": "api/Voucher/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "voucherCreateVM",
+        "Type": "BusinessLogicLayer.Viewmodels.Voucher.VoucherCreateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.VoucherController",
+    "Method": "UpdateVoucher",
+    "RelativePath": "api/Voucher/Edit_Voucher/{ID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "voucherUpdateVM",
+        "Type": "BusinessLogicLayer.Viewmodels.Voucher.VoucherUpdateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.VoucherController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/Voucher/getall",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.VoucherController",
+    "Method": "GetAllActiveAsync",
+    "RelativePath": "api/Voucher/getallactive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.VoucherController",
+    "Method": "GetVoucher",
+    "RelativePath": "api/Voucher/GetByID/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.VoucherController",
+    "Method": "GetVoucherByIDUser",
+    "RelativePath": "api/Voucher/GetVoucherByIDUser/{IDUser}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IDUser",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.VoucherUserController",
+    "Method": "Create",
+    "RelativePath": "api/VoucherUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createVM",
+        "Type": "BusinessLogicLayer.Viewmodels.VoucherUser.VoucherUserCreateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.VoucherUserController",
+    "Method": "GetByID",
+    "RelativePath": "api/VoucherUser/{IDVoucher}/{IDUser}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IDVoucher",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDUser",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.VoucherUserController",
+    "Method": "Update",
+    "RelativePath": "api/VoucherUser/{IDVoucher}/{IDUser}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IDVoucher",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDUser",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateVM",
+        "Type": "BusinessLogicLayer.Viewmodels.VoucherUser.VoucherUserUpdateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.VoucherUserController",
+    "Method": "Delete",
+    "RelativePath": "api/VoucherUser/{IDVoucher}/{IDUser}/{IDUserDelete}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IDVoucher",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDUser",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "IDUserDelete",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.VoucherUserController",
+    "Method": "GetAll",
+    "RelativePath": "api/VoucherUser/getall",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExternalInterfaceLayer.Controllers.VoucherUserController",
+    "Method": "GetAllActive",
+    "RelativePath": "api/VoucherUser/getallactive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

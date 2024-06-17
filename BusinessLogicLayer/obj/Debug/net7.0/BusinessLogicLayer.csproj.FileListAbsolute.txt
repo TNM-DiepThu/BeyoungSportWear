@@ -9,10 +9,10 @@ D:\BeyoungSportWear\BusinessLogicLayer\obj\Debug\net7.0\BusinessLogicLayer.Assem
 D:\BeyoungSportWear\BusinessLogicLayer\obj\Debug\net7.0\BusinessLogicLayer.AssemblyInfo.cs
 D:\BeyoungSportWear\BusinessLogicLayer\obj\Debug\net7.0\BusinessLogicLayer.csproj.CoreCompileInputs.cache
 D:\BeyoungSportWear\BusinessLogicLayer\obj\Debug\net7.0\BusinessLogicLayer.sourcelink.json
-D:\BeyoungSportWear\BusinessLogicLayer\obj\Debug\net7.0\BusinessLogicLayer.csproj.CopyComplete
 D:\BeyoungSportWear\BusinessLogicLayer\obj\Debug\net7.0\BusinessLogicLayer.dll
 D:\BeyoungSportWear\BusinessLogicLayer\obj\Debug\net7.0\refint\BusinessLogicLayer.dll
 D:\BeyoungSportWear\BusinessLogicLayer\obj\Debug\net7.0\BusinessLogicLayer.pdb
 D:\BeyoungSportWear\BusinessLogicLayer\obj\Debug\net7.0\ref\BusinessLogicLayer.dll
 D:\BeyoungSportWear\BusinessLogicLayer\bin\Debug\net7.0\BusinessLogicLayer.runtimeconfig.json
 D:\BeyoungSportWear\BusinessLogicLayer\obj\Debug\net7.0\BusinessLogicLayer.genruntimeconfig.cache
+D:\BeyoungSportWear\BusinessLogicLayer\obj\Debug\net7.0\Business.450209FB.Up2Date
