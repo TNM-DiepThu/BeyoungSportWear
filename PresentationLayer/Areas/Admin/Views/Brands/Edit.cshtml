@@ -1,4 +1,4 @@
-﻿@model DataAccessLayer.Entity.Sizes
+﻿@model DataAccessLayer.Entity.Brand
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "Edit";
@@ -7,55 +7,75 @@
 
 <h1>Edit</h1>
 
-<h4>Sizes</h4>
+<h4>Brand</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label">Name</label>
+                <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label">Description</label>
+                <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gmail" class="control-label"></label>
+                <input asp-for="Gmail" class="form-control" />
+                <span asp-validation-for="Gmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Website" class="control-label"></label>
+                <input asp-for="Website" class="form-control" />
+                <span asp-validation-for="Website" class="text-danger"></span>
+            </div>
             <input type="hidden" asp-for="ID" />
             <div class="form-group">
-                <label asp-for="CreateBy" class="control-label">CreateBy</label>
+                <label asp-for="CreateBy" class="control-label"></label>
                 <input asp-for="CreateBy" class="form-control" />
                 <span asp-validation-for="CreateBy" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreateDate" class="control-label">CreateDate</label>
+                <label asp-for="CreateDate" class="control-label"></label>
                 <input asp-for="CreateDate" class="form-control" />
                 <span asp-validation-for="CreateDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ModifiedBy" class="control-label">ModifiedBy</label>
+                <label asp-for="ModifiedBy" class="control-label"></label>
                 <input asp-for="ModifiedBy" class="form-control" />
                 <span asp-validation-for="ModifiedBy" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ModifiedDate" class="control-label">ModifiedDate</label>
+                <label asp-for="ModifiedDate" class="control-label"></label>
                 <input asp-for="ModifiedDate" class="form-control" />
                 <span asp-validation-for="ModifiedDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DeleteBy" class="control-label">DeleteBy</label>
+                <label asp-for="DeleteBy" class="control-label"></label>
                 <input asp-for="DeleteBy" class="form-control" />
                 <span asp-validation-for="DeleteBy" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DeleteDate" class="control-label">DeleteDate</label>
+                <label asp-for="DeleteDate" class="control-label"></label>
                 <input asp-for="DeleteDate" class="form-control" />
                 <span asp-validation-for="DeleteDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label">Status</label>
+                <label asp-for="Status" class="control-label"></label>
                 <input asp-for="Status" class="form-control" />
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>

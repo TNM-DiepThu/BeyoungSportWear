@@ -54,10 +54,10 @@ namespace PresentationLayer.Areas.Admin.Controllers
             return View(colors);
         }
 
-        [HttpGet("color/edit/{id}")]
-        public async Task<IActionResult> Edit(Guid id)
+        [HttpGet("color/edit/{ID}")]
+        public async Task<IActionResult> Edit(Guid ID)
         {
-            string requestURL = $"https://localhost:7241/api/Colors/GetByID/{id}";
+            string requestURL = $"https://localhost:7241/api/Colors/GetByID/{ID}";
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(requestURL);
             string apiData = await response.Content.ReadAsStringAsync();
@@ -65,19 +65,22 @@ namespace PresentationLayer.Areas.Admin.Controllers
             return View(colors);
         }
 
-        [HttpPut("color/edit/{id}")]
-        public async Task<IActionResult> Edit(Guid id, ColorUpdateVM colors)
+        [HttpPost("color/edit/{ID}")]
+        public async Task<IActionResult> Edit(Guid ID, ColorUpdateVM colors)
         {
-            string requestURL = $"https://localhost:7241/api/Colors/ColorsUpdate/{id}";
+            string requestURL = $"https://localhost:7241/api/Colors/ColorsUpdate/{ID}";
             var httpClient = new HttpClient();
-            var response = await httpClient.PostAsJsonAsync(requestURL, colors);
+            
+            var response = await httpClient.PutAsJsonAsync(requestURL, colors);
             if (response.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
             }
             else
             {
-                return BadRequest();
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                // Log the error message or inspect it for further details
+                return BadRequest($"Server returned error: {errorMessage}");
             }
         }
 

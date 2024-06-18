@@ -9,35 +9,35 @@ using DataAccessLayer.Application;
 using DataAccessLayer.Entity;
 using BusinessLogicLayer.Viewmodels.Colors;
 using Newtonsoft.Json;
-using BusinessLogicLayer.Viewmodels.Sizes;
+using BusinessLogicLayer.Viewmodels.Material;
 
 namespace PresentationLayer.Areas.Admin.Controllers
 {
-    [Area("admin")]
+    [Area("Admin")]
     [Route("admin")]
-    public class SizeController : Controller
+    public class MaterialsController : Controller
     {
-        [HttpGet("size/index")]
+        [HttpGet("material/index")]
         public async Task<IActionResult> Index()
         {
-            string requestURL = "https://localhost:7241/api/Sizes/GetAll";
+            string requestURL = "https://localhost:7241/api/Material/GetAll";
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(requestURL);
             string apiData = await response.Content.ReadAsStringAsync();
-            var sizes = JsonConvert.DeserializeObject<List<Sizes>>(apiData);
-            return View(sizes);
+            var colors = JsonConvert.DeserializeObject<List<Material>>(apiData);
+            return View(colors);
         }
-        [HttpGet("size/create")]
+        [HttpGet("material/create")]
         public async Task<IActionResult> Create()
         {
             return View();
         }
-        [HttpPost("size/create")]
-        public async Task<IActionResult> Create(SizeCreateVM size)
+        [HttpPost("material/create")]
+        public async Task<IActionResult> Create(MaterialCreateVM material)
         {
-            string requestURL = "https://localhost:7241/api/Sizes/SizesCreate";
+            string requestURL = "https://localhost:7241/api/Material/MaterialCreate";
             var httpClient = new HttpClient();
-            var response = await httpClient.PostAsJsonAsync(requestURL, size);
+            var response = await httpClient.PostAsJsonAsync(requestURL, material);
             if (response.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -51,48 +51,51 @@ namespace PresentationLayer.Areas.Admin.Controllers
         }
 
 
-        [HttpGet("size/details/{id}")]
+        [HttpGet("material/details/{id}")]
         public async Task<IActionResult> Details(Guid id)
         {
-            string requestURL = $"https://localhost:7241/api/Sizes/GetByID/{id}";
+            string requestURL = $"https://localhost:7241/api/Material/GetByID/{id}";
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(requestURL);
             string apiData = await response.Content.ReadAsStringAsync();
-            var sizes = JsonConvert.DeserializeObject<Sizes>(apiData);
-            return View(sizes);
+            var material = JsonConvert.DeserializeObject<Material>(apiData);
+            return View(material);
         }
 
-        [HttpGet("size/edit/{id}")]
-        public async Task<IActionResult> Edit(Guid id)
+        [HttpGet("material/edit/{ID}")]
+        public async Task<IActionResult> Edit(Guid ID)
         {
-            string requestURL = $"https://localhost:7241/api/Sizes/GetByID/{id}";
+            string requestURL = $"https://localhost:7241/api/Material/GetByID/{ID}";
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(requestURL);
             string apiData = await response.Content.ReadAsStringAsync();
-            var sizes = JsonConvert.DeserializeObject<Sizes>(apiData);
-            return View(sizes);
+            var material = JsonConvert.DeserializeObject<Material>(apiData);
+            return View(material);
         }
 
-        [HttpPost("size/edit/{id}")]
-        public async Task<IActionResult> Edit(Guid id, SizeUpdateVM size)
+        [HttpPost("material/edit/{ID}")]
+        public async Task<IActionResult> Edit(Guid ID, MaterialUpdateVM colors)
         {
-            string requestURL = $"https://localhost:7241/api/Sizes/SizesUpdate/{id}";
+            string requestURL = $"https://localhost:7241/api/Material/MaterialUpdate/{ID}";
             var httpClient = new HttpClient();
-            var response = await httpClient.PutAsJsonAsync(requestURL, size);
+
+            var response = await httpClient.PutAsJsonAsync(requestURL, colors);
             if (response.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
             }
             else
             {
-                return BadRequest();
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                // Log the error message or inspect it for further details
+                return BadRequest($"Server returned error: {errorMessage}");
             }
         }
 
-        [HttpDelete("size/delete/{id}")]
+        [HttpDelete("material/delete/{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            string requestURL = $"https://localhost:7241/api/Sizes/SizeRemove/{id}";
+            string requestURL = $"https://localhost:7241/api/Material/MaterialRemove/{id}";
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(requestURL);
             if (response.IsSuccessStatusCode)

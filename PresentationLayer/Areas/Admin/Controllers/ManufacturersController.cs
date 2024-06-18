@@ -7,37 +7,37 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DataAccessLayer.Application;
 using DataAccessLayer.Entity;
-using BusinessLogicLayer.Viewmodels.Colors;
+using BusinessLogicLayer.Viewmodels.Material;
 using Newtonsoft.Json;
-using BusinessLogicLayer.Viewmodels.Sizes;
+using BusinessLogicLayer.Viewmodels.Manufacturer;
 
 namespace PresentationLayer.Areas.Admin.Controllers
 {
-    [Area("admin")]
+    [Area("Admin")]
     [Route("admin")]
-    public class SizeController : Controller
+    public class ManufacturersController : Controller
     {
-        [HttpGet("size/index")]
+        [HttpGet("manufacturer/index")]
         public async Task<IActionResult> Index()
         {
-            string requestURL = "https://localhost:7241/api/Sizes/GetAll";
+            string requestURL = "https://localhost:7241/api/Manufacturer/GetAll";
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(requestURL);
             string apiData = await response.Content.ReadAsStringAsync();
-            var sizes = JsonConvert.DeserializeObject<List<Sizes>>(apiData);
-            return View(sizes);
+            var colors = JsonConvert.DeserializeObject<List<Manufacturer>>(apiData);
+            return View(colors);
         }
-        [HttpGet("size/create")]
+        [HttpGet("manufacturer/create")]
         public async Task<IActionResult> Create()
         {
             return View();
         }
-        [HttpPost("size/create")]
-        public async Task<IActionResult> Create(SizeCreateVM size)
+        [HttpPost("manufacturer/create")]
+        public async Task<IActionResult> Create(ManufacturerCreateVM manufacturer)
         {
-            string requestURL = "https://localhost:7241/api/Sizes/SizesCreate";
+            string requestURL = "https://localhost:7241/api/Manufacturer/ManufacturerCreate";
             var httpClient = new HttpClient();
-            var response = await httpClient.PostAsJsonAsync(requestURL, size);
+            var response = await httpClient.PostAsJsonAsync(requestURL, manufacturer);
             if (response.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -51,48 +51,51 @@ namespace PresentationLayer.Areas.Admin.Controllers
         }
 
 
-        [HttpGet("size/details/{id}")]
+        [HttpGet("manufacturer/details/{id}")]
         public async Task<IActionResult> Details(Guid id)
         {
-            string requestURL = $"https://localhost:7241/api/Sizes/GetByID/{id}";
+            string requestURL = $"https://localhost:7241/api/Manufacturer/GetByID/{id}";
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(requestURL);
             string apiData = await response.Content.ReadAsStringAsync();
-            var sizes = JsonConvert.DeserializeObject<Sizes>(apiData);
-            return View(sizes);
+            var material = JsonConvert.DeserializeObject<Manufacturer>(apiData);
+            return View(material);
         }
 
-        [HttpGet("size/edit/{id}")]
-        public async Task<IActionResult> Edit(Guid id)
+        [HttpGet("manufacturer/edit/{ID}")]
+        public async Task<IActionResult> Edit(Guid ID)
         {
-            string requestURL = $"https://localhost:7241/api/Sizes/GetByID/{id}";
+            string requestURL = $"https://localhost:7241/api/Manufacturer/GetByID/{ID}";
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(requestURL);
             string apiData = await response.Content.ReadAsStringAsync();
-            var sizes = JsonConvert.DeserializeObject<Sizes>(apiData);
-            return View(sizes);
+            var material = JsonConvert.DeserializeObject<Material>(apiData);
+            return View(material);
         }
 
-        [HttpPost("size/edit/{id}")]
-        public async Task<IActionResult> Edit(Guid id, SizeUpdateVM size)
+        [HttpPost("manufacturer/edit/{ID}")]
+        public async Task<IActionResult> Edit(Guid ID, ManufacturerUpdateVM manufacturer)
         {
-            string requestURL = $"https://localhost:7241/api/Sizes/SizesUpdate/{id}";
+            string requestURL = $"https://localhost:7241/api/Manufacturer/ManufacturerUpdate/{ID}";
             var httpClient = new HttpClient();
-            var response = await httpClient.PutAsJsonAsync(requestURL, size);
+
+            var response = await httpClient.PutAsJsonAsync(requestURL, manufacturer);
             if (response.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
             }
             else
             {
-                return BadRequest();
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                // Log the error message or inspect it for further details
+                return BadRequest($"Server returned error: {errorMessage}");
             }
         }
 
-        [HttpDelete("size/delete/{id}")]
+        [HttpDelete("manufacturer/delete/{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            string requestURL = $"https://localhost:7241/api/Sizes/SizeRemove/{id}";
+            string requestURL = $"https://localhost:7241/api/Manufacturer/ManufacturerRemove/{id}";
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(requestURL);
             if (response.IsSuccessStatusCode)

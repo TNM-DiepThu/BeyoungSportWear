@@ -9,35 +9,35 @@ using DataAccessLayer.Application;
 using DataAccessLayer.Entity;
 using BusinessLogicLayer.Viewmodels.Colors;
 using Newtonsoft.Json;
-using BusinessLogicLayer.Viewmodels.Sizes;
+using BusinessLogicLayer.Viewmodels.Brand;
 
 namespace PresentationLayer.Areas.Admin.Controllers
 {
-    [Area("admin")]
+    [Area("Admin")]
     [Route("admin")]
-    public class SizeController : Controller
+    public class BrandsController : Controller
     {
-        [HttpGet("size/index")]
+        [HttpGet("brand/index")]
         public async Task<IActionResult> Index()
         {
-            string requestURL = "https://localhost:7241/api/Sizes/GetAll";
+            string requestURL = "https://localhost:7241/api/Brand/GetAll";
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(requestURL);
             string apiData = await response.Content.ReadAsStringAsync();
-            var sizes = JsonConvert.DeserializeObject<List<Sizes>>(apiData);
-            return View(sizes);
+            var brands = JsonConvert.DeserializeObject<List<Brand>>(apiData);
+            return View(brands);
         }
-        [HttpGet("size/create")]
+        [HttpGet("brand/create")]
         public async Task<IActionResult> Create()
         {
             return View();
         }
-        [HttpPost("size/create")]
-        public async Task<IActionResult> Create(SizeCreateVM size)
+        [HttpPost("brand/create")]
+        public async Task<IActionResult> Create(BrandCreateVM brand)
         {
-            string requestURL = "https://localhost:7241/api/Sizes/SizesCreate";
+            string requestURL = "https://localhost:7241/api/Brand/BrandCreate";
             var httpClient = new HttpClient();
-            var response = await httpClient.PostAsJsonAsync(requestURL, size);
+            var response = await httpClient.PostAsJsonAsync(requestURL, brand);
             if (response.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -51,48 +51,51 @@ namespace PresentationLayer.Areas.Admin.Controllers
         }
 
 
-        [HttpGet("size/details/{id}")]
+        [HttpGet("brand/details/{id}")]
         public async Task<IActionResult> Details(Guid id)
         {
-            string requestURL = $"https://localhost:7241/api/Sizes/GetByID/{id}";
+            string requestURL = $"https://localhost:7241/api/Brand/GetByID/{id}";
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(requestURL);
             string apiData = await response.Content.ReadAsStringAsync();
-            var sizes = JsonConvert.DeserializeObject<Sizes>(apiData);
-            return View(sizes);
+            var brand = JsonConvert.DeserializeObject<Brand>(apiData);
+            return View(brand);
         }
 
-        [HttpGet("size/edit/{id}")]
-        public async Task<IActionResult> Edit(Guid id)
+        [HttpGet("brand/edit/{ID}")]
+        public async Task<IActionResult> Edit(Guid ID)
         {
-            string requestURL = $"https://localhost:7241/api/Sizes/GetByID/{id}";
+            string requestURL = $"https://localhost:7241/api/Brand/GetByID/{ID}";
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(requestURL);
             string apiData = await response.Content.ReadAsStringAsync();
-            var sizes = JsonConvert.DeserializeObject<Sizes>(apiData);
-            return View(sizes);
+            var brand = JsonConvert.DeserializeObject<Brand>(apiData);
+            return View(brand);
         }
 
-        [HttpPost("size/edit/{id}")]
-        public async Task<IActionResult> Edit(Guid id, SizeUpdateVM size)
+        [HttpPost("brand/edit/{ID}")]
+        public async Task<IActionResult> Edit(Guid ID, BrandUpdateVM brand)
         {
-            string requestURL = $"https://localhost:7241/api/Sizes/SizesUpdate/{id}";
+            string requestURL = $"https://localhost:7241/api/Brand/BrandUpdate/{ID}";
             var httpClient = new HttpClient();
-            var response = await httpClient.PutAsJsonAsync(requestURL, size);
+
+            var response = await httpClient.PutAsJsonAsync(requestURL, brand);
             if (response.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
             }
             else
             {
-                return BadRequest();
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                // Log the error message or inspect it for further details
+                return BadRequest($"Server returned error: {errorMessage}");
             }
         }
 
-        [HttpDelete("size/delete/{id}")]
+        [HttpDelete("brand/delete/{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            string requestURL = $"https://localhost:7241/api/Sizes/SizeRemove/{id}";
+            string requestURL = $"https://localhost:7241/api/Brand/BrandRemove/{id}";
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(requestURL);
             if (response.IsSuccessStatusCode)

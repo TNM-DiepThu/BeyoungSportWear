@@ -1,5 +1,17 @@
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
-
+/.vs
 /.vs/BeyoungSportWear/FileContentIndex
+/BeyoungSportWear/BusinessLogicLayer/bin
+/BeyoungSportWear/BusinessLogicLayer/obj
+/BeyoungSportWear/DataAccessLayer/bin
+/BeyoungSportWear/DataAccessLayer/obj
+/BeyoungSportWear/ExternalInterfaceLayer/bin
+/BeyoungSportWear/ExternalInterfaceLayer/obj
+/BeyoungSportWear/ExternalInterfaceLayer/Properties
+/BeyoungSportWear/PresentationLayer/bin
+/BeyoungSportWear/PresentationLayer/obj
+/BeyoungSportWear/PresentationLayer/node_modules
+/BeyoungSportWear/UniversalUtilityMethods/bin
+/BeyoungSportWear/UniversalUtilityMethods/obj

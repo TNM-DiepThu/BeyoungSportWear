@@ -3,52 +3,216 @@
   "WorkspaceRootPath": "D:\\BeyoungSportWear\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\size\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\size\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\size\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\size\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\size\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\size\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\size\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\size\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\controllers\\brandscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\controllers\\brandscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\controllers\\sizecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\controllers\\sizecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\controllers\\materialscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\controllers\\materialscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\controllers\\manufacturerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\controllers\\manufacturerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1EEA17F-4E5A-482A-8399-6EB5A3303A3B}|ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj|d:\\beyoungsportwear\\externalinterfacelayer\\controllers\\manufacturercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1EEA17F-4E5A-482A-8399-6EB5A3303A3B}|ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj|solutionrelative:externalinterfacelayer\\controllers\\manufacturercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\controllers\\colorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\controllers\\colorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\size\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\size\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\size\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\size\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\color\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\color\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\size\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\size\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\size\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\size\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\size\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\size\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\materials\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\materials\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\materials\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\materials\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\materials\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\materials\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\materials\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\materials\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\manufacturers\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\manufacturers\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\manufacturers\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\manufacturers\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\manufacturers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\manufacturers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\manufacturers\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\manufacturers\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\color\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\color\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\color\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\color\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\color\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\color\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\color\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\color\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\brands\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\brands\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\brands\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\brands\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\brands\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\brands\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\brands\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\brands\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\managerstaff\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\managerstaff\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5E2911D-AAF3-40D1-BBF2-6A3EF5EF8C7F}|DataAccessLayer\\DataAccessLayer.csproj|d:\\beyoungsportwear\\dataaccesslayer\\entity\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5E2911D-AAF3-40D1-BBF2-6A3EF5EF8C7F}|DataAccessLayer\\DataAccessLayer.csproj|solutionrelative:dataaccesslayer\\entity\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1EEA17F-4E5A-482A-8399-6EB5A3303A3B}|ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj|d:\\beyoungsportwear\\externalinterfacelayer\\controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1EEA17F-4E5A-482A-8399-6EB5A3303A3B}|ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj|solutionrelative:externalinterfacelayer\\controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1EEA17F-4E5A-482A-8399-6EB5A3303A3B}|ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj|d:\\beyoungsportwear\\externalinterfacelayer\\controllers\\vouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1EEA17F-4E5A-482A-8399-6EB5A3303A3B}|ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj|solutionrelative:externalinterfacelayer\\controllers\\vouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|d:\\beyoungsportwear\\businesslogiclayer\\services\\implements\\voucherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\services\\implements\\voucherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|d:\\beyoungsportwear\\businesslogiclayer\\automapperconfiguration\\optionsmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\automapperconfiguration\\optionsmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|d:\\beyoungsportwear\\businesslogiclayer\\automapperconfiguration\\productmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\automapperconfiguration\\productmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|d:\\beyoungsportwear\\businesslogiclayer\\automapperconfiguration\\materialmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\automapperconfiguration\\materialmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1EEA17F-4E5A-482A-8399-6EB5A3303A3B}|ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj|d:\\beyoungsportwear\\externalinterfacelayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1EEA17F-4E5A-482A-8399-6EB5A3303A3B}|ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj|solutionrelative:externalinterfacelayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\controllers\\managerstaffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\controllers\\managerstaffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1EEA17F-4E5A-482A-8399-6EB5A3303A3B}|ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj|d:\\beyoungsportwear\\externalinterfacelayer\\controllers\\materialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1EEA17F-4E5A-482A-8399-6EB5A3303A3B}|ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj|solutionrelative:externalinterfacelayer\\controllers\\materialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\managerproductdetails\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\managerproductdetails\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\controllers\\managerproductdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\controllers\\managerproductdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\controllers\\managerordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\controllers\\managerordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F5E2911D-AAF3-40D1-BBF2-6A3EF5EF8C7F}|DataAccessLayer\\DataAccessLayer.csproj|d:\\beyoungsportwear\\dataaccesslayer\\entity\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5E2911D-AAF3-40D1-BBF2-6A3EF5EF8C7F}|DataAccessLayer\\DataAccessLayer.csproj|solutionrelative:dataaccesslayer\\entity\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1EEA17F-4E5A-482A-8399-6EB5A3303A3B}|ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj|d:\\beyoungsportwear\\externalinterfacelayer\\controllers\\applicationusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1EEA17F-4E5A-482A-8399-6EB5A3303A3B}|ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj|solutionrelative:externalinterfacelayer\\controllers\\applicationusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|d:\\beyoungsportwear\\businesslogiclayer\\viewmodels\\applicationuser\\registeruser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\viewmodels\\applicationuser\\registeruser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5E2911D-AAF3-40D1-BBF2-6A3EF5EF8C7F}|DataAccessLayer\\DataAccessLayer.csproj|d:\\beyoungsportwear\\dataaccesslayer\\configurations\\applicationuserconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5E2911D-AAF3-40D1-BBF2-6A3EF5EF8C7F}|DataAccessLayer\\DataAccessLayer.csproj|solutionrelative:dataaccesslayer\\configurations\\applicationuserconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|d:\\beyoungsportwear\\businesslogiclayer\\viewmodels\\applicationuser\\userloginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\viewmodels\\applicationuser\\userloginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|d:\\beyoungsportwear\\businesslogiclayer\\viewmodels\\applicationuser\\userdatavm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\viewmodels\\applicationuser\\userdatavm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|d:\\beyoungsportwear\\businesslogiclayer\\viewmodels\\address\\addressupdatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\viewmodels\\address\\addressupdatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|d:\\beyoungsportwear\\businesslogiclayer\\viewmodels\\address\\addresscreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E9D952F-26B7-47EA-9B53-2639D7DE60DF}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\viewmodels\\address\\addresscreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E1EEA17F-4E5A-482A-8399-6EB5A3303A3B}|ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj|d:\\beyoungsportwear\\externalinterfacelayer\\controllers\\colorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E1EEA17F-4E5A-482A-8399-6EB5A3303A3B}|ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj|solutionrelative:externalinterfacelayer\\controllers\\colorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F5E2911D-AAF3-40D1-BBF2-6A3EF5EF8C7F}|DataAccessLayer\\DataAccessLayer.csproj|d:\\beyoungsportwear\\dataaccesslayer\\entity\\colors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -61,14 +225,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F5E2911D-AAF3-40D1-BBF2-6A3EF5EF8C7F}|DataAccessLayer\\DataAccessLayer.csproj|d:\\beyoungsportwear\\dataaccesslayer\\configurations\\colorsconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F5E2911D-AAF3-40D1-BBF2-6A3EF5EF8C7F}|DataAccessLayer\\DataAccessLayer.csproj|solutionrelative:dataaccesslayer\\configurations\\colorsconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\color\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\color\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\color\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\color\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F5E2911D-AAF3-40D1-BBF2-6A3EF5EF8C7F}|DataAccessLayer\\DataAccessLayer.csproj|d:\\beyoungsportwear\\dataaccesslayer\\entity\\base\\entitybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -93,26 +249,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F5E2911D-AAF3-40D1-BBF2-6A3EF5EF8C7F}|DataAccessLayer\\DataAccessLayer.csproj|d:\\beyoungsportwear\\dataaccesslayer\\migrations\\20240616163034_hiendb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F5E2911D-AAF3-40D1-BBF2-6A3EF5EF8C7F}|DataAccessLayer\\DataAccessLayer.csproj|solutionrelative:dataaccesslayer\\migrations\\20240616163034_hiendb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\controllers\\managerstaffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\controllers\\managerstaffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\controllers\\managerproductdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\controllers\\managerproductdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\managerstaff\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\managerstaff\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\areas\\admin\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{79FAD314-29AF-42C0-9764-2679121A8FBF}|PresentationLayer\\PresentationLayer.csproj|d:\\beyoungsportwear\\presentationlayer\\areas\\admin\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -146,7 +282,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -154,7 +290,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "Details.cshtml",
               "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Size\\Details.cshtml",
               "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Size\\Details.cshtml",
@@ -166,19 +302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Size\\Edit.cshtml",
-              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Size\\Edit.cshtml",
-              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Size\\Edit.cshtml",
-              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Size\\Edit.cshtml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-17T04:25:26.561Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Size\\Create.cshtml",
               "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Size\\Create.cshtml",
@@ -190,86 +314,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Size\\Index.cshtml",
-              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Size\\Index.cshtml",
-              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Size\\Index.cshtml",
-              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Size\\Index.cshtml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-17T04:22:13.787Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Size\\Delete.cshtml",
-              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Size\\Delete.cshtml",
-              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Size\\Delete.cshtml",
-              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Size\\Delete.cshtml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-17T04:04:40.092Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SizeController.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\SizeController.cs",
-              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Controllers\\SizeController.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\SizeController.cs",
-              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Controllers\\SizeController.cs",
+              "DocumentIndex": 0,
+              "Title": "BrandsController.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\BrandsController.cs",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Controllers\\BrandsController.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\BrandsController.cs",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Controllers\\BrandsController.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T04:04:00.138Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Color\\Details.cshtml",
-              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Color\\Details.cshtml",
-              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Color\\Details.cshtml",
-              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Color\\Details.cshtml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-17T03:55:29.804Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ManagerOrderController.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\ManagerOrderController.cs",
-              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Controllers\\ManagerOrderController.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\ManagerOrderController.cs",
-              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Controllers\\ManagerOrderController.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T03:51:20.811Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Color\\Create.cshtml",
-              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Color\\Create.cshtml",
-              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Color\\Create.cshtml",
-              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Color\\Create.cshtml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-16T16:26:14.624Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Color\\Index.cshtml",
-              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Color\\Index.cshtml",
-              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Color\\Index.cshtml",
-              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Color\\Index.cshtml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-16T16:19:00.535Z",
+              "WhenOpened": "2024-06-17T08:45:59.947Z",
               "EditorCaption": ""
             },
             {
@@ -286,89 +338,187 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ApplicationDBContext.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Application\\ApplicationDBContext.cs",
-              "RelativeDocumentMoniker": "DataAccessLayer\\Application\\ApplicationDBContext.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Application\\ApplicationDBContext.cs",
-              "RelativeToolTip": "DataAccessLayer\\Application\\ApplicationDBContext.cs",
+              "DocumentIndex": 3,
+              "Title": "ManufacturersController.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\ManufacturersController.cs",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Controllers\\ManufacturersController.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\ManufacturersController.cs",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Controllers\\ManufacturersController.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T16:31:47Z",
+              "WhenOpened": "2024-06-17T08:55:41.845Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "DocumentIndex": 2,
+              "Title": "MaterialsController.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\MaterialsController.cs",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Controllers\\MaterialsController.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\MaterialsController.cs",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Controllers\\MaterialsController.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T15:22:32.538Z",
+              "WhenOpened": "2024-06-17T08:44:39.6Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "ManagerProductDetailsController.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\ManagerProductDetailsController.cs",
-              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Controllers\\ManagerProductDetailsController.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\ManagerProductDetailsController.cs",
-              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Controllers\\ManagerProductDetailsController.cs",
+              "DocumentIndex": 1,
+              "Title": "SizeController.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\SizeController.cs",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Controllers\\SizeController.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\SizeController.cs",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Controllers\\SizeController.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T16:27:04.122Z"
+              "WhenOpened": "2024-06-17T04:04:00.138Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ColorsController.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Controllers\\ColorsController.cs",
-              "RelativeDocumentMoniker": "ExternalInterfaceLayer\\Controllers\\ColorsController.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Controllers\\ColorsController.cs",
-              "RelativeToolTip": "ExternalInterfaceLayer\\Controllers\\ColorsController.cs",
+              "DocumentIndex": 4,
+              "Title": "ManufacturerController.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Controllers\\ManufacturerController.cs",
+              "RelativeDocumentMoniker": "ExternalInterfaceLayer\\Controllers\\ManufacturerController.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Controllers\\ManufacturerController.cs",
+              "RelativeToolTip": "ExternalInterfaceLayer\\Controllers\\ManufacturerController.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T10:43:42.293Z",
+              "WhenOpened": "2024-06-18T03:00:41.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Size\\Edit.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Size\\Edit.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Size\\Edit.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Size\\Edit.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-17T04:25:26.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Size\\Index.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Size\\Index.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Size\\Index.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Size\\Index.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-17T04:22:13.787Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "ColorsConfiguration.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Configurations\\ColorsConfiguration.cs",
-              "RelativeDocumentMoniker": "DataAccessLayer\\Configurations\\ColorsConfiguration.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Configurations\\ColorsConfiguration.cs",
-              "RelativeToolTip": "DataAccessLayer\\Configurations\\ColorsConfiguration.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T03:39:40.294Z",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Create.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Create.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Create.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Create.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-18T02:50:06.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Materials\\Create.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Materials\\Create.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Materials\\Create.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Materials\\Create.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-18T02:50:31.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Materials\\Index.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Materials\\Index.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Materials\\Index.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Materials\\Index.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-18T02:50:33.009Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "Colors.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Colors.cs",
-              "RelativeDocumentMoniker": "DataAccessLayer\\Entity\\Colors.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Colors.cs",
-              "RelativeToolTip": "DataAccessLayer\\Entity\\Colors.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T03:39:47.658Z",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Materials\\Edit.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Materials\\Edit.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Materials\\Edit.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Materials\\Edit.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-18T02:51:16.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Materials\\Details.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Materials\\Details.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Materials\\Details.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Materials\\Details.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-18T02:51:37.281Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Details.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Details.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Details.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Details.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-18T02:49:30.815Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Color\\Create.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Color\\Create.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Color\\Create.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Color\\Create.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-16T16:26:14.624Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 22,
-              "Title": "20240616163034_hiendb.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Migrations\\20240616163034_hiendb.cs",
-              "RelativeDocumentMoniker": "DataAccessLayer\\Migrations\\20240616163034_hiendb.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Migrations\\20240616163034_hiendb.cs",
-              "RelativeToolTip": "DataAccessLayer\\Migrations\\20240616163034_hiendb.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T16:30:34.385Z"
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Brands\\Index.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Brands\\Index.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Brands\\Index.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Brands\\Index.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-18T02:42:14.717Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 23,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Brands\\Create.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Brands\\Create.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Brands\\Create.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Brands\\Create.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-18T02:40:38.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Color\\Edit.cshtml",
               "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Color\\Edit.cshtml",
@@ -380,94 +530,111 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "EntityBase.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Base\\EntityBase.cs",
-              "RelativeDocumentMoniker": "DataAccessLayer\\Entity\\Base\\EntityBase.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Base\\EntityBase.cs",
-              "RelativeToolTip": "DataAccessLayer\\Entity\\Base\\EntityBase.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T02:23:58.721Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "EnumBase.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Base\\EnumBase.cs",
-              "RelativeDocumentMoniker": "DataAccessLayer\\Entity\\Base\\EnumBase.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Base\\EnumBase.cs",
-              "RelativeToolTip": "DataAccessLayer\\Entity\\Base\\EnumBase.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T02:24:02.645Z",
+              "DocumentIndex": 20,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Color\\Details.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Color\\Details.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Color\\Details.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Color\\Details.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-17T03:55:29.804Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "NoIDEntityBase.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Base\\NoIDEntityBase.cs",
-              "RelativeDocumentMoniker": "DataAccessLayer\\Entity\\Base\\NoIDEntityBase.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Base\\NoIDEntityBase.cs",
-              "RelativeToolTip": "DataAccessLayer\\Entity\\Base\\NoIDEntityBase.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T02:24:16.358Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Color\\Index.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Color\\Index.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Color\\Index.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Color\\Index.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-16T16:19:00.535Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "20240616163408_hiendb3.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Migrations\\20240616163408_hiendb3.cs",
-              "RelativeDocumentMoniker": "DataAccessLayer\\Migrations\\20240616163408_hiendb3.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Migrations\\20240616163408_hiendb3.cs",
-              "RelativeToolTip": "DataAccessLayer\\Migrations\\20240616163408_hiendb3.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T16:34:09.215Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Views\\_ViewImports.cshtml",
-              "RelativeDocumentMoniker": "PresentationLayer\\Views\\_ViewImports.cshtml",
-              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Views\\_ViewImports.cshtml",
-              "RelativeToolTip": "PresentationLayer\\Views\\_ViewImports.cshtml",
+              "DocumentIndex": 16,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Index.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Index.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Index.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Index.cshtml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-16T16:36:22.472Z"
+              "WhenOpened": "2024-06-18T02:46:36.977Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "20240616163314_hiendb2.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Migrations\\20240616163314_hiendb2.cs",
-              "RelativeDocumentMoniker": "DataAccessLayer\\Migrations\\20240616163314_hiendb2.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Migrations\\20240616163314_hiendb2.cs",
-              "RelativeToolTip": "DataAccessLayer\\Migrations\\20240616163314_hiendb2.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T16:33:14.756Z"
+              "DocumentIndex": 17,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Edit.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Edit.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Edit.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Manufacturers\\Edit.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-18T02:47:28.565Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "ManagerStaffController.cs",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\ManagerStaffController.cs",
-              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Controllers\\ManagerStaffController.cs",
-              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\ManagerStaffController.cs",
-              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Controllers\\ManagerStaffController.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T15:37:25.977Z"
+              "DocumentIndex": 24,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Brands\\Details.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Brands\\Details.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Brands\\Details.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Brands\\Details.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-18T02:43:17.313Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 25,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Brands\\Edit.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Brands\\Edit.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Brands\\Edit.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Brands\\Edit.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-18T02:43:17.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
               "Title": "Login.cshtml",
               "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Home\\Login.cshtml",
               "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Home\\Login.cshtml",
               "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Home\\Login.cshtml",
               "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Home\\Login.cshtml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-16T15:21:38.678Z"
+              "WhenOpened": "2024-06-16T15:21:38.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Category.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Entity\\Category.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Category.cs",
+              "RelativeToolTip": "DataAccessLayer\\Entity\\Category.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T02:13:17.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-16T16:17:20.064Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -478,22 +645,378 @@
               "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\ManagerStaff\\Index.cshtml",
               "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\ManagerStaff\\Index.cshtml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-16T09:37:07.801Z"
+              "WhenOpened": "2024-06-16T09:37:07.801Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 32,
+              "Title": "VoucherService.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\BusinessLogicLayer\\Services\\Implements\\VoucherService.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\Services\\Implements\\VoucherService.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\BusinessLogicLayer\\Services\\Implements\\VoucherService.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\Services\\Implements\\VoucherService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T02:08:40.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "VoucherController.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Controllers\\VoucherController.cs",
+              "RelativeDocumentMoniker": "ExternalInterfaceLayer\\Controllers\\VoucherController.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Controllers\\VoucherController.cs",
+              "RelativeToolTip": "ExternalInterfaceLayer\\Controllers\\VoucherController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T02:09:14.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "BrandController.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Controllers\\BrandController.cs",
+              "RelativeDocumentMoniker": "ExternalInterfaceLayer\\Controllers\\BrandController.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Controllers\\BrandController.cs",
+              "RelativeToolTip": "ExternalInterfaceLayer\\Controllers\\BrandController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T02:09:36.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ManagerStaffController.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\ManagerStaffController.cs",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Controllers\\ManagerStaffController.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\ManagerStaffController.cs",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Controllers\\ManagerStaffController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T15:37:25.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "MaterialMap.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\BusinessLogicLayer\\AutoMapperConfiguration\\MaterialMap.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\AutoMapperConfiguration\\MaterialMap.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\BusinessLogicLayer\\AutoMapperConfiguration\\MaterialMap.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\AutoMapperConfiguration\\MaterialMap.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T09:42:39.908Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ProductMap.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\BusinessLogicLayer\\AutoMapperConfiguration\\ProductMap.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\AutoMapperConfiguration\\ProductMap.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\BusinessLogicLayer\\AutoMapperConfiguration\\ProductMap.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\AutoMapperConfiguration\\ProductMap.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T09:42:42.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "OptionsMap.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\BusinessLogicLayer\\AutoMapperConfiguration\\OptionsMap.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\AutoMapperConfiguration\\OptionsMap.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\BusinessLogicLayer\\AutoMapperConfiguration\\OptionsMap.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\AutoMapperConfiguration\\OptionsMap.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T09:42:44.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Program.cs",
+              "RelativeDocumentMoniker": "ExternalInterfaceLayer\\Program.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Program.cs",
+              "RelativeToolTip": "ExternalInterfaceLayer\\Program.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T08:12:57.947Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Program.cs",
+              "RelativeDocumentMoniker": "PresentationLayer\\Program.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Program.cs",
+              "RelativeToolTip": "PresentationLayer\\Program.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T04:39:28.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "AddressCreateVM.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\BusinessLogicLayer\\Viewmodels\\Address\\AddressCreateVM.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\Viewmodels\\Address\\AddressCreateVM.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\BusinessLogicLayer\\Viewmodels\\Address\\AddressCreateVM.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\Viewmodels\\Address\\AddressCreateVM.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T08:07:26.271Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\ManagerProductDetails\\Index.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\ManagerProductDetails\\Index.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\ManagerProductDetails\\Index.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Views\\ManagerProductDetails\\Index.cshtml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-16T16:17:20.064Z"
+              "WhenOpened": "2024-06-17T08:18:08.123Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 39,
+              "Title": "MaterialController.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Controllers\\MaterialController.cs",
+              "RelativeDocumentMoniker": "ExternalInterfaceLayer\\Controllers\\MaterialController.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Controllers\\MaterialController.cs",
+              "RelativeToolTip": "ExternalInterfaceLayer\\Controllers\\MaterialController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T08:26:24.353Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "AddressUpdateVM.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\BusinessLogicLayer\\Viewmodels\\Address\\AddressUpdateVM.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\Viewmodels\\Address\\AddressUpdateVM.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\BusinessLogicLayer\\Viewmodels\\Address\\AddressUpdateVM.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\Viewmodels\\Address\\AddressUpdateVM.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T08:07:28.723Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "ManagerOrderController.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\ManagerOrderController.cs",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Controllers\\ManagerOrderController.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\ManagerOrderController.cs",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Controllers\\ManagerOrderController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T03:51:20.811Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Entity\\ApplicationUser.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\ApplicationUser.cs",
+              "RelativeToolTip": "DataAccessLayer\\Entity\\ApplicationUser.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T08:09:36.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "ManagerProductDetailsController.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\ManagerProductDetailsController.cs",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Controllers\\ManagerProductDetailsController.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\ManagerProductDetailsController.cs",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Controllers\\ManagerProductDetailsController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T16:27:04.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "ApplicationUserConfiguration.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Configurations\\ApplicationUserConfiguration.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Configurations\\ApplicationUserConfiguration.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Configurations\\ApplicationUserConfiguration.cs",
+              "RelativeToolTip": "DataAccessLayer\\Configurations\\ApplicationUserConfiguration.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T08:09:42.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "ApplicationUserController.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Controllers\\ApplicationUserController.cs",
+              "RelativeDocumentMoniker": "ExternalInterfaceLayer\\Controllers\\ApplicationUserController.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Controllers\\ApplicationUserController.cs",
+              "RelativeToolTip": "ExternalInterfaceLayer\\Controllers\\ApplicationUserController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T08:12:26.578Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "UserDataVM.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\BusinessLogicLayer\\Viewmodels\\ApplicationUser\\UserDataVM.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\Viewmodels\\ApplicationUser\\UserDataVM.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\BusinessLogicLayer\\Viewmodels\\ApplicationUser\\UserDataVM.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\Viewmodels\\ApplicationUser\\UserDataVM.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T08:02:36.963Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "UserLoginModel.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\BusinessLogicLayer\\Viewmodels\\ApplicationUser\\UserLoginModel.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\Viewmodels\\ApplicationUser\\UserLoginModel.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\BusinessLogicLayer\\Viewmodels\\ApplicationUser\\UserLoginModel.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\Viewmodels\\ApplicationUser\\UserLoginModel.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T08:02:31.163Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "RegisterUser.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\BusinessLogicLayer\\Viewmodels\\ApplicationUser\\RegisterUser.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\Viewmodels\\ApplicationUser\\RegisterUser.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\BusinessLogicLayer\\Viewmodels\\ApplicationUser\\RegisterUser.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\Viewmodels\\ApplicationUser\\RegisterUser.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T08:02:29.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "PresentationLayer\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T15:22:32.538Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "ColorsController.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Controllers\\ColorsController.cs",
+              "RelativeDocumentMoniker": "ExternalInterfaceLayer\\Controllers\\ColorsController.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\Controllers\\ColorsController.cs",
+              "RelativeToolTip": "ExternalInterfaceLayer\\Controllers\\ColorsController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T10:43:42.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "ApplicationDBContext.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Application\\ApplicationDBContext.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Application\\ApplicationDBContext.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Application\\ApplicationDBContext.cs",
+              "RelativeToolTip": "DataAccessLayer\\Application\\ApplicationDBContext.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T16:31:47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "ColorsConfiguration.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Configurations\\ColorsConfiguration.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Configurations\\ColorsConfiguration.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Configurations\\ColorsConfiguration.cs",
+              "RelativeToolTip": "DataAccessLayer\\Configurations\\ColorsConfiguration.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T03:39:40.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "Colors.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Colors.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Entity\\Colors.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Colors.cs",
+              "RelativeToolTip": "DataAccessLayer\\Entity\\Colors.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T03:39:47.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "20240616163034_hiendb.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Migrations\\20240616163034_hiendb.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Migrations\\20240616163034_hiendb.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Migrations\\20240616163034_hiendb.cs",
+              "RelativeToolTip": "DataAccessLayer\\Migrations\\20240616163034_hiendb.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T16:30:34.385Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "EntityBase.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Base\\EntityBase.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Entity\\Base\\EntityBase.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Base\\EntityBase.cs",
+              "RelativeToolTip": "DataAccessLayer\\Entity\\Base\\EntityBase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T02:23:58.721Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "EnumBase.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Base\\EnumBase.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Entity\\Base\\EnumBase.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Base\\EnumBase.cs",
+              "RelativeToolTip": "DataAccessLayer\\Entity\\Base\\EnumBase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T02:24:02.645Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "NoIDEntityBase.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Base\\NoIDEntityBase.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Entity\\Base\\NoIDEntityBase.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Entity\\Base\\NoIDEntityBase.cs",
+              "RelativeToolTip": "DataAccessLayer\\Entity\\Base\\NoIDEntityBase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T02:24:16.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "20240616163408_hiendb3.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Migrations\\20240616163408_hiendb3.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Migrations\\20240616163408_hiendb3.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Migrations\\20240616163408_hiendb3.cs",
+              "RelativeToolTip": "DataAccessLayer\\Migrations\\20240616163408_hiendb3.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T16:34:09.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "PresentationLayer\\Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\BeyoungSportWear\\PresentationLayer\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "PresentationLayer\\Views\\_ViewImports.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-16T16:36:22.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "20240616163314_hiendb2.cs",
+              "DocumentMoniker": "D:\\BeyoungSportWear\\DataAccessLayer\\Migrations\\20240616163314_hiendb2.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Migrations\\20240616163314_hiendb2.cs",
+              "ToolTip": "D:\\BeyoungSportWear\\DataAccessLayer\\Migrations\\20240616163314_hiendb2.cs",
+              "RelativeToolTip": "DataAccessLayer\\Migrations\\20240616163314_hiendb2.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T16:33:14.756Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
               "Title": "_layoutAdmin.cshtml",
               "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\Shared\\_layoutAdmin.cshtml",
               "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\Shared\\_layoutAdmin.cshtml",
@@ -504,7 +1027,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 64,
               "Title": "PresentationLayer.csproj",
               "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\PresentationLayer.csproj",
               "RelativeDocumentMoniker": "PresentationLayer\\PresentationLayer.csproj",
@@ -515,7 +1038,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 63,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "PresentationLayer\\Views\\Shared\\_Layout.cshtml",
@@ -526,7 +1049,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 66,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\Areas\\Admin\\Views\\ManagerProductDetails\\Create.cshtml",
               "RelativeDocumentMoniker": "PresentationLayer\\Areas\\Admin\\Views\\ManagerProductDetails\\Create.cshtml",
@@ -538,7 +1061,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 65,
               "Title": "productdetails.js",
               "DocumentMoniker": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\productdetails.js",
               "RelativeDocumentMoniker": "PresentationLayer\\wwwroot\\ajax\\productdetails.js",
