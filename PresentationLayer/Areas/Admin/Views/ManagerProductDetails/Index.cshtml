@@ -4,7 +4,13 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
 }
+<style>
+    #loading-spinner {
+        text-align: center;
+        margin-top: 20px; /* điều chỉnh khoảng cách nếu cần */
+    }
 
+</style>
 <div class="app-title">
     <ul class="app-breadcrumb breadcrumb side">
         <li class="breadcrumb-item active"><a href="#"><b>Danh sách sản phẩm</b></a></li>
@@ -68,26 +74,10 @@
                             <th>Chức năng</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>71309005</td>
-                            <td>Bàn ăn gỗ Theresa</td>
-                            <td><img src="/img-sanpham/theresa.jpg" alt="" width="100px;"></td>
-                            <td>40</td>
-                            <td><span class="badge bg-success">Còn hàng</span></td>
-                            <td>5.600.000 đ</td>
-                            <td>Bàn ăn</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                        onclick="myFunction(this)">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                                        data-toggle="modal" data-target="#ModalUP">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-
+                    <tbody id="table_productdetails">
+                        <tr id="loading-spinner" style="display: none;">
+                            <td colspan="9" style="text-align: center;">
+                                <i class="fas fa-spinner fa-spin"></i> Loading...
                             </td>
                         </tr>
                     </tbody>
@@ -96,97 +86,12 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
-     data-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-
-            <div class="modal-body">
-                <div class="row">
-                    <div class="form-group  col-md-12">
-                        <span class="thong-tin-thanh-toan">
-                            <h5>Chỉnh sửa thông tin sản phẩm cơ bản</h5>
-                        </span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label class="control-label">Mã sản phẩm </label>
-                        <input class="form-control" type="number" value="71309005">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="control-label">Tên sản phẩm</label>
-                        <input class="form-control" type="text" required value="Bàn ăn gỗ Theresa">
-                    </div>
-                    <div class="form-group  col-md-6">
-                        <label class="control-label">Số lượng</label>
-                        <input class="form-control" type="number" required value="20">
-                    </div>
-                    <div class="form-group col-md-6 ">
-                        <label for="exampleSelect1" class="control-label">Tình trạng sản phẩm</label>
-                        <select class="form-control" id="exampleSelect1">
-                            <option>Còn hàng</option>
-                            <option>Hết hàng</option>
-                            <option>Đang nhập hàng</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="control-label">Giá bán</label>
-                        <input class="form-control" type="text" value="5.600.000">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="exampleSelect1" class="control-label">Danh mục</label>
-                        <select class="form-control" id="exampleSelect1">
-                            <option>Bàn ăn</option>
-                        </select>
-                    </div>
-                </div>
-                <BR>
-                <a href="#" style="float: right;font-weight: 600;color: #ea0000;">Chỉnh sửa sản phẩm nâng cao</a>
-                <BR>
-                <BR>
-                <button class="btn btn-save" type="button">Lưu lại</button>
-                <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-                <BR>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div>
-
+<script type="text/javascript" src="~/ajax/ProductDetails/productdetails_index.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="~/src/jquery.table2excel.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <script type="text/javascript" src="~/js/plugins/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="~/js/plugins/dataTables.bootstrap.min.js"></script>
-<script>
-    function deleteRow(r) {
-        var i = r.parentNode.parentNode.rowIndex;
-        document.getElementById("myTable").deleteRow(i);
-    }
-    jQuery(function () {
-        jQuery(".trash").click(function () {
-            swal({
-                title: "Cảnh báo",
-                text: "Bạn có chắc chắn là muốn xóa sản phẩm này?",
-                buttons: ["Hủy bỏ", "Đồng ý"],
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        swal("Đã xóa thành công.!", {
-
-                        });
-                    }
-                });
-        });
-    });
-    oTable = $('#sampleTable').dataTable();
-    $('#all').click(function (e) {
-        $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
-        e.stopImmediatePropagation();
-    });
-</script>
 <script type="text/javascript">
     $('#sampleTable').DataTable();
     //Thời Gian

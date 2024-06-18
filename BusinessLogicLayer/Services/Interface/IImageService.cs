@@ -1,5 +1,7 @@
 ﻿using BusinessLogicLayer.Viewmodels.Brand;
 using BusinessLogicLayer.Viewmodels.Image;
+using CloudinaryDotNet;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,7 @@ namespace BusinessLogicLayer.Services.Interface
         public Task<List<ImageVM>> GetAllAsync();
         public Task<List<ImageVM>> GetAllActiveAsync();
         public Task<ImageVM> GetByIDAsync(Guid ID);
-        public Task<string> CreateAsync(ImageCreateVM request);
+        public Task<List<string>> CreateAsync(ImageCreateVM request, Cloudinary cloudinary);
         public Task<bool> RemoveAsync(Guid ID, string IDUserDelete);
         public Task<bool> UpdateAsync(Guid ID, ImageUpdateVM request);
     }

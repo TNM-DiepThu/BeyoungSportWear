@@ -12,7 +12,6 @@ namespace BusinessLogicLayer.Viewmodels.Image
         public DateTime CreateDate { get; set; }
         public Guid ID { get; set; }
         public Guid? IDProductDetails { get; set; }
-        public Guid? IDOptions { get; set; }
         public string Path { get; set; } = null!;
         public int Status { get; set; }
     }

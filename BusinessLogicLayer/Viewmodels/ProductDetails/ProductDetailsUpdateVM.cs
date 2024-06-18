@@ -10,9 +10,8 @@ namespace BusinessLogicLayer.Viewmodels.ProductDetails
 {
     public class ProductDetailsUpdateVM
     {
-        public string KeyCode { get; set; }
 
-        public string ModifiedBy { get; set; }
+        public string? ModifiedBy { get; set; }
         public Guid? IDProduct { get; set; }
         public string? ProductName { get; set; }
         public Guid? IDCategory { get; set; }
@@ -25,9 +24,10 @@ namespace BusinessLogicLayer.Viewmodels.ProductDetails
         public string? BrandName { get; set; }
         public string Description { get; set; } = null!;
         public string Style { get; set; } = null!;
-        public string Origin { get; set; } = null!; public int Status { get; set; }
+        public string Origin { get; set; } = null!; 
+        public int Status { get; set; }
 
-        public List<IFormFile> ImagePaths { get; set; }
+        public List<string>? ImagePaths { get; set; }
         public List<OptionsUpdateVM> OptionsUpdateVM { get; set; }
     }
 }

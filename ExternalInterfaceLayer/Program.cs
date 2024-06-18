@@ -19,6 +19,7 @@ builder.Services.AddApplication();
 var mailSetting = builder.Configuration.GetSection("MailSettings");
 builder.Services.Configure<MailSettings>(mailSetting);
 builder.Services.AddTransient<ICartProductDetailsService, CartProductDetailsService>();
+builder.Services.AddTransient<ICategoryService, CategoryService>();
 builder.Services.AddTransient<IManufacturerService, ManufacturerService>();
 builder.Services.AddTransient<IVoucherUserService, VoucherUserService>();
 builder.Services.AddTransient<IProductService, ProductService>();
@@ -39,7 +40,7 @@ builder.Services.AddTransient<ApplicationDBContext>();
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDBContext>()
     .AddDefaultTokenProviders();
-var cloudinaryAccount = new Account("BeyoungSportWear", "729284788565283", "BGa7XmLy9BkF91j_gsMZQ-7uY2U");
+var cloudinaryAccount = new Account("dqzks8gjg", "462712979292774", "DMkKRmICNqaz_5TFD0e1VupM7mA");
 var cloudinary = new Cloudinary(cloudinaryAccount);
 builder.Services.AddSingleton(cloudinary);
 

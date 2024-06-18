@@ -34,14 +34,33 @@ namespace ExternalInterfaceLayer.Controllers
                 return BadRequest(new { status = "Error", message = "There was an error uploading the productDetails." });
             }
         }
+
+        [HttpPost]
+        [Route("productdetails_createsingle")]
+        public async Task<IActionResult> CreateSingle([FromForm] ProductDetailsSingleCreateVM request)
+        {
+            if (request.ImagePaths == null)
+            {
+                return BadRequest("No files received from the upload");
+            }
+            var result = await _IProductDetailsService.CreateSingle(request);
+            if (result)
+            {
+                return Ok(new { status = "Success", message = "Successfully." });
+            }
+            else
+            {
+                return BadRequest(new { status = "Error", message = "There was an error uploading the productDetails." });
+            }
+        }
         [HttpGet]
         [Route("GetAll")]
         public async Task<IActionResult> GetAll()
         {
             var obj = await _IProductDetailsService.GetAllAsync();
             return Ok(obj);
-        } 
-        
+        }
+
         [HttpGet]
         [Route("GetAllActive")]
         public async Task<IActionResult> GetAllActive()
@@ -49,7 +68,7 @@ namespace ExternalInterfaceLayer.Controllers
             var obj = await _IProductDetailsService.GetAllActiveAsync();
             return Ok(obj);
         }
-       
+
         [HttpGet]
         [Route("GetByID/{ID}")]
         public async Task<IActionResult> GetByID(Guid ID)
@@ -60,6 +79,33 @@ namespace ExternalInterfaceLayer.Controllers
                 return NotFound();
             }
             return Ok(obj);
+        }
+
+        [HttpPut]
+        [Route("Update/{ID}")]
+        public async Task<IActionResult> Update(Guid ID, [FromBody] ProductDetailsUpdateVM request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                var productdetails = await _IProductDetailsService.GetByIDAsync(ID);
+
+                if (productdetails != null)
+                {
+                    var data = await _IProductDetailsService.UpdateAsync(ID, request);
+                    return Ok(data);
+                }
+
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Lỗi không thể cập nhật: {ex.Message}");
+            }
         }
     }
 }

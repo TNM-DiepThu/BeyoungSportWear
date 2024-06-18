@@ -21,50 +21,55 @@ namespace BusinessLogicLayer.Services.Implements
         private readonly IMapper _mapper;
         private readonly Cloudinary _cloudinary;
 
-        public ImageService(ApplicationDBContext dbContext, IMapper mapper, IConfiguration configuration)
+        public ImageService(ApplicationDBContext dbContext, IMapper mapper, IConfiguration configuration, Cloudinary Cloudinary)
         {
             _dbcontext = dbContext;
             _mapper = mapper;
+            _cloudinary = Cloudinary;
 
-            var account = new Account(
-                configuration["Cloudinary:CloudName"],
-                configuration["Cloudinary:ApiKey"],
-                configuration["Cloudinary:ApiSecret"]);
-
-            _cloudinary = new Cloudinary(account);
         }
-        public async Task<string> CreateAsync(ImageCreateVM request)
+
+        public async Task<List<string>> CreateAsync(ImageCreateVM request, Cloudinary cloudinary)
         {
-            try
+            if (request == null)
+            {
+                throw new ArgumentNullException(nameof(request));
+            }
+
+            var uploadedImageUrls = new List<string>();
+
+            foreach (var imageFile in request.Path)
             {
                 var uploadParams = new ImageUploadParams
                 {
-                    File = new FileDescription(request.Path.FileName, request.Path.OpenReadStream())
+                    File = new FileDescription(imageFile.FileName, imageFile.OpenReadStream()),
                 };
 
-                var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+                var uploadResult = await _cloudinary.UploadAsync(uploadParams); 
 
-                var imageEntity = new Images
+                uploadedImageUrls.Add(uploadResult.SecureUrl.ToString()); 
+            }
+
+            foreach (var imageUrl in uploadedImageUrls)
+            {
+                var imageEntity = new Images 
                 {
                     ID = Guid.NewGuid(),
-                    IDProductDetails = request.IDProductDetails,
-                    IDOptions = request.IDOptions,
-                    Status = 1,
-                    Path = uploadResult.SecureUrl.AbsoluteUri, 
+                    Path = imageUrl, 
+                    CreateDate = DateTime.Now,
                     CreateBy = request.CreateBy,
-                    CreateDate = DateTime.Now
+                    IDProductDetails = request.IDProductDetails,
+                    Status = request.Status
                 };
 
                 _dbcontext.Images.Add(imageEntity);
-                await _dbcontext.SaveChangesAsync();
+            }
 
-                return imageEntity.Path;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Failed to upload image and save to database: {ex.Message}");
-            }
+            await _dbcontext.SaveChangesAsync();
+
+            return uploadedImageUrls;
         }
+
 
         public Task<List<ImageVM>> GetAllActiveAsync()
         {

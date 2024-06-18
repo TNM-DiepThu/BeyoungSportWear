@@ -1,4 +1,5 @@
-﻿using BusinessLogicLayer.Services.Interface;
+﻿using BusinessLogicLayer.Services.Implements;
+using BusinessLogicLayer.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace PresentationLayer.Areas.Admin.Controllers
@@ -6,21 +7,28 @@ namespace PresentationLayer.Areas.Admin.Controllers
     [Area("admin")]
     public class ManagerProductDetailsController : Controller
     {
-        //private readonly IProductService _IProductService;
-        //public ManagerProductDetailsController(IProductService IProductService)
-        //{
-        //    _IProductService = IProductService;
-        //}
+      
         [HttpGet("home/index_productdetails")]
         public async Task<IActionResult> Index()
         {
             return View();
         }
-        [HttpGet("managercreate_order_productdetails")]
+        [HttpGet("managercreate_productdetails")]
         public async Task<IActionResult> Create()
         {
-            ViewBag.ID = Guid.NewGuid();
+            return View();
+        }
 
+        [HttpGet("managerupdate_productdetails/{ID}")]
+        public async Task<IActionResult> Update(Guid ID)
+        {
+            return View();
+        }
+
+        [HttpPost("managerupdate_productdetails/{ID}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update()
+        {
             return View();
         }
     }

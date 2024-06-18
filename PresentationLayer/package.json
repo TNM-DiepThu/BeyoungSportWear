@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "cloudinary": "^2.2.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.92.0",
+    "webpack-cli": "^5.1.4"
   }
 }

@@ -24,7 +24,6 @@ namespace DataAccessLayer.Configurations
             builder.Property(c => c.Status).IsRequired();
 
             builder.HasOne<ProductDetails>(c => c.ProductDetails).WithMany(c => c.Images).HasForeignKey(c => c.IDProductDetails).OnDelete(DeleteBehavior.NoAction);
-            builder.HasOne<Options>(c => c.Options).WithOne(c => c.Images).HasForeignKey<Images>(c => c.IDOptions).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

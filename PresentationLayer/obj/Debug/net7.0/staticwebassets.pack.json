@@ -5,8 +5,20 @@
       "PackagePath": "staticwebassets\\PresentationLayer.bundle.scp.css"
     },
     {
-      "Id": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\productdetails.js",
-      "PackagePath": "staticwebassets\\ajax\\productdetails.js"
+      "Id": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\ProductDetails\\productdetails.js",
+      "PackagePath": "staticwebassets\\ajax\\ProductDetails\\productdetails.js"
+    },
+    {
+      "Id": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\ProductDetails\\productdetails_index.js",
+      "PackagePath": "staticwebassets\\ajax\\ProductDetails\\productdetails_index.js"
+    },
+    {
+      "Id": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\ProductDetails\\productdetails_update.js",
+      "PackagePath": "staticwebassets\\ajax\\ProductDetails\\productdetails_update.js"
+    },
+    {
+      "Id": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\manageruser.js",
+      "PackagePath": "staticwebassets\\ajax\\manageruser.js"
     },
     {
       "Id": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ckeditor\\CHANGES.md",

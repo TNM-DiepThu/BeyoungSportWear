@@ -10,12 +10,15 @@ using CloudinaryDotNet.Actions;
 using DataAccessLayer.Application;
 using DataAccessLayer.Entity;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
+using System.Text;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 namespace BusinessLogicLayer.Services.Implements
 {
     public class ProductDetailsService : IProductDetailsService
     {
+
         private readonly ApplicationDBContext _dbcontext;
         private readonly IMapper _mapper;
         private readonly Cloudinary _cloudinary;
@@ -183,7 +186,46 @@ namespace BusinessLogicLayer.Services.Implements
 
             return color.ID;
         }
+        private string GenerateKeyCode(string productName)
+        {
+            string normalizedProductName = RemoveDiacritics(productName);
+            string keyPart = GetInitials(normalizedProductName);
+            var random = new Random();
+            string keyCode = $"{keyPart}-{random.Next(1000, 9999)}";
 
+            return keyCode.ToUpper();
+        }
+        private string RemoveDiacritics(string text)
+        {
+            var normalizedString = text.Normalize(NormalizationForm.FormD);
+            var stringBuilder = new StringBuilder();
+
+            foreach (var c in normalizedString)
+            {
+                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                {
+                    stringBuilder.Append(c);
+                }
+            }
+
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+        }
+        private string GetInitials(string text)
+        {
+            var words = text.Split(' ');
+            var initials = new StringBuilder();
+
+            foreach (var word in words)
+            {
+                if (!string.IsNullOrEmpty(word) && char.IsLetterOrDigit(word[0]))
+                {
+                    initials.Append(word[0]);
+                }
+            }
+
+            return initials.ToString().ToUpper();
+        }
         public async Task<bool> CreateAsync(ProductDetailsCreateVM request)
         {
             using (var transaction = await _dbcontext.Database.BeginTransactionAsync())
@@ -242,7 +284,7 @@ namespace BusinessLogicLayer.Services.Implements
                         IDCategory = checkCategory.ID,
                         Origin = request.Origin,
                         Style = request.Style,
-                        KeyCode = request.KeyCode,
+                        KeyCode = GenerateKeyCode(request.ProductName),
                         Description = request.Description,
                         CreateBy = request.CreateBy,
                         CreateDate = DateTime.Now,
@@ -255,11 +297,10 @@ namespace BusinessLogicLayer.Services.Implements
                         {
                             ID = Guid.NewGuid(),
                             IDProductDetails = productDetails.ID,
-                            IDOptions = null,
                             Path = imageUrl,
                             Status = 1,
                             CreateDate = DateTime.Now,
-                            CreateBy = request.CreateBy
+                            CreateBy = ""
                         };
 
                         await _dbcontext.Images.AddAsync(imageEntity);
@@ -301,27 +342,12 @@ namespace BusinessLogicLayer.Services.Implements
                             StockQuantity = option.StockQuantity,
                             CostPrice = option.CostPrice,
                             RetailPrice = option.RetailPrice,
+                            ImageURL = option.ImageURL,
                             CreateBy = request.CreateBy,
                             CreateDate = DateTime.Now,
                             Status = 1
                         };
                         _dbcontext.Options.Add(options);
-                        foreach (var imageUrl in request.ImagePaths)
-                        {
-                            var imageEntity = new Images
-                            {
-                                ID = Guid.NewGuid(),
-                                IDProductDetails = null,
-                                IDOptions = options.ID,
-                                Path = imageUrl,
-                                Status = 1,
-                                CreateDate = DateTime.Now,
-                                CreateBy = request.CreateBy
-                            };
-
-                            await _dbcontext.Images.AddAsync(imageEntity);
-                        }
-
                     }
                     await _dbcontext.SaveChangesAsync();
 
@@ -338,8 +364,46 @@ namespace BusinessLogicLayer.Services.Implements
                 }
             }
         }
-
         public async Task<List<ProductDetailsVM>> GetAllActiveAsync()
+        {
+            var activeVariants = await _dbcontext.ProductDetails.Where(c => c.Status != 0)
+              .AsNoTracking()
+              .Select(v => new
+              {
+                  ProductDetails = v,
+                  Product = v.Products,
+                  Brand = v.Brand,
+                  Material = v.Material,
+                  Category = v.Category,
+                  Options = v.Options,
+                  Manufacturers = v.Manufacturers,
+                  Images = v.Images.Where(m => m.Status == 1)
+              }).ToListAsync();
+
+            var variantsVMList = activeVariants.Select(v =>
+            {
+                return new ProductDetailsVM
+                {
+                    ID = v.ProductDetails.ID,
+                    ProductName = v.Product.Name,
+                    BrandName = v.Brand.Name,
+                    CategoryName = v.Category.Name,
+                    TotalQuantity = v.Options.Sum(opt => opt.StockQuantity),
+                    ManufacturersName = v.Manufacturers.Name,
+                    MaterialName = v.Material.Name,
+                    KeyCode = v.ProductDetails.KeyCode,
+                    Description = v.ProductDetails.Description,
+                    Origin = v.ProductDetails.Origin,
+                    Status = v.ProductDetails.Status,
+                    SmallestPrice = v.Options.Any() ? v.Options.Min(opt => opt.RetailPrice) : 0,
+                    BiggestPrice = v.Options.Any() ? v.Options.Max(opt => opt.RetailPrice) : 0,
+                    ImagePaths = v.Images.Select(m => m.Path).ToList(),
+                };
+            }).ToList();
+
+            return variantsVMList;
+        }
+        public async Task<List<ProductDetailsVM>> GetAllAsync()
         {
             var result = await (from pd in _dbcontext.ProductDetails
                                 join p in _dbcontext.Product on pd.IDProduct equals p.ID
@@ -347,7 +411,6 @@ namespace BusinessLogicLayer.Services.Implements
                                 join m in _dbcontext.Manufacturer on pd.IDManufacturers equals m.ID
                                 join mt in _dbcontext.Material on pd.IDMaterial equals mt.ID
                                 join b in _dbcontext.Brand on pd.IDBrand equals b.ID
-                                where pd.Status == 1
                                 select new ProductDetailsVM
                                 {
                                     ID = pd.ID,
@@ -362,6 +425,9 @@ namespace BusinessLogicLayer.Services.Implements
                                     IDMaterial = mt.ID,
                                     MaterialName = mt.Name,
                                     IDBrand = b.ID,
+                                    SmallestPrice = pd.Options.Any() ? pd.Options.Min(opt => opt.RetailPrice) : 0,
+                                    BiggestPrice = pd.Options.Any() ? pd.Options.Max(opt => opt.RetailPrice) : 0,
+
                                     BrandName = b.Name,
                                     KeyCode = pd.KeyCode,
                                     Description = pd.Description,
@@ -371,92 +437,9 @@ namespace BusinessLogicLayer.Services.Implements
                                                   where img.IDProductDetails == pd.ID
                                                   select img.Path).ToList(),
                                     Status = pd.Status,
-                                    Options = (from o in _dbcontext.Options
-                                               join col in _dbcontext.Colors on o.IDColor equals col.ID
-                                               join siz in _dbcontext.Sizes on o.IDSize equals siz.ID
-                                               where o.IDProductDetails == pd.ID
-                                               select new OptionsVM
-                                               {
-                                                   ID = o.ID,
-                                                   IDColor = col.ID,
-                                                   ColorName = col.Name,
-                                                   IDSize = siz.ID,
-                                                   SizesName = siz.Name,
-                                                   StockQuantity = o.StockQuantity,
-                                                   CostPrice = o.CostPrice,
-                                                   RetailPrice = o.RetailPrice,
-                                                   Discount = o.Discount,
-                                                   CreateDate = o.CreateDate,
-                                                   CreateBy = o.CreateBy,
-                                                   Status = o.Status,
-                                                   ImagePaths = (from img in _dbcontext.Images
-                                                                 where img.IDOptions == o.ID
-                                                                 select img.Path).FirstOrDefault()
-                                               }).ToList()
                                 }).ToListAsync();
-
-
             return result;
         }
-
-        public async Task<List<ProductDetailsVM>> GetAllAsync()
-        {
-            var result = await(from pd in _dbcontext.ProductDetails
-                               join p in _dbcontext.Product on pd.IDProduct equals p.ID
-                               join c in _dbcontext.Category on pd.IDCategory equals c.ID
-                               join m in _dbcontext.Manufacturer on pd.IDManufacturers equals m.ID
-                               join mt in _dbcontext.Material on pd.IDMaterial equals mt.ID
-                               join b in _dbcontext.Brand on pd.IDBrand equals b.ID
-                               select new ProductDetailsVM
-                               {
-                                   ID = pd.ID,
-                                   CreateBy = pd.CreateBy,
-                                   CreateDate = pd.CreateDate,
-                                   IDProduct = p.ID,
-                                   ProductName = p.Name,
-                                   IDCategory = c.ID,
-                                   CategoryName = c.Name,
-                                   IDManufacturers = m.ID,
-                                   ManufacturersName = m.Name,
-                                   IDMaterial = mt.ID,
-                                   MaterialName = mt.Name,
-                                   IDBrand = b.ID,
-                                   BrandName = b.Name,
-                                   KeyCode = pd.KeyCode,
-                                   Description = pd.Description,
-                                   Style = pd.Style,
-                                   Origin = pd.Origin,
-                                   ImagePaths = (from img in _dbcontext.Images
-                                                 where img.IDProductDetails == pd.ID
-                                                 select img.Path).ToList(),
-                                   Status = pd.Status,
-                                   Options = (from o in _dbcontext.Options
-                                              join col in _dbcontext.Colors on o.IDColor equals col.ID
-                                              join siz in _dbcontext.Sizes on o.IDSize equals siz.ID
-                                              where o.IDProductDetails == pd.ID
-                                              select new OptionsVM
-                                              {
-                                                  ID = o.ID,
-                                                  IDColor = col.ID,
-                                                  ColorName = col.Name,
-                                                  IDSize = siz.ID,
-                                                  SizesName = siz.Name,
-                                                  StockQuantity = o.StockQuantity,
-                                                  CostPrice = o.CostPrice,
-                                                  RetailPrice = o.RetailPrice,
-                                                  CreateDate = o.CreateDate,
-                                                  CreateBy = o.CreateBy,
-                                                  Status = o.Status,
-                                                  ImagePaths = (from img in _dbcontext.Images
-                                                                where img.IDOptions == o.ID
-                                                                select img.Path).FirstOrDefault()
-                                              }).ToList()
-                               }).ToListAsync();
-
-
-            return result;
-        }
-
         public async Task<ProductDetailsVM> GetByIDAsync(Guid ID)
         {
             var result = await (from pd in _dbcontext.ProductDetails
@@ -472,6 +455,8 @@ namespace BusinessLogicLayer.Services.Implements
                                     CreateBy = pd.CreateBy,
                                     CreateDate = pd.CreateDate,
                                     IDProduct = p.ID,
+                                    SmallestPrice = pd.Options.Any() ? pd.Options.Min(opt => opt.RetailPrice) : 0,
+                                    BiggestPrice = pd.Options.Any() ? pd.Options.Max(opt => opt.RetailPrice) : 0,
                                     ProductName = p.Name,
                                     IDCategory = c.ID,
                                     CategoryName = c.Name,
@@ -503,24 +488,19 @@ namespace BusinessLogicLayer.Services.Implements
                                                    StockQuantity = o.StockQuantity,
                                                    CostPrice = o.CostPrice,
                                                    RetailPrice = o.RetailPrice,
+                                                   ImageURL = o.ImageURL,
                                                    CreateDate = o.CreateDate,
                                                    CreateBy = o.CreateBy,
                                                    Status = o.Status,
-                                                   ImagePaths = (from img in _dbcontext.Images
-                                                                 where img.IDOptions == o.ID
-                                                                 select img.Path).FirstOrDefault() 
                                                }).ToList()
                                 }).FirstOrDefaultAsync();
 
             return result;
         }
-
-
         public Task<List<OptionsVM>> GetOptionProductDetailsByIDAsync(Guid IDProductDetails)
         {
             throw new NotImplementedException();
         }
-
         public async Task<bool> RemoveAsync(Guid ID, string IDUserDelete)
         {
             using (var transaction = _dbcontext.Database.BeginTransaction())
@@ -554,7 +534,6 @@ namespace BusinessLogicLayer.Services.Implements
                 }
             }
         }
-
         public async Task<bool> UpdateAsync(Guid ID, ProductDetailsUpdateVM request)
         {
             using (var transaction = await _dbcontext.Database.BeginTransactionAsync())
@@ -615,11 +594,23 @@ namespace BusinessLogicLayer.Services.Implements
                     productDetail.IDMaterial = checkMaterial.ID;
                     productDetail.IDProduct = checkProduct.ID;
                     productDetail.Status = request.Status;
-                    productDetail.KeyCode = request.KeyCode;
 
                     productDetail.ModifiedBy = request.ModifiedBy;
-                    productDetail.ModifiedDate = DateTime.Now; 
+                    productDetail.ModifiedDate = DateTime.Now;
+                    foreach (var imageUrl in request.ImagePaths)
+                    {
+                        var imageEntity = new Images
+                        {
+                            ID = Guid.NewGuid(),
+                            IDProductDetails = productDetail.ID,
+                            Path = imageUrl,
+                            Status = 1,
+                            CreateDate = DateTime.Now,
+                            CreateBy = ""
+                        };
 
+                        await _dbcontext.Images.AddAsync(imageEntity);
+                    }
                     var existingOptions = await _dbcontext.Options.Where(o => o.IDProductDetails == productDetail.ID).ToListAsync();
                     var existingOptionIds = existingOptions.Select(o => o.ID).ToList();
 
@@ -659,7 +650,7 @@ namespace BusinessLogicLayer.Services.Implements
                             existingOption.CostPrice = option.CostPrice;
                             existingOption.RetailPrice = option.RetailPrice;
                             existingOption.Discount = option.Discount;
-                            existingOption.Status = option.Status;
+                            existingOption.Status = 1;
                         }
                         else
                         {
@@ -673,35 +664,13 @@ namespace BusinessLogicLayer.Services.Implements
                                 RetailPrice = option.RetailPrice,
                                 CostPrice = option.CostPrice,
                                 Discount = option.Discount,
+                                ImageURL = option.ImageURL,
                                 CreateDate = DateTime.Now,
                                 CreateBy = request.ModifiedBy,
-                                Status = option.Status
+                                Status = 1
                             };
                             _dbcontext.Options.Add(newOption);
                             existingOptions.Add(newOption);
-                        }
-
-                        var optionId = option.ID == Guid.Empty ? existingOptions.FirstOrDefault(o => o.IDColor == option.IDColor && o.IDSize == option.IDSize).ID : option.ID;
-                        var existingImages = await _dbcontext.Images.Where(img => img.IDOptions == optionId).ToListAsync();
-
-                        var imagesToDelete = existingImages.Where(img => !option.ImagePaths.Contains(img.Path)).ToList();
-                        _dbcontext.Images.RemoveRange(imagesToDelete);
-
-                        foreach (var imagePath in option.ImagePaths)
-                        {
-                            if (!existingImages.Any(img => img.Path == imagePath))
-                            {
-                                var newImage = new Images
-                                {
-                                    ID = Guid.NewGuid(),
-                                    IDOptions = optionId,
-                                    Path = imagePath,
-                                    CreateDate = DateTime.Now,
-                                    CreateBy = request.ModifiedBy,
-                                    Status = 1
-                                };
-                                _dbcontext.Images.Add(newImage);
-                            }
                         }
                     }
 
@@ -714,6 +683,121 @@ namespace BusinessLogicLayer.Services.Implements
                 {
                     await transaction.RollbackAsync();
                     throw new Exception("Error updating product details", ex);
+                }
+            }
+        }
+
+        public async Task<bool> CreateSingle(ProductDetailsSingleCreateVM request)
+        {
+            using (var transaction = await _dbcontext.Database.BeginTransactionAsync())
+            {
+                try
+                {
+                    var checkBrand = await _dbcontext.Brand.FirstOrDefaultAsync(c => c.ID == request.IDBrand);
+                    var checkMaterial = await _dbcontext.Material.FirstOrDefaultAsync(c => c.ID == request.IDMaterial);
+                    var checkManufacturer = await _dbcontext.Manufacturer.FirstOrDefaultAsync(c => c.ID == request.IDManufacturers);
+                    var checkProduct = await _dbcontext.Product.FirstOrDefaultAsync(c => c.ID == request.IDProduct);
+                    var checkCategory = await _dbcontext.Category.FirstOrDefaultAsync(c => c.ID == request.IDCategory);
+
+                    if (checkBrand == null && !string.IsNullOrEmpty(request.BrandName))
+                    {
+                        request.IDBrand = await EnsureBrand(request.BrandName, request.CreateBy);
+                    }
+                    if (checkCategory == null && !string.IsNullOrEmpty(request.CategoryName))
+                    {
+                        request.IDCategory = await EnsureCategory(request.CategoryName, request.CreateBy);
+                    }
+
+                    if (checkProduct == null && !string.IsNullOrEmpty(request.ProductName))
+                    {
+                        request.IDProduct = await EnsureProduct(request.ProductName, request.CreateBy);
+                    }
+
+                    if (checkMaterial == null && !string.IsNullOrEmpty(request.MaterialName))
+                    {
+                        request.IDMaterial = await EnsureMaterial(request.MaterialName, request.CreateBy);
+                    }
+
+                    if (checkManufacturer == null && !string.IsNullOrEmpty(request.ManufacturersName))
+                    {
+                        request.IDManufacturers = await EnsureManufacturers(request.ManufacturersName, request.CreateBy);
+                    }
+
+                    checkBrand = await _dbcontext.Brand.FirstOrDefaultAsync(c => c.ID == request.IDBrand);
+                    checkMaterial = await _dbcontext.Material.FirstOrDefaultAsync(c => c.ID == request.IDMaterial);
+                    checkManufacturer = await _dbcontext.Manufacturer.FirstOrDefaultAsync(c => c.ID == request.IDManufacturers);
+                    checkProduct = await _dbcontext.Product.FirstOrDefaultAsync(c => c.ID == request.IDProduct);
+                    checkCategory = await _dbcontext.Category.FirstOrDefaultAsync(c => c.ID == request.IDCategory);
+
+                    if (checkBrand == null || checkMaterial == null || checkManufacturer == null || checkProduct == null || checkCategory == null)
+                    {
+                        throw new Exception("Brand, Material, Manufacturer, Category or Product not found.");
+                    }
+
+
+                    var productDetails = new ProductDetails
+                    {
+                        ID = Guid.NewGuid(),
+                        IDMaterial = checkMaterial.ID,
+                        IDBrand = checkBrand.ID,
+                        IDManufacturers = checkManufacturer.ID,
+                        IDProduct = checkProduct.ID,
+                        IDCategory = checkCategory.ID,
+                        Origin = request.Origin,
+                        Style = request.Style,
+                        KeyCode = GenerateKeyCode(request.ProductName),
+                        Description = request.Description,
+                        CreateBy = request.CreateBy,
+                        CreateDate = DateTime.Now,
+                        Status = 1,
+                    };
+                    await _dbcontext.ProductDetails.AddAsync(productDetails);
+                    List<Guid> imageIds = new List<Guid>();
+
+                    foreach (var file in request.ImagePaths)
+                    {
+                        var imageId = Guid.NewGuid();
+                        var fileName = imageId.ToString() + Path.GetExtension(file.FileName);
+                        using var stream = file.OpenReadStream();
+
+                        var uploadParams = new ImageUploadParams()
+                        {
+                            File = new FileDescription(fileName, stream),
+                            PublicId = imageId.ToString()
+                        };
+
+                        try
+                        {
+                            var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+                            var imageUrl = uploadResult.Url.ToString();
+
+                            var imageEntity = new Images
+                            {
+                                ID = imageId,
+                                IDProductDetails = productDetails.ID,
+                                Path = imageUrl,
+                                Status = 1,
+                                CreateDate = DateTime.Now,
+                                CreateBy = request.CreateBy
+                            };
+
+                            await _dbcontext.Images.AddAsync(imageEntity);
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+                    }
+
+                    await _dbcontext.SaveChangesAsync();
+                    await transaction.CommitAsync();
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    await transaction.RollbackAsync();
+                    throw new Exception("Error creating product details", ex);
                 }
             }
         }
