@@ -16,10 +16,11 @@ namespace DataAccessLayer.Entity
         public decimal CostPrice { get; set; }
         public decimal RetailPrice { get; set; }
         public decimal? Discount { get; set; }
+        public string? ImageURL { get; set; }
+
         public virtual Colors Colors { get; set; } = null!;
         public virtual Sizes Sizes { get; set; } = null!;
         public virtual ProductDetails ProductDetails { get; set; } = null!;
-        public virtual Images Images { get; set; } = null!;
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }
 
     }

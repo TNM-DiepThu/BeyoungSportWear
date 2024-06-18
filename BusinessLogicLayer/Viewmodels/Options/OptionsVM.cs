@@ -18,7 +18,7 @@ namespace BusinessLogicLayer.Viewmodels.Options
         public Guid? IDSize { get; set; }
         public string SizesName { get; set; }
         public int StockQuantity { get; set; }
-        public string ImagePaths { get; set; }
+        public string ImageURL { get; set; }
 
         public int Status { get; set; }
 

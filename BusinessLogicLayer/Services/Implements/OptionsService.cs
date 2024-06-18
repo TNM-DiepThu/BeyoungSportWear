@@ -2,8 +2,11 @@
 using AutoMapper.QueryableExtensions;
 using BusinessLogicLayer.Services.Interface;
 using BusinessLogicLayer.Viewmodels.Options;
+using CloudinaryDotNet.Actions;
+using CloudinaryDotNet;
 using DataAccessLayer.Application;
 using DataAccessLayer.Entity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,11 +18,14 @@ namespace BusinessLogicLayer.Services.Implements
 {
     public class OptionsService : IOptionsService
     {
+        private readonly Cloudinary _cloudinary;
+
         private readonly ApplicationDBContext _dbcontext;
         private readonly IMapper _mapper;
-        public OptionsService(ApplicationDBContext ApplicationDBContext, IMapper mapper)
+        public OptionsService(ApplicationDBContext ApplicationDBContext, IMapper mapper, Cloudinary Cloudinary)
         {
             _dbcontext = ApplicationDBContext;
+            _cloudinary = Cloudinary;
             _mapper = mapper;
         }
         public async Task<Guid> EnsureSize(string sizeName, string CreateBy)
@@ -208,6 +214,75 @@ namespace BusinessLogicLayer.Services.Implements
             await _dbcontext.SaveChangesAsync();
 
             return true;
+        }
+
+        public async Task<bool> CreateSingle(OptionsCreateSingleVM request)
+        {
+            var checkvariant = await _dbcontext.ProductDetails.FirstOrDefaultAsync(c => c.ID == request.IDProductDetails);
+            var checkColor = await _dbcontext.Colors.FirstOrDefaultAsync(c => c.ID == request.IDColor);
+            var checkSizes = await _dbcontext.Sizes.FirstOrDefaultAsync(c => c.ID == request.IDSize);
+
+            if (checkvariant == null)
+            {
+                return false;
+            }
+            if (checkSizes == null && !string.IsNullOrEmpty(request.SizesName))
+            {
+                request.IDSize = await EnsureSize(request.SizesName, request.CreateBy);
+            }
+
+            if (checkColor == null && !string.IsNullOrEmpty(request.ColorName))
+            {
+                request.IDColor = await EnsureColor(request.ColorName, request.CreateBy);
+            }
+            checkColor = await _dbcontext.Colors.FirstOrDefaultAsync(c => c.ID == request.IDColor);
+            checkSizes = await _dbcontext.Sizes.FirstOrDefaultAsync(c => c.ID == request.IDSize);
+            var option = new Options
+            {
+                ID = Guid.NewGuid(),
+                IDProductDetails = checkvariant.ID,
+                IDColor = checkColor.ID,
+                IDSize = checkSizes.ID,
+                StockQuantity = request.StockQuantity,
+                RetailPrice = request.RetailPrice,
+                CostPrice = request.CostPrice,
+                Discount = request.Discount,
+                Status = 1,
+                CreateBy = request.CreateBy,
+            };
+            _dbcontext.Options.Add(option);
+
+            var cloudinaryUrl = await UploadImageToCloudinary(request.ImageURL);
+
+            if (!string.IsNullOrEmpty(cloudinaryUrl))
+            {
+                option.ImageURL = cloudinaryUrl; // Lưu URL của ảnh vào Options
+
+                await _dbcontext.SaveChangesAsync(); // Lưu vào cơ sở dữ liệu
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            return true;
+        }
+        public async Task<string> UploadImageToCloudinary(IFormFile file)
+        {
+            var uploadParams = new ImageUploadParams
+            {
+                File = new FileDescription(file.FileName, file.OpenReadStream()),
+            };
+
+            try
+            {
+                var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+                return uploadResult.SecureUrl.AbsoluteUri;
+            }
+            catch (Exception)
+            {
+                return "Không thể upload hình ảnh";
+            }
         }
     }
 }

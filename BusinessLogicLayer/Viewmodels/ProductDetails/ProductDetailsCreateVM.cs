@@ -10,7 +10,7 @@ namespace BusinessLogicLayer.Viewmodels.ProductDetails
 {
     public class ProductDetailsCreateVM
     {
-        public string KeyCode { get; set; }
+        public string? KeyCode { get; set; }
         public Guid ID { get; set; }
         public string CreateBy { get; set; } = null!;
         public Guid? IDProduct { get; set; }

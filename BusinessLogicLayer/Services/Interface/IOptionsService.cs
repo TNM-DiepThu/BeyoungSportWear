@@ -13,6 +13,7 @@ namespace BusinessLogicLayer.Services.Interface
         public Task<List<OptionsVM>> GetAllActiveAsync();
         public Task<OptionsVM> GetByIDAsync(Guid ID);
         public Task<bool> CreateAsync(OptionsCreateVM request);
+        public Task<bool> CreateSingle(OptionsCreateSingleVM request);
         public Task<bool> RemoveAsync(Guid ID, string IDUserdelete);
         public Task<bool> UpdateAsync(Guid ID, OptionsUpdateVM request);
         public Task<Guid> GetProductDetailsByID(Guid IDOptions);

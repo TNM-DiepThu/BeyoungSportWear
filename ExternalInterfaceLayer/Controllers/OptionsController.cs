@@ -19,11 +19,30 @@ namespace ExternalInterfaceLayer.Controllers
         [Route("create")]
         public async Task<IActionResult> Create([FromForm] OptionsCreateVM request)
         {
-            if (request.ImagePaths == null)
+            if (request.ImageURL == null)
             {
                 return BadRequest("No files received from the upload");
             }
             var result = await _IOptionsService.CreateAsync(request);
+            if (result)
+            {
+                return Ok(new { status = "Success", message = "Successfully." });
+            }
+            else
+            {
+                return BadRequest(new { status = "Error", message = "There was an error uploading the Options." });
+            }
+        }
+        
+        [HttpPost]
+        [Route("CreateSingle")]
+        public async Task<IActionResult> CreateSingle([FromForm] OptionsCreateSingleVM request)
+        {
+            if (request.ImageURL == null)
+            {
+                return BadRequest("No files received from the upload");
+            }
+            var result = await _IOptionsService.CreateSingle(request);
             if (result)
             {
                 return Ok(new { status = "Success", message = "Successfully." });

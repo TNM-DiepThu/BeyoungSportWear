@@ -6,6 +6,7 @@ using AutoMapper;
 using BusinessLogicLayer.Services;
 using BusinessLogicLayer.Services.Interface;
 using BusinessLogicLayer.Viewmodels.Image;
+using CloudinaryDotNet;
 using Microsoft.AspNetCore.Mvc;
 
 namespace YourProject.Controllers
@@ -16,11 +17,13 @@ namespace YourProject.Controllers
     {
         private readonly IImageService _imageService;
         private readonly IMapper _mapper;
+        private readonly Cloudinary _cloudinary;
 
-        public ImageController(IImageService imageService, IMapper mapper)
+        public ImageController(IImageService imageService, IMapper mapper, Cloudinary Cloudinary)
         {
             _imageService = imageService;
             _mapper = mapper;
+            _cloudinary = Cloudinary;
         }
 
         // POST api/images
@@ -30,7 +33,7 @@ namespace YourProject.Controllers
         {
             try
             {
-                var imageUrl = await _imageService.CreateAsync(request);
+                var imageUrl = await _imageService.CreateAsync(request, _cloudinary);
                 if (imageUrl != null)
                 {
                     return Ok(new { imageUrl });
