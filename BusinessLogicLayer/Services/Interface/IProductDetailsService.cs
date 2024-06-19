@@ -11,6 +11,7 @@ namespace BusinessLogicLayer.Services.Interface
         public Task<ProductDetailsVM> GetByIDAsync(Guid ID);
         public Task<List<OptionsVM>> GetOptionProductDetailsByIDAsync(Guid IDProductDetails);
         public Task<bool> CreateAsync(ProductDetailsCreateVM request);
+        public Task<bool> CreateSingle(ProductDetailsSingleCreateVM request);
         public Task<bool> RemoveAsync(Guid ID, string IDUserDelete);
         public Task<bool> UpdateAsync(Guid ID, ProductDetailsUpdateVM request);
     }

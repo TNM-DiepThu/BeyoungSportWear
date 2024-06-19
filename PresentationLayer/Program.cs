@@ -1,3 +1,6 @@
+using BusinessLogicLayer.Services.Implements;
+using BusinessLogicLayer.Services.Interface;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();

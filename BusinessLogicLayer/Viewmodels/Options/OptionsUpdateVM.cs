@@ -20,7 +20,7 @@ namespace BusinessLogicLayer.Viewmodels.Options
         public decimal CostPrice { get; set; }
         public decimal RetailPrice { get; set; }
         public decimal? Discount { get; set; }
-        public List<string> ImagePaths { get; set; }
+        public string ImageURL { get; set; }
 
 
         public int Status { get; set; }
