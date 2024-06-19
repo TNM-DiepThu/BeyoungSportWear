@@ -22,6 +22,26 @@ namespace PresentationLayer.Controllers
         {
             return View();
         }
+        public IActionResult AboutView()
+        {
+            return View();
+        }
+        public IActionResult Cart()
+        {
+            return View();
+        }
+        public IActionResult ListProduct()
+        {
+            return View();
+        }
+        public IActionResult ProductDetail()
+        {
+            return View();
+        }
+        public IActionResult Home()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
