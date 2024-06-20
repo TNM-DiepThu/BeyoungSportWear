@@ -2,9 +2,9 @@
     var currentUrl = window.location.href;
 
     var urlParts = currentUrl.split('/');
-    var ID = urlParts[urlParts.length - 1]; 
+    var ID = urlParts[urlParts.length - 1];
 
-    console.log(ID); 
+    console.log(ID);
     const productForm = document.getElementById('update_formproductdetails');
     productForm.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -19,8 +19,11 @@
             Style: document.getElementById('product_style').value,
             origin: document.getElementById('product_origin').value,
             Description: document.getElementById('product_description').value,
-            OptionsUpdateVM: gatherOptionsData() 
+            ImagePaths: [],
+            OptionsUpdateVM: gatherOptionsData(ID)
         };
+        const imageUpload = document.getElementById('image-upload');
+        productData.ImagePaths = getImagePaths(imageUpload);
 
         Swal.fire({
             title: 'Đang cập nhật sản phẩm...',
@@ -29,18 +32,35 @@
                 Swal.showLoading();
             }
         });
+
         updateProduct(ID, productData);
+        console.log(productData);
     });
+    function getImagePaths(input) {
+        const files = input.files;
+        const imagePaths = [];
+
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const objectUrl = URL.createObjectURL(file);
+            imagePaths.push(objectUrl); 
+        }
+
+        return imagePaths;
+    }
 
     const addColorButton = document.getElementById('addColorButton');
-    addColorButton.addEventListener('click', function () {
+    addColorButton.addEventListener('click', function (event) {
+        event.preventDefault();
         addColor();
     });
 
     const addSizeButton = document.getElementById('addSizeButton');
-    addSizeButton.addEventListener('click', function () {
+    addSizeButton.addEventListener('click', function (event) {
+        event.preventDefault();
         addSize();
     });
+
     if (ID) {
         getProductDetailsById(ID);
     } else {
@@ -48,6 +68,54 @@
     }
 });
 
+function uploadImages(productData) {
+    var fileInput = document.getElementById('image-upload');
+    var files = fileInput.files;
+    var formData = new FormData();
+    for (var i = 0; i < files.length; i++) {
+        formData.append('Path', files[i]);
+    }
+    formData.append('IDProductDetails', productData.ID);
+    formData.append('ID', guid());
+    formData.append('CreateBy', productData.CreateBy);
+    formData.append('Status', '1');
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://localhost:7241/api/images/upload_images', true);
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            console.log('Đường dẫn ảnh đã được lưu:', response.imageUrl);
+            productData.ImagePaths.push(response.imageUrl);
+
+            saveProduct(productData);
+        } else {
+            console.error('Lỗi khi gửi yêu cầu:', xhr.statusText);
+            Swal.fire({
+                icon: 'error',
+                title: 'Lỗi',
+                text: 'Đã xảy ra lỗi khi gửi yêu cầu lưu ảnh!\n' + xhr.responseText
+            });
+        }
+    };
+
+    xhr.send(formData);
+}
+function displayProductImages(imagePaths) {
+    var imagePreviewContainer = document.querySelector('.image-preview');
+    imagePaths.forEach(function (imagePath) {
+        var imgElement = document.createElement('img');
+        imgElement.src = imagePath;
+        imgElement.alt = 'Preview';
+        imgElement.style.maxWidth = '150px';
+
+        var labelElement = document.createElement('label');
+        labelElement.classList.add('image-preview-item');
+
+        labelElement.appendChild(imgElement);
+        imagePreviewContainer.appendChild(labelElement);
+    });
+}
 function getProductDetailsById(ID) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', `https://localhost:7241/api/ProductDetails/GetByID/${ID}`, true);
@@ -64,9 +132,9 @@ function getProductDetailsById(ID) {
                 document.getElementById('product_style').value = data.style;
                 document.getElementById('product_origin').value = data.origin;
                 document.getElementById('product_description').value = data.description;
-
+                displayProductImages(data.imagePaths);
                 var optionsTableBody = document.getElementById('oldClassificationBody');
-                optionsTableBody.innerHTML = ''; 
+                optionsTableBody.innerHTML = '';
                 if (data.options && data.options.length > 0) {
                     data.options.forEach(function (option) {
                         var row = '<tr>' +
@@ -93,29 +161,38 @@ function getProductDetailsById(ID) {
     };
     xhr.send();
 }
-
-function gatherOptionsData() {
+function gatherOptionsData(ID) {
     var options = [];
 
     var oldTableRows = document.getElementById('oldClassificationBody').getElementsByTagName('tr');
     for (var i = 0; i < oldTableRows.length; i++) {
         var row = oldTableRows[i];
-        var color = row.getElementsByTagName('td')[1].textContent;
-        var size = row.getElementsByTagName('td')[2].textContent;
-        var costPriceFormatted = row.getElementsByTagName('td')[3].textContent.trim(); 
-        var retailPriceFormatted = row.getElementsByTagName('td')[4].textContent.trim(); 
-        var stockQuantity = row.getElementsByTagName('td')[5].textContent.trim();
-        var imageURL = row.getElementsByTagName('td')[0].querySelector('img').src;
+        var cells = row.getElementsByTagName('td');
+
+        if (cells.length < 6) {
+            continue;
+        }
+
+        var color = cells[1].textContent.trim();
+        var size = cells[2].textContent.trim();
+        var costPriceFormatted = cells[3].textContent.trim();
+        var retailPriceFormatted = cells[4].textContent.trim();
+        var stockQuantity = cells[5].textContent.trim();
+        var imageURL = cells[0].querySelector('img') ? cells[0].querySelector('img').src : '';
+
         var costPrice = parseFloat(costPriceFormatted.replace(/[,.đ]/g, ''));
         var retailPrice = parseFloat(retailPriceFormatted.replace(/[,.đ]/g, ''));
         var option = {
-            colorName: color,
-            sizesName: size,
-            costPrice: costPrice,
-            retailPrice: retailPrice,
-            stockQuantity: stockQuantity,
-            ModifiedBy: '',
-            imageURL: imageURL
+            IDProductDetails: ID,
+            ColorName: color,
+            SizesName: size,
+            CostPrice: costPrice,
+            RetailPrice: retailPrice,
+            Status: 1,
+            StockQuantity: parseInt(stockQuantity.replace(/[,.đ]/g, ''), 10),
+            ModifiedBy: 'acb',
+            Discount: 0,
+            ImageURL: imageURL
         };
         options.push(option);
     }
@@ -129,22 +206,32 @@ function gatherOptionsData() {
 
     for (var j = 0; j < newTableRows.length; j++) {
         var newRow = newTableRows[j];
-        var newColor = newRow.getElementsByTagName('td')[1].textContent;
-        var newSize = newRow.getElementsByTagName('td')[2].textContent;
-        var newCostPriceFormatted = newRow.getElementsByTagName('td')[3].getElementsByTagName('input')[0].value.trim(); 
-        var newRetailPriceFormatted = newRow.getElementsByTagName('td')[4].getElementsByTagName('input')[0].value.trim();
-        var newStockQuantity = newRow.getElementsByTagName('td')[5].getElementsByTagName('input')[0].value.trim();
-        var newImageURL = newRow.getElementsByTagName('td')[0].querySelector('img').src;
+        var cells = newRow.getElementsByTagName('td');
+
+        if (cells.length < 6) {
+            continue;
+        }
+
+        var newColor = cells[1].textContent.trim();
+        var newSize = cells[2].textContent.trim();
+        var newCostPriceFormatted = cells[3].getElementsByTagName('input')[0].value.trim();
+        var newRetailPriceFormatted = cells[4].getElementsByTagName('input')[0].value.trim();
+        var newStockQuantity = cells[5].getElementsByTagName('input')[0].value.trim();
+        var newImageURL = cells[0].querySelector('img') ? cells[0].querySelector('img').src : '';
+
         var newCostPrice = parseFloat(newCostPriceFormatted.replace(/[,.đ]/g, ''));
         var newRetailPrice = parseFloat(newRetailPriceFormatted.replace(/[,.đ]/g, ''));
         var newOption = {
-            colorName: newColor,
-            sizesName: newSize,
-            costPrice: newCostPrice,
-            retailPrice: newRetailPrice,
-            stockQuantity: newStockQuantity,
-            ModifiedBy: '', 
-            imageURL: newImageURL
+            IDProductDetails: ID,
+            ColorName: newColor,
+            SizesName: newSize,
+            CostPrice: newCostPrice,
+            RetailPrice: newRetailPrice,
+            StockQuantity: parseInt(newStockQuantity.replace(/[,.đ]/g, ''), 10),
+            ModifiedBy: '',
+            ImageURL: newImageURL,
+            Status: 1,
+            Discount: 0
         };
         options.push(newOption);
     }
@@ -251,15 +338,39 @@ function updateProduct(ID, productData) {
         if (xhr.readyState === 4) {
             Swal.close();
             if (xhr.status === 200) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Thành công!',
-                    text: 'Đã cập nhật sản phẩm thành công.',
-                }).then((result) => {
-                    if (result.isConfirmed || result.dismiss === Swal.DismissReason.backdrop) {
-                        window.location.reload()
+                try {
+                    var response;
+                    if (xhr.responseText.trim() !== '') {
+                        response = JSON.parse(xhr.responseText);
+                        console.log('Đã lưu sản phẩm thành công:', response);
+                    } else {
+                        console.error('Empty response from server');
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Lỗi!',
+                            text: 'Dữ liệu phản hồi từ máy chủ không hợp lệ.'
+                        });
+                        return;
                     }
-                });
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thành công!',
+                        text: 'Đã cập nhật sản phẩm thành công.',
+                        showConfirmButton: false,
+                        timer: 3000  
+                    }).then(() => {
+                        window.location.href = '/home/index_productdetails';
+                    });
+
+                } catch (error) {
+                    console.error('Error parsing JSON response:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Lỗi!',
+                        text: 'Dữ liệu phản hồi từ máy chủ không hợp lệ.'
+                    });
+                }
             } else {
                 console.error('Error updating product:', xhr.responseText);
                 Swal.fire({
@@ -270,17 +381,25 @@ function updateProduct(ID, productData) {
             }
         }
     };
-    xhr.send(JSON.stringify(productData));
+
+    try {
+        xhr.send(JSON.stringify(productData));
+    } catch (error) {
+        console.error('Error sending request:', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Lỗi!',
+            text: 'Đã xảy ra lỗi khi gửi yêu cầu cập nhật sản phẩm.'
+        });
+    }
 }
-
-
 
 function handleImageUpload(event, imagePreviewId) {
     const file = event.target.files[0];
 
     if (!file) return;
 
-    const imagePreviewElement = document.getElementById(imagePreviewId); 
+    const imagePreviewElement = document.getElementById(imagePreviewId);
 
     while (imagePreviewElement.firstChild) {
         imagePreviewElement.removeChild(imagePreviewElement.firstChild);
@@ -289,14 +408,14 @@ function handleImageUpload(event, imagePreviewId) {
 
     const imgElement = document.createElement('img');
     imgElement.style.maxWidth = '100%';
-    imgElement.style.maxHeight = '100%'; 
+    imgElement.style.maxHeight = '100%';
 
 
     const reader = new FileReader();
     reader.onload = function (e) {
         imgElement.src = e.target.result;
     };
-    reader.readAsDataURL(file); 
+    reader.readAsDataURL(file);
 
     imagePreviewElement.appendChild(imgElement);
 }

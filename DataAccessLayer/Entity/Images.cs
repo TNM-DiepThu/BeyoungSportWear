@@ -5,7 +5,7 @@ namespace DataAccessLayer.Entity
     {
         public Guid? IDProductDetails { get; set; }
         public string Path { get; set; } = null!;
-
+        public string Hash { get; set; }
         public virtual ProductDetails? ProductDetails { get; set; }
 
     }

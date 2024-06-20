@@ -12,6 +12,8 @@ namespace BusinessLogicLayer.Viewmodels.Image
         public string CreateBy { get; set; } = null!;
         public Guid? IDProductDetails { get; set; }
         public List<IFormFile> Path { get; set; } = null!;
+        public string? Hash { get; set; }
         public int Status { get; set; }
+        public List<string> UploadedImageUrls { get; set; } = new();
     }
 }

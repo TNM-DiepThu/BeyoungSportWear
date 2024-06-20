@@ -85,27 +85,26 @@ namespace ExternalInterfaceLayer.Controllers
         [Route("Update/{ID}")]
         public async Task<IActionResult> Update(Guid ID, [FromBody] ProductDetailsUpdateVM request)
         {
-            if (!ModelState.IsValid)
+            var productdetails = await _IProductDetailsService.GetByIDAsync(ID);
+
+            if (productdetails != null)
             {
-                return BadRequest(ModelState);
+                var data = await _IProductDetailsService.UpdateAsync(ID, request);
+                return Ok(data);
             }
 
-            try
-            {
-                var productdetails = await _IProductDetailsService.GetByIDAsync(ID);
+            return NotFound();
+        }
 
-                if (productdetails != null)
-                {
-                    var data = await _IProductDetailsService.UpdateAsync(ID, request);
-                    return Ok(data);
-                }
-
-                return NotFound();
-            }
-            catch (Exception ex)
+        [HttpDelete("{ID}/{IDUserDelete}")]
+        public async Task<IActionResult> Remove(Guid ID, string IDUserDelete)
+        {
+            var success = await _IProductDetailsService.RemoveAsync(ID, IDUserDelete);
+            if (success)
             {
-                return StatusCode(500, $"Lỗi không thể cập nhật: {ex.Message}");
+                return Ok();
             }
+            return NotFound();
         }
     }
 }

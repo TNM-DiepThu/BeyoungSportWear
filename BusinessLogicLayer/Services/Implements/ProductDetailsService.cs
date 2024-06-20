@@ -516,11 +516,24 @@ namespace BusinessLogicLayer.Services.Implements
                         obj.DeleteBy = IDUserDelete;
 
                         _dbcontext.ProductDetails.Attach(obj);
-                        await _dbcontext.SaveChangesAsync();
+                        var relatedImages = await _dbcontext.Images.Where(c => c.IDProductDetails == ID).ToListAsync();
+                        foreach (var image in relatedImages)
+                        {
+                            image.Status = 0;
+                        }
 
+                        var relatedOptions = await _dbcontext.Options.Where(c => c.IDProductDetails == ID).ToListAsync();
+                        foreach (var options in relatedOptions)
+                        {
+                            options.Status = 0;
+                        }
+
+
+                        await _dbcontext.SaveChangesAsync();
 
                         transaction.Commit();
                         return true;
+
                     }
                     else
                     {
@@ -541,76 +554,63 @@ namespace BusinessLogicLayer.Services.Implements
                 try
                 {
                     var productDetail = await _dbcontext.ProductDetails.FirstOrDefaultAsync(pd => pd.ID == ID);
-
                     if (productDetail == null)
                     {
                         return false;
                     }
 
-                    var checkBrand = await _dbcontext.Brand.FirstOrDefaultAsync(c => c.ID == request.IDBrand);
-                    var checkMaterial = await _dbcontext.Material.FirstOrDefaultAsync(c => c.ID == request.IDMaterial);
-                    var checkManufacturer = await _dbcontext.Manufacturer.FirstOrDefaultAsync(c => c.ID == request.IDManufacturers);
-                    var checkProduct = await _dbcontext.Product.FirstOrDefaultAsync(c => c.ID == request.IDProduct);
-                    var checkCategory = await _dbcontext.Category.FirstOrDefaultAsync(c => c.ID == request.IDCategory);
-
-                    if (checkBrand == null && !string.IsNullOrEmpty(request.BrandName))
-                    {
-                        request.IDBrand = await EnsureBrand(request.BrandName, request.ModifiedBy);
-                    }
-                    if (checkCategory == null && !string.IsNullOrEmpty(request.CategoryName))
-                    {
-                        request.IDCategory = await EnsureCategory(request.CategoryName, request.ModifiedBy);
-                    }
-                    if (checkProduct == null && !string.IsNullOrEmpty(request.ProductName))
-                    {
-                        request.IDProduct = await EnsureProduct(request.ProductName, request.ModifiedBy);
-                    }
-                    if (checkMaterial == null && !string.IsNullOrEmpty(request.MaterialName))
-                    {
-                        request.IDMaterial = await EnsureMaterial(request.MaterialName, request.ModifiedBy);
-                    }
-                    if (checkManufacturer == null && !string.IsNullOrEmpty(request.ManufacturersName))
-                    {
-                        request.IDManufacturers = await EnsureManufacturers(request.ManufacturersName, request.ModifiedBy);
-                    }
-
-                    checkBrand = await _dbcontext.Brand.FirstOrDefaultAsync(c => c.ID == request.IDBrand);
-                    checkMaterial = await _dbcontext.Material.FirstOrDefaultAsync(c => c.ID == request.IDMaterial);
-                    checkManufacturer = await _dbcontext.Manufacturer.FirstOrDefaultAsync(c => c.ID == request.IDManufacturers);
-                    checkProduct = await _dbcontext.Product.FirstOrDefaultAsync(c => c.ID == request.IDProduct);
-                    checkCategory = await _dbcontext.Category.FirstOrDefaultAsync(c => c.ID == request.IDCategory);
-
-                    if (checkBrand == null || checkMaterial == null || checkManufacturer == null || checkProduct == null || checkCategory == null)
-                    {
-                        throw new Exception("Brand, Material, Manufacturer, Category or Product not found.");
-                    }
+                    var brandId = await EnsureBrand(request.BrandName, request.ModifiedBy);
+                    var categoryId = await EnsureCategory(request.CategoryName, request.ModifiedBy);
+                    var productId = await EnsureProduct(request.ProductName, request.ModifiedBy);
+                    var materialId = await EnsureMaterial(request.MaterialName, request.ModifiedBy);
+                    var manufacturerId = await EnsureManufacturers(request.ManufacturersName, request.ModifiedBy);
 
                     productDetail.Description = request.Description;
                     productDetail.Style = request.Style;
                     productDetail.Origin = request.Origin;
-                    productDetail.IDBrand = checkBrand.ID;
-                    productDetail.IDCategory = checkCategory.ID;
-                    productDetail.IDManufacturers = checkManufacturer.ID;
-                    productDetail.IDMaterial = checkMaterial.ID;
-                    productDetail.IDProduct = checkProduct.ID;
-                    productDetail.Status = request.Status;
-
+                    productDetail.IDBrand = brandId;
+                    productDetail.IDCategory = categoryId;
+                    productDetail.IDProduct = productId;
+                    productDetail.IDMaterial = materialId;
+                    productDetail.IDManufacturers = manufacturerId;
+                    productDetail.Status = 1;
                     productDetail.ModifiedBy = request.ModifiedBy;
                     productDetail.ModifiedDate = DateTime.Now;
-                    foreach (var imageUrl in request.ImagePaths)
-                    {
-                        var imageEntity = new Images
-                        {
-                            ID = Guid.NewGuid(),
-                            IDProductDetails = productDetail.ID,
-                            Path = imageUrl,
-                            Status = 1,
-                            CreateDate = DateTime.Now,
-                            CreateBy = ""
-                        };
 
-                        await _dbcontext.Images.AddAsync(imageEntity);
+                    var existingImages = await _dbcontext.Images
+                        .Where(img => img.IDProductDetails == productDetail.ID)
+                        .ToListAsync();
+
+                    var existingImagePaths = existingImages.Select(img => img.Path).ToList();
+
+                    var newImagePaths = request.ImagePaths;
+
+                    foreach (var existingImage in existingImages)
+                    {
+                        if (!newImagePaths.Contains(existingImage.Path))
+                        {
+                            _dbcontext.Images.Remove(existingImage);
+                        }
                     }
+
+                    foreach (var newImagePath in newImagePaths)
+                    {
+                        if (!existingImagePaths.Contains(newImagePath))
+                        {
+                            var imageEntity = new Images
+                            {
+                                ID = Guid.NewGuid(),
+                                IDProductDetails = productDetail.ID,
+                                Path = newImagePath,
+                                Status = 1,
+                                CreateDate = DateTime.Now,
+                                CreateBy = request.ModifiedBy
+                            };
+
+                            await _dbcontext.Images.AddAsync(imageEntity);
+                        }
+                    }
+
                     var existingOptions = await _dbcontext.Options.Where(o => o.IDProductDetails == productDetail.ID).ToListAsync();
                     var existingOptionIds = existingOptions.Select(o => o.ID).ToList();
 
@@ -621,31 +621,14 @@ namespace BusinessLogicLayer.Services.Implements
 
                     foreach (var option in request.OptionsUpdateVM)
                     {
-                        var checkColor = await _dbcontext.Colors.FirstOrDefaultAsync(c => c.ID == option.IDColor);
-                        var checkSizes = await _dbcontext.Sizes.FirstOrDefaultAsync(c => c.ID == option.IDSize);
+                        var sizeId = await EnsureSize(option.SizesName, request.ModifiedBy);
+                        var colorId = await EnsureColor(option.ColorName, request.ModifiedBy);
 
-                        if (checkSizes == null && !string.IsNullOrEmpty(option.SizesName))
-                        {
-                            option.IDSize = await EnsureSize(option.SizesName, request.ModifiedBy);
-                        }
-
-                        if (checkColor == null && !string.IsNullOrEmpty(option.ColorName))
-                        {
-                            option.IDColor = await EnsureColor(option.ColorName, request.ModifiedBy);
-                        }
-
-                        checkColor = await _dbcontext.Colors.FirstOrDefaultAsync(c => c.ID == option.IDColor);
-                        checkSizes = await _dbcontext.Sizes.FirstOrDefaultAsync(c => c.ID == option.IDSize);
-
-                        if (checkColor == null || checkSizes == null)
-                        {
-                            throw new Exception("Color or Size not found.");
-                        }
                         var existingOption = existingOptions.FirstOrDefault(o => o.ID == option.ID);
                         if (existingOption != null)
                         {
-                            existingOption.IDColor = checkColor.ID;
-                            existingOption.IDSize = checkSizes.ID;
+                            existingOption.IDColor = colorId;
+                            existingOption.IDSize = sizeId;
                             existingOption.StockQuantity = option.StockQuantity;
                             existingOption.CostPrice = option.CostPrice;
                             existingOption.RetailPrice = option.RetailPrice;
@@ -658,8 +641,8 @@ namespace BusinessLogicLayer.Services.Implements
                             {
                                 ID = option.ID == Guid.Empty ? Guid.NewGuid() : option.ID,
                                 IDProductDetails = productDetail.ID,
-                                IDColor = checkColor.ID,
-                                IDSize = checkSizes.ID,
+                                IDColor = colorId,
+                                IDSize = sizeId,
                                 StockQuantity = option.StockQuantity,
                                 RetailPrice = option.RetailPrice,
                                 CostPrice = option.CostPrice,
@@ -670,7 +653,6 @@ namespace BusinessLogicLayer.Services.Implements
                                 Status = 1
                             };
                             _dbcontext.Options.Add(newOption);
-                            existingOptions.Add(newOption);
                         }
                     }
 
@@ -686,7 +668,6 @@ namespace BusinessLogicLayer.Services.Implements
                 }
             }
         }
-
         public async Task<bool> CreateSingle(ProductDetailsSingleCreateVM request)
         {
             using (var transaction = await _dbcontext.Database.BeginTransactionAsync())

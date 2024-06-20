@@ -25,18 +25,30 @@ namespace YourProject.Controllers
             _mapper = mapper;
             _cloudinary = Cloudinary;
         }
-
-        // POST api/images
-        [HttpPost]
-        [Route("upload_images")]
-        public async Task<IActionResult> Create([FromForm] ImageCreateVM request)
+        [HttpPost("upload_single")]
+        public async Task<IActionResult> UploadImage(IFormFile imageFile)
         {
             try
             {
-                var imageUrl = await _imageService.CreateAsync(request, _cloudinary);
-                if (imageUrl != null)
+                var imageUrl = await _imageService.UploadImageAsync(imageFile);
+                return Ok(imageUrl);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+        // POST api/images
+        [HttpPost]
+        [Route("upload_images")]
+        public async Task<IActionResult> Create([FromForm]ImageCreateVM request)
+        {
+            try
+            {
+                var updatedRequest = await _imageService.CreateAsync(request, _cloudinary);
+                if (updatedRequest != null)
                 {
-                    return Ok(new { imageUrl });
+                    return Ok(request);
                 }
                 else
                 {

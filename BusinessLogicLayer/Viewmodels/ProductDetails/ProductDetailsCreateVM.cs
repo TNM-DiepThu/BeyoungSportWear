@@ -28,6 +28,6 @@ namespace BusinessLogicLayer.Viewmodels.ProductDetails
         public string Origin { get; set; } = null!; 
         public List<string> ImagePaths { get; set; } = null!;
 
-        public List<OptionsCreateVM> OptionsCreateVM { get; set; } = null!;
+        public List<OptionsCreateVM> OptionsCreateVM { get; set; } 
     }
 }
