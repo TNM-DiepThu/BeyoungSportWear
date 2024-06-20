@@ -27,7 +27,7 @@ namespace BusinessLogicLayer.Viewmodels.ProductDetails
         public string Origin { get; set; } = null!; 
         public int Status { get; set; }
 
-        public List<string>? ImagePaths { get; set; }
+        public List<string> ImagePaths { get; set; }
         public List<OptionsUpdateVM> OptionsUpdateVM { get; set; }
     }
 }
