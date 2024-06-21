@@ -4,7 +4,14 @@ using BusinessLogicLayer.Services.Interface;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddHttpClient();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSession(options =>
+{
+    
+    options.Cookie.Name = ".MySession"; 
+    options.IdleTimeout = TimeSpan.FromMinutes(30); 
+});
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -22,10 +29,10 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.UseSession();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Home}/{id?}");
 
 app.UseEndpoints(endpoints =>
 {
