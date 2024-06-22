@@ -44,6 +44,21 @@ namespace ExternalInterfaceLayer.Controllers
             return Ok(products);
         }
 
+        [HttpGet]
+        [Route("GetNameUp)/{a}")]
+        public async Task<IActionResult> GetAllNameUp(int a)
+        {
+            try
+            {
+                var products = await _viewKHServiece.GetAllNameUp(a);
+            return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new { Message = ex.Message });
+            }
+        }
+
         [HttpGet("GetProDetail/{id}")]
         public async Task<IActionResult> GetProDetail(Guid id)
         {

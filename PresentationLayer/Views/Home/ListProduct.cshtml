@@ -4,7 +4,7 @@
 
 <div class="main">
     <div class="container">
-        
+
         <!-- BEGIN SIDEBAR & CONTENT -->
         <div class="row margin-bottom-40">
             <!-- BEGIN SIDEBAR -->
@@ -24,25 +24,6 @@
                     </p>
                     <div id="slider-range"></div>
                 </div>
-@* 
-                <div class="sidebar-products clearfix">
-                    <h2>Bestsellers</h2>
-                    <div class="item">
-                        <a href="shop-item.html"><img src="~/assets/pages/img/products/k1.jpg" alt="Some Shoes in Animal with Cut Out"></a>
-                        <h3><a asp-controller="Home" asp-action="ProductDetail">Some Shoes in Animal with Cut Out</a></h3>
-                        <div class="price">$31.00</div>
-                    </div>
-                    <div class="item">
-                        <a href="shop-item.html"><img src="~/assets/pages/img/products/k4.jpg" alt="Some Shoes in Animal with Cut Out"></a>
-                        <h3><a asp-controller="Home" asp-action="ProductDetail">Some Shoes in Animal with Cut Out</a></h3>
-                        <div class="price">$23.00</div>
-                    </div>
-                    <div class="item">
-                        <a href="shop-item.html"><img src="~/assets/pages/img/products/k3.jpg" alt="Some Shoes in Animal with Cut Out"></a>
-                        <h3><a asp-controller="Home" asp-action="ProductDetail">Some Shoes in Animal with Cut Out</a></h3>
-                        <div class="price">$86.00</div>
-                    </div>
-                </div> *@
             </div>
             <!-- END SIDEBAR -->
             <!-- BEGIN CONTENT -->
@@ -65,16 +46,13 @@
                         </div>
                         <div class="pull-right">
                             <label class="control-label">Sort&nbsp;By:</label>
-                            <select class="form-control input-sm">
-                                <option value="#?sort=p.sort_order&amp;order=ASC" selected="selected">Default</option>
-                                <option value="#?sort=pd.name&amp;order=ASC">Name (A - Z)</option>
-                                <option value="#?sort=pd.name&amp;order=DESC">Name (Z - A)</option>
-                                <option value="#?sort=p.price&amp;order=ASC">Price (Low &gt; High)</option>
-                                <option value="#?sort=p.price&amp;order=DESC">Price (High &gt; Low)</option>
-                                <option value="#?sort=rating&amp;order=DESC">Rating (Highest)</option>
-                                <option value="#?sort=rating&amp;order=ASC">Rating (Lowest)</option>
-                                <option value="#?sort=p.model&amp;order=ASC">Model (A - Z)</option>
-                                <option value="#?sort=p.model&amp;order=DESC">Model (Z - A)</option>
+                            <select id="sortOptions" class="form-control input-sm" onchange="sortProducts()">
+                                <option value="0" selected="selected">Default</option>
+                                <option value="0">Mặc định</option>
+                                <option value="1">Name (A - Z)</option>
+                                <option value="2">Name (Z - A)</option>
+                                <option value="3">Price Up</option>
+                                <option value="4">Price Down (Z - A)</option>
                             </select>
                         </div>
                     </div>
@@ -86,7 +64,7 @@
                     {
                         @foreach (var product in Model)
                         {
-                            <div class="col-md-4 col-sm-6 col-xs-12" >
+                            <div class="col-md-4 col-sm-6 col-xs-12">
                                 <div class="product-item">
 
 
@@ -94,7 +72,7 @@
                                         <img src="@product.urlImg" class="img-responsive" alt="@product.Name" style="height: 300px;">
                                         <div>
                                             <a href="@product.urlImg" class="btn btn-default fancybox-button">Zoom</a>
-                                            <a asp-controller="Home" asp-action="ProductDetail" class="btn btn-default fancybox-fast-view">View</a>
+                                            <a asp-controller="Home" asp-action="ProductDetail" asp-route-id="@product.Id" class="btn btn-default fancybox-fast-view">View</a>
                                         </div>
                                     </div>
                                     <h3><a asp-controller="Home" asp-action="ProductDetail">@product.Name</a></h3>
@@ -113,27 +91,39 @@
 
 
                 </div>
-                    <!-- END PRODUCT LIST -->
-                    <!-- PRODUCT ITEM END -->
-                    <!-- BEGIN PAGINATOR -->
-                    <div class="row">
-                        <div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 total</div>
-                        <div class="col-md-8 col-sm-8">
-                            <ul class="pagination pull-right">
-                                <li><a href="javascript:;">&laquo;</a></li>
-                                <li><a href="javascript:;">1</a></li>
-                                <li><span>2</span></li>
-                                <li><a href="javascript:;">3</a></li>
-                                <li><a href="javascript:;">4</a></li>
-                                <li><a href="javascript:;">5</a></li>
-                                <li><a href="javascript:;">&raquo;</a></li>
-                            </ul>
-                        </div>
+                <!-- END PRODUCT LIST -->
+                <!-- PRODUCT ITEM END -->
+                <!-- BEGIN PAGINATOR -->
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 total</div>
+                    <div class="col-md-8 col-sm-8">
+                        <ul class="pagination pull-right">
+                            <li><a href="javascript:;">&laquo;</a></li>
+                            <li><a href="javascript:;">1</a></li>
+                            <li><span>2</span></li>
+                            <li><a href="javascript:;">3</a></li>
+                            <li><a href="javascript:;">4</a></li>
+                            <li><a href="javascript:;">5</a></li>
+                            <li><a href="javascript:;">&raquo;</a></li>
+                        </ul>
                     </div>
-                    <!-- END PAGINATOR -->
-                
+                </div>
+                <!-- END PAGINATOR -->
                 <!-- END CONTENT -->
             </div>
             <!-- END SIDEBAR & CONTENT -->
         </div>
     </div>
+
+    <script>
+        function sortProducts() {
+            var selectedValue = document.getElementById("sortOptions").value;
+            var currentUrl = window.location.href;
+            var baseUrl = '/Home/Test';
+            var urlWithoutParams = currentUrl.split('?')[0];
+            var newUrl = `${baseUrl}?a=${selectedValue}`;
+            if (currentUrl !== newUrl) {
+                window.location.href = newUrl;
+            }
+        }
+    </script>
