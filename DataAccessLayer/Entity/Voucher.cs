@@ -15,7 +15,8 @@ namespace DataAccessLayer.Entity
         public DateTime EndDate { get; set; }
         public int Quantity { get; set; }
         public Types Type { get; set; }
-        public int MinimumAmount { get; set; }
+        public decimal MinimumAmount { get; set; }
+        public decimal MaximumAmount { get; set; }
         public decimal ReducedValue { get; set; }
         public bool IsActive { get; set; }
         public enum Types

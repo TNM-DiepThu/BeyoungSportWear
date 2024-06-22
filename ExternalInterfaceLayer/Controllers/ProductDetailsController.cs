@@ -1,8 +1,13 @@
 ﻿using BusinessLogicLayer.Services.Implements;
 using BusinessLogicLayer.Services.Interface;
+using BusinessLogicLayer.Viewmodels.Brand;
+using BusinessLogicLayer.Viewmodels.Manufacturer;
+using BusinessLogicLayer.Viewmodels.Material;
+using BusinessLogicLayer.Viewmodels;
 using BusinessLogicLayer.Viewmodels.ProductDetails;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using DataAccessLayer.Entity;
 
 namespace ExternalInterfaceLayer.Controllers
 {
@@ -105,6 +110,18 @@ namespace ExternalInterfaceLayer.Controllers
                 return Ok();
             }
             return NotFound();
+        }
+        [HttpPost("search")]
+        public ActionResult<IEnumerable<Product>> Search([FromBody] List<SearchCondition> conditions)
+        {
+            var result = _IProductDetailsService.Search(conditions).ToList();
+
+            if (result.Count == 0)
+            {
+                return NotFound("No products found matching the search criteria.");
+            }
+
+            return Ok(result);
         }
     }
 }
