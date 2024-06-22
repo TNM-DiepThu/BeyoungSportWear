@@ -1,7 +1,9 @@
 ﻿using BusinessLogicLayer.Viewmodels.ViewKH;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using PresentationLayer.Models;
 using System.Diagnostics;
+using System.Net.Http;
 
 namespace PresentationLayer.Controllers
 {
@@ -9,11 +11,13 @@ namespace PresentationLayer.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly HttpClient _httpClient;
 
-        public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory)
+        public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory,HttpClient httpClient)
         {
             _logger = logger;
             _httpClientFactory = httpClientFactory;
+            _httpClient = httpClient;
         }
 
         public IActionResult Index()
@@ -33,21 +37,23 @@ namespace PresentationLayer.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> ListProduct()
+        public async Task<IActionResult> ListProduct(int a = 0)
         {
             try
             {
                 var httpClient = _httpClientFactory.CreateClient();
-                var response = await httpClient.GetAsync("https://localhost:7241/api/IViewKH/Get");
+                var apiUrl = $"https://localhost:7241/api/IViewKH/GetNameUp)/{a}";
+                var response = await httpClient.GetAsync(apiUrl);
 
                 if (response.IsSuccessStatusCode)
                 {
+
                     var products = await response.Content.ReadFromJsonAsync<List<ProductVKH>>();
-                    return View(products); // Trả về view với danh sách sản phẩm
+                    return View(products);
                 }
                 else
                 {
-                    _logger.LogError($"Failed to retrieve products. Status code: {response.StatusCode}");
+                    _logger.LogError($"Không lấy được danh sách sản phẩm. Mã trạng thái: {response.StatusCode}");
                     return StatusCode((int)response.StatusCode);
                 }
             }
@@ -57,34 +63,44 @@ namespace PresentationLayer.Controllers
                 return StatusCode(500); // Trả về lỗi 500 nếu có lỗi xảy ra
             }
         }
-        public async Task<IActionResult> Test()
+        public async Task<IActionResult> Test(int a = 0)
         {
-            try
-            {
-                var httpClient = _httpClientFactory.CreateClient();
-                var response = await httpClient.GetAsync("https://localhost:7241/api/IViewKH/Get");
+            var httpClient = _httpClientFactory.CreateClient();
+            var apiUrl = $"https://localhost:7241/api/IViewKH/GetNameUp)/{a}";
+            var response = await httpClient.GetAsync(apiUrl);
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var products = await response.Content.ReadFromJsonAsync<List<ProductVKH>>();
-                    return View(products); // Trả về view với danh sách sản phẩm
-                }
-                else
-                {
-                    _logger.LogError($"Failed to retrieve products. Status code: {response.StatusCode}");
-                    return StatusCode((int)response.StatusCode);
-                }
-            }
-            catch (Exception ex)
+            if (response.IsSuccessStatusCode)
             {
-                _logger.LogError($"Exception occurred: {ex.Message}");
-                return StatusCode(500); // Trả về lỗi 500 nếu có lỗi xảy ra
+                
+                var products = await response.Content.ReadFromJsonAsync<List<ProductVKH>>();
+                return View(products); 
+            }
+            else
+            {
+                _logger.LogError($"Không lấy được danh sách sản phẩm. Mã trạng thái: {response.StatusCode}");
+                return StatusCode((int)response.StatusCode);
             }
         }
-        public IActionResult ProductDetail()
+        public async Task<IActionResult> ProductDetail(Guid id)
+        {
+            var apiUrl = $"https://localhost:7241/api/IViewKH/GetProDetail/{id}";
+            var response = await _httpClient.GetAsync(apiUrl);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return NotFound(new { Message = "Product not found." });
+            }
+
+            var jsonString = await response.Content.ReadAsStringAsync();
+            var productDetail = JsonConvert.DeserializeObject<ProDetailKH>(jsonString);
+
+            return View(productDetail);
+            
+        }
+        public async Task<IActionResult> GetAllNameUp() 
         {
             return View();
-        }
+        }  
         public IActionResult Home()
         {
             return View();

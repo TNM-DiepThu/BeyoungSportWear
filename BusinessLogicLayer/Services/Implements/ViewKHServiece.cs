@@ -26,20 +26,126 @@ namespace BusinessLogicLayer.Services.Implements
         }
         public async Task<List<ProductVKH>> GetAll()
         {
-            var productVKHList = await _dbcontex.ProductDetails
-            .Include(pd => pd.Options)
-            .Include(pd => pd.Images)
-            .Include(pd => pd.Products)
-            .Select(pd => new ProductVKH
-            {
-                Id = pd.IDProduct,
-                Name = pd.Products.Name,
-                CostPrie = pd.Options.FirstOrDefault() != null ? pd.Options.FirstOrDefault().CostPrice : 0,
-                urlImg = pd.Images.FirstOrDefault() != null ? pd.Images.FirstOrDefault().Path : null
-            })
-    .ToListAsync();
 
-            return productVKHList;
+            var productVKHListUp = await _dbcontex.ProductDetails
+         .Include(pd => pd.Options)
+         .Include(pd => pd.Images)
+         .Include(pd => pd.Products)
+         .Select(pd => new ProductVKH
+         {
+             Id = pd.ID,
+             Name = pd.Products.Name,
+             CostPrie = pd.Options.FirstOrDefault() != null ? pd.Options.FirstOrDefault().CostPrice : 0,
+             urlImg = pd.Images.FirstOrDefault() != null ? pd.Images.FirstOrDefault().Path : null
+         })
+         .OrderBy(p => p.Name)
+         .ToListAsync();
+
+            return productVKHListUp;
+
+
+
+        }
+
+        public async Task<List<ProductVKH>> GetAllNameUp(int a)
+        {
+            if (a == 1)
+            {
+                var productVKHList = await _dbcontex.ProductDetails
+             .Include(pd => pd.Options)
+             .Include(pd => pd.Images)
+             .Include(pd => pd.Products)
+             .Select(pd => new ProductVKH
+             {
+                 Id = pd.ID,
+                 Name = pd.Products.Name,
+                 CostPrie = pd.Options.FirstOrDefault() != null ? pd.Options.FirstOrDefault().CostPrice : 0,
+                 urlImg = pd.Images.FirstOrDefault() != null ? pd.Images.FirstOrDefault().Path : null
+             })
+             .OrderBy(p => p.Name)
+             .ToListAsync();
+
+                return productVKHList;
+
+
+            }
+            else if (a == 2)
+            {
+                var productVKHList = await _dbcontex.ProductDetails
+             .Include(pd => pd.Options)
+             .Include(pd => pd.Images)
+             .Include(pd => pd.Products)
+             .Select(pd => new ProductVKH
+             {
+                 Id = pd.ID,
+                 Name = pd.Products.Name,
+                 CostPrie = pd.Options.FirstOrDefault() != null ? pd.Options.FirstOrDefault().CostPrice : 0,
+                 urlImg = pd.Images.FirstOrDefault() != null ? pd.Images.FirstOrDefault().Path : null
+             })
+             .OrderByDescending(p => p.Name)
+             .ToListAsync();
+
+                return productVKHList;
+
+
+            }
+            else if (a == 3)
+            {
+                var productVKHList = await _dbcontex.ProductDetails
+             .Include(pd => pd.Options)
+             .Include(pd => pd.Images)
+             .Include(pd => pd.Products)
+             .Select(pd => new ProductVKH
+             {
+                 Id = pd.ID,
+                 Name = pd.Products.Name,
+                 CostPrie = pd.Options.FirstOrDefault() != null ? pd.Options.FirstOrDefault().CostPrice : 0,
+                 urlImg = pd.Images.FirstOrDefault() != null ? pd.Images.FirstOrDefault().Path : null
+             })
+             .OrderBy(p => p.CostPrie)
+             .ToListAsync();
+
+                return productVKHList;
+
+
+            }
+            else if (a == 4)
+            {
+                var productVKHList = await _dbcontex.ProductDetails
+             .Include(pd => pd.Options)
+             .Include(pd => pd.Images)
+             .Include(pd => pd.Products)
+             .Select(pd => new ProductVKH
+             {
+                 Id = pd.ID,
+                 Name = pd.Products.Name,
+                 CostPrie = pd.Options.FirstOrDefault() != null ? pd.Options.FirstOrDefault().CostPrice : 0,
+                 urlImg = pd.Images.FirstOrDefault() != null ? pd.Images.FirstOrDefault().Path : null
+             })
+             .OrderByDescending(p => p.CostPrie)
+             .ToListAsync();
+
+                return productVKHList;
+
+
+            }
+            else
+            {
+
+                var productVKHList = await _dbcontex.ProductDetails
+               .Include(pd => pd.Options)
+               .Include(pd => pd.Images)
+               .Include(pd => pd.Products)
+               .Select(pd => new ProductVKH
+               {
+                   Id = pd.ID,
+                   Name = pd.Products.Name,
+                   CostPrie = pd.Options.FirstOrDefault() != null ? pd.Options.FirstOrDefault().CostPrice : 0,
+                   urlImg = pd.Images.FirstOrDefault() != null ? pd.Images.FirstOrDefault().Path : null
+               })
+       .ToListAsync(); return productVKHList;
+
+            }
         }
 
         public Task<List<ProductVKH>> GetAllPro()
@@ -51,14 +157,12 @@ namespace BusinessLogicLayer.Services.Implements
         {
 
             var productDetails = await _dbcontex.ProductDetails
-        .Where(pd => pd.IDProduct == id)
+        .Where(pd => pd.ID == id)
         .Include(pd => pd.Products)
-            .ThenInclude(p => p.Name)
         .Include(pd => pd.Options)
             .ThenInclude(o => o.Colors)
         .Include(pd => pd.Options)
             .ThenInclude(o => o.Sizes)
-        .Include(pd => pd.Images)
         .FirstOrDefaultAsync();
 
             if (productDetails == null)
@@ -67,9 +171,9 @@ namespace BusinessLogicLayer.Services.Implements
             }
 
             var option = productDetails.Options.FirstOrDefault();
-            var size = option?.Sizes.Name ?? "N/A";
-            var color = option?.Colors.Name ?? "N/A";
-            var image = productDetails.Images.FirstOrDefault()?.Path ?? "N/A";
+            var sizes = productDetails.Options.Select(o => o.Sizes.Name).Distinct().ToList();
+            var colors = productDetails.Options.Select(o => o.Colors.Name).Distinct().ToList();
+            var image = option?.ImageURL ?? "N/A";
 
             var price = option?.CostPrice ?? 0;
             var description = productDetails.Description;
@@ -80,9 +184,9 @@ namespace BusinessLogicLayer.Services.Implements
                 Name = productDetails.Products.Name,
                 Price = price,
                 Description = description,
-                Size = size,
-                Color = color,
-                UrlImg = image  
+                Size = sizes,
+                Color = colors,
+                UrlImg = image
             };
         }
     }
