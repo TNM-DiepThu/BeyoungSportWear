@@ -38,13 +38,11 @@ namespace BusinessLogicLayer.Services.Implements
                 return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
             }
         }
-
         private async Task<string?> CheckIfImageExistsAsync(string sha1Hash)
         {
             var existingImage = await _dbcontext.Images.FirstOrDefaultAsync(i => i.Hash == sha1Hash);
             return existingImage?.Path;
         }
-
         public async Task<ImageCreateVM> CreateAsync(ImageCreateVM request, Cloudinary cloudinary)
         {
             if (request == null)
@@ -95,8 +93,6 @@ namespace BusinessLogicLayer.Services.Implements
 
             return request;
         }
-
-
         public async Task<List<ImageVM>> GetAllActiveAsync()
         {
             var activeImages = await _dbcontext.Images
@@ -172,7 +168,6 @@ namespace BusinessLogicLayer.Services.Implements
         {
             throw new NotImplementedException();
         }
-
         public async Task<string> UploadImageAsync(IFormFile imageFile)
         {
             if (imageFile == null)

@@ -195,6 +195,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         icon: 'success',
                         title: 'Thành công',
                         text: 'Đã lưu sản phẩm thành công!'
+                    }).then(function () {
+                        window.location.href = 'index_productdetails'; 
                     });
                 } else {
                     var errorMessage = 'Có lỗi xảy ra trong quá trình lưu dữ liệu!';

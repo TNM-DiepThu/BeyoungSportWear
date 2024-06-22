@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Azure.Core;
 using BusinessLogicLayer.Services.Interface;
 using BusinessLogicLayer.Viewmodels.Voucher;
 using BusinessLogicLayer.Viewmodels.VoucherUser;
@@ -51,6 +52,7 @@ namespace BusinessLogicLayer.Services.Implements
                     Quantity = request.Quantity,
                     Type = request.Type,
                     MinimumAmount = request.MinimumAmount,
+                    MaximumAmount = request.MaximumAmount,
                     ReducedValue = request.ReducedValue,
                     IsActive = request.IsActive,
                     Status = 1,
@@ -170,6 +172,8 @@ namespace BusinessLogicLayer.Services.Implements
                               Quantity = v.Quantity,
                               Type = v.Type,
                               MinimumAmount = v.MinimumAmount,
+                              MaximumAmount = v.MaximumAmount,
+
                               ReducedValue = v.ReducedValue,
                               IsActive = v.IsActive,
                               Status = (DateTime.Now >= v.StartDate && DateTime.Now <= v.EndDate && v.Quantity > 0) ? 1 : 0
@@ -246,6 +250,7 @@ namespace BusinessLogicLayer.Services.Implements
             voucher.Quantity = request.Quantity;
             voucher.Type = request.Type;
             voucher.MinimumAmount = request.MinimumAmount;
+            voucher.MaximumAmount = request.MaximumAmount;
             voucher.ReducedValue = request.ReducedValue;
             voucher.IsActive = request.IsActive;
             voucher.Status = request.Status;

@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using Azure.Core;
 using BusinessLogicLayer.Services.Interface;
+using BusinessLogicLayer.Viewmodels;
+using BusinessLogicLayer.Viewmodels.Brand;
 using BusinessLogicLayer.Viewmodels.Image;
 using BusinessLogicLayer.Viewmodels.Manufacturer;
+using BusinessLogicLayer.Viewmodels.Material;
 using BusinessLogicLayer.Viewmodels.Options;
 using BusinessLogicLayer.Viewmodels.ProductDetails;
 using CloudinaryDotNet;
@@ -12,6 +15,7 @@ using DataAccessLayer.Entity;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using System.Text;
+using static DataAccessLayer.Entity.Base.EnumBase;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 namespace BusinessLogicLayer.Services.Implements
@@ -22,12 +26,19 @@ namespace BusinessLogicLayer.Services.Implements
         private readonly ApplicationDBContext _dbcontext;
         private readonly IMapper _mapper;
         private readonly Cloudinary _cloudinary;
-
-        public ProductDetailsService(ApplicationDBContext ApplicationDBContext, IMapper mapper, Cloudinary Cloudinary)
+        private readonly IManufacturerService _IManufacturerService;
+        private readonly IBrandService _IBrandService;
+        private readonly IMaterialService _IMaterialService;
+        public ProductDetailsService(ApplicationDBContext ApplicationDBContext, IMapper mapper, 
+            Cloudinary Cloudinary, IManufacturerService iManufacturerService,
+            IMaterialService IMaterialService, IBrandService IBrandService)
         {
             _cloudinary = Cloudinary;
             _dbcontext = ApplicationDBContext;
             _mapper = mapper;
+            _IManufacturerService = iManufacturerService;
+            _IMaterialService = IMaterialService;
+            _IBrandService = IBrandService;
         }
         public async Task<Guid> EnsureCategory(string CategoryName, string CreateBy)
         {
@@ -464,6 +475,7 @@ namespace BusinessLogicLayer.Services.Implements
                                     ManufacturersName = m.Name,
                                     IDMaterial = mt.ID,
                                     KeyCode = pd.KeyCode,
+                                    TotalQuantity = pd.Options.Sum(opt => opt.StockQuantity),
                                     MaterialName = mt.Name,
                                     IDBrand = b.ID,
                                     BrandName = b.Name,
@@ -781,6 +793,59 @@ namespace BusinessLogicLayer.Services.Implements
                     throw new Exception("Error creating product details", ex);
                 }
             }
+        }
+
+        public IQueryable<ProductDetailsVM> Search(List<SearchCondition> conditions)
+        {
+            var query = _dbcontext.Set<ProductDetailsVM>().AsQueryable();
+
+            foreach (var condition in conditions)
+            {
+                switch (condition.Criteria)
+                {
+                    case SearchCriteria.Product:
+                        query = query.Where(p => p.ProductName.Contains(condition.Value));
+                        break;
+                   
+                    case SearchCriteria.Material:
+                        query = query.Join(_dbcontext.Set<Material>(),
+                                           p => p.IDMaterial,
+                                           m => m.ID,
+                                           (p, m) => new { p, m })
+                                     .Where(joined => joined.m.Name.Contains(condition.Value))
+                                     .Select(joined => joined.p);
+                        break;
+                    case SearchCriteria.Brand:
+                        query = query.Join(_dbcontext.Set<Brand>(),
+                                           p => p.IDBrand,
+                                           b => b.ID,
+                                           (p, b) => new { p, b })
+                                     .Where(joined => joined.b.Name.Contains(condition.Value))
+                                     .Select(joined => joined.p);
+                        break;
+                    case SearchCriteria.Category:
+                        query = query.Join(_dbcontext.Set<Category>(),
+                                           p => p.IDCategory,
+                                           c => c.ID,
+                                           (p, c) => new { p, c })
+                                     .Where(joined => joined.c.Name.Contains(condition.Value))
+                                     .Select(joined => joined.p);
+                        break;
+                   
+                    case SearchCriteria.Manufacturer:
+                        query = query.Join(_dbcontext.Set<Manufacturer>(),
+                                           p => p.IDManufacturers,
+                                           mf => mf.ID,
+                                           (p, mf) => new { p, mf })
+                                     .Where(joined => joined.mf.Name.Contains(condition.Value))
+                                     .Select(joined => joined.p);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+
+            return query;
         }
     }
 }

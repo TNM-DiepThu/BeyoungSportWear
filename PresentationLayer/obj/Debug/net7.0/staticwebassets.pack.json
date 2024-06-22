@@ -17,6 +17,18 @@
       "PackagePath": "staticwebassets\\ajax\\ProductDetails\\productdetails_update.js"
     },
     {
+      "Id": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\Voucher\\voucher_created.js",
+      "PackagePath": "staticwebassets\\ajax\\Voucher\\voucher_created.js"
+    },
+    {
+      "Id": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\Voucher\\voucher_index.js",
+      "PackagePath": "staticwebassets\\ajax\\Voucher\\voucher_index.js"
+    },
+    {
+      "Id": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\Voucher\\voucher_update.js",
+      "PackagePath": "staticwebassets\\ajax\\Voucher\\voucher_update.js"
+    },
+    {
       "Id": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\manageruser.js",
       "PackagePath": "staticwebassets\\ajax\\manageruser.js"
     },
