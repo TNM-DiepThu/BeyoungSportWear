@@ -35,6 +35,14 @@
             Cancelled,      //Đã hủy
             Returned,       //Trả lại
         }
+        public enum SearchCriteria
+        {
+            Product,
+            Material,
+            Brand,
+            Category,
+            Manufacturer
+        }
 
     }
 }

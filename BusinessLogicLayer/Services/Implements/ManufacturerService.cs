@@ -22,6 +22,11 @@ namespace BusinessLogicLayer.Services.Implements
             _dbcontext = ApplicationDBContext;
             _mapper = mapper;
         }
+        public async Task<List<ManufacturerVM>> GetAllActiveAsync()
+        {
+            var Obj = await _dbcontext.Manufacturer.Where(b => b.Status == 1).ToListAsync();
+            return _mapper.Map<List<ManufacturerVM>>(Obj);
+        }
         public async Task<bool> CreateAsync(ManufacturerCreateVM request)
         {
             if (request != null)
@@ -47,11 +52,7 @@ namespace BusinessLogicLayer.Services.Implements
             return false;
         }
 
-        public async Task<List<ManufacturerVM>> GetAllActiveAsync()
-        {
-            var Obj = await _dbcontext.Manufacturer.Where(b => b.Status == 1).ToListAsync();
-            return _mapper.Map<List<ManufacturerVM>>(Obj);
-        }
+      
 
         public async Task<List<ManufacturerVM>> GetAllAsync()
         {
