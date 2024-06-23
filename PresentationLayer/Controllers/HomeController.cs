@@ -1,9 +1,13 @@
-﻿using BusinessLogicLayer.Viewmodels.ViewKH;
+﻿using BusinessLogicLayer.Viewmodels;
+using BusinessLogicLayer.Viewmodels.ApplicationUser;
+using BusinessLogicLayer.Viewmodels.ViewKH;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PresentationLayer.Models;
 using System.Diagnostics;
 using System.Net.Http;
+using System.Text;
 
 namespace PresentationLayer.Controllers
 {
@@ -12,12 +16,13 @@ namespace PresentationLayer.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly HttpClient _httpClient;
-
-        public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory,HttpClient httpClient)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory,HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
         {
             _logger = logger;
             _httpClientFactory = httpClientFactory;
             _httpClient = httpClient;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public IActionResult Index()
@@ -105,9 +110,57 @@ namespace PresentationLayer.Controllers
         {
             return View();
         }
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Login(UserLoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var client = _httpClientFactory.CreateClient();
+                    var json = System.Text.Json.JsonSerializer.Serialize(model);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    var response = await client.PostAsync("https://localhost:7241/api/IViewKH/Login", content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseContent = await response.Content.ReadAsStringAsync();
+                        var responseObj = JsonConvert.DeserializeObject<Response>(responseContent);
+
+                        // Lưu JWT token vào session
+                        HttpContext.Session.SetString("JWT", responseObj.Token);
+
+                        return RedirectToAction("Home", "Home");
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Đăng nhập thất bại";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = $"Lỗi: {ex.Message}";
+                }
+            }
+
+            return View(model);
+        }
+
+        public IActionResult Logout()
+        {
+            
+            _httpContextAccessor.HttpContext.Session.Remove("JWT");
+
+
+            HttpContext.SignOutAsync();
+
+            return RedirectToAction("Home", "Home");
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -1,5 +1,6 @@
 ﻿using BusinessLogicLayer.Services.Implements;
 using BusinessLogicLayer.Services.Interface;
+using BusinessLogicLayer.Viewmodels;
 using BusinessLogicLayer.Viewmodels.ApplicationUser;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -72,5 +73,6 @@ namespace ExternalInterfaceLayer.Controllers
                 return NotFound(new { Message = ex.Message });
             }
         }
+      
     }
 }

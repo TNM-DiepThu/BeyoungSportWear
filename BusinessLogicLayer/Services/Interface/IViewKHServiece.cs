@@ -1,4 +1,5 @@
-﻿using BusinessLogicLayer.Viewmodels.ViewKH;
+﻿using BusinessLogicLayer.Viewmodels;
+using BusinessLogicLayer.Viewmodels.ViewKH;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace BusinessLogicLayer.Services.Interface
         public Task<List<ProductVKH>> GetAllPro();
         public Task<ProDetailKH> GetProDetail(Guid id);
         public Task<List<ProductVKH>> GetAllNameUp(int a);
-        
+        public Task<Response> Logout();
+
+
     }
 }

@@ -71,7 +71,7 @@
                     <!-- BEGIN TOP BAR MENU -->
                     <div class="col-md-6 col-sm-6 additional-nav">
                         <ul class="list-unstyled list-inline pull-right">
-                            @if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Token")))
+                            @if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("JWT")))
                             {
                                 <li><a href="@Url.Action("Login", "Home")">Đăng nhập</a></li>
                                 <li><a href="@Url.Action("Register", "Account")">Đăng ký</a></li>
@@ -80,7 +80,11 @@
                             {
                                 <li><a href="shop-account.html">My Account</a></li>
                                 <li><a href="page-change-password.html">Đổi mật khẩu</a></li>
-                                <li><a href="@Url.Action("Logout", "Account")">Đăng xuất</a></li>
+                                <li>
+                                    <form asp-action="Logout" asp-controller="Home" method="post" style="display: inline;">
+                                        <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">Đăng xuất</button>
+                                    </form>
+                                </li>
                             }
                         </ul>
                     </div>
