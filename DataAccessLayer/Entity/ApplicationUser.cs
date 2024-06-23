@@ -4,7 +4,9 @@ namespace DataAccessLayer.Entity
 {
     public partial class ApplicationUser : IdentityUser
     {
+        public string ImageUrl { get; set; }
         public string FirstAndLastName { get; set; } = null!;
+        public int Sex { get; set; }
         public string Address { get; set; } = null!;
         public int Status { get; set; }
 

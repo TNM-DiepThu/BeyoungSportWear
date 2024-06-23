@@ -1,9 +1,14 @@
 ﻿using AutoMapper;
 using BusinessLogicLayer.Services.Interface;
+using BusinessLogicLayer.Viewmodels;
 using BusinessLogicLayer.Viewmodels.ViewKH;
 using CloudinaryDotNet;
 using DataAccessLayer.Application;
+using DataAccessLayer.Entity;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +19,12 @@ namespace BusinessLogicLayer.Services.Implements
 {
     public class ViewKHServiece : IViewKHServiece
     {
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly ApplicationDBContext _dbcontex;
         private readonly IMapper _mapper;
         private readonly Cloudinary _cloudinary;
-
+        private readonly IConfiguration _configuration;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         public ViewKHServiece(ApplicationDBContext applicationDBContext, IMapper mapper, Cloudinary cloudinary)
         {
             _dbcontex = applicationDBContext;
@@ -188,6 +195,11 @@ namespace BusinessLogicLayer.Services.Implements
                 Color = colors,
                 UrlImg = image
             };
+        }
+
+        public async Task<Response> Logout()
+        {
+            throw  new NotImplementedException();
         }
     }
 }

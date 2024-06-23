@@ -203,6 +203,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -295,45 +298,45 @@ namespace DataAccessLayer.Migrations
                     b.HasData(
                         new
                         {
-                            ID = new Guid("72c56af7-7a4e-4944-afeb-b16fdb3af328"),
+                            ID = new Guid("a9b87710-6d7f-49e5-829e-4a4c4b34b434"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 21, 16, 42, 18, 93, DateTimeKind.Local).AddTicks(7813),
+                            CreateDate = new DateTime(2024, 6, 24, 1, 35, 13, 135, DateTimeKind.Local).AddTicks(2770),
                             Description = "",
                             Name = "White",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("62c2d3b6-090b-4dba-9368-ad847ccef82c"),
+                            ID = new Guid("419a2291-29e4-40e1-8930-4072ff6a0fe5"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 21, 16, 42, 18, 93, DateTimeKind.Local).AddTicks(7826),
+                            CreateDate = new DateTime(2024, 6, 24, 1, 35, 13, 135, DateTimeKind.Local).AddTicks(2788),
                             Description = "",
                             Name = "Black",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("eea148a2-f420-47fd-b84a-866c9d33a760"),
+                            ID = new Guid("d0091b01-43f7-4716-8f34-680941b69fb0"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 21, 16, 42, 18, 93, DateTimeKind.Local).AddTicks(7845),
+                            CreateDate = new DateTime(2024, 6, 24, 1, 35, 13, 135, DateTimeKind.Local).AddTicks(2790),
                             Description = "",
                             Name = "Red",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("d569081c-0e58-41d8-aaf2-ef651e87d7b7"),
+                            ID = new Guid("47d4efeb-d529-42ba-8280-5a3b378a649a"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 21, 16, 42, 18, 93, DateTimeKind.Local).AddTicks(7847),
+                            CreateDate = new DateTime(2024, 6, 24, 1, 35, 13, 135, DateTimeKind.Local).AddTicks(2791),
                             Description = "",
                             Name = "Blue",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("b2847f29-34d7-4449-92ae-6baed5900964"),
+                            ID = new Guid("d010b847-ceeb-431d-be8c-4a9106171a9c"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 21, 16, 42, 18, 93, DateTimeKind.Local).AddTicks(7849),
+                            CreateDate = new DateTime(2024, 6, 24, 1, 35, 13, 135, DateTimeKind.Local).AddTicks(2793),
                             Description = "",
                             Name = "Green",
                             Status = 1
@@ -907,45 +910,45 @@ namespace DataAccessLayer.Migrations
                     b.HasData(
                         new
                         {
-                            ID = new Guid("241a2882-bc56-422e-96d2-b2b9202b5e52"),
+                            ID = new Guid("dfaaf2a9-37b7-4545-8d27-f46b3682c57a"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 21, 16, 42, 18, 174, DateTimeKind.Local).AddTicks(8950),
+                            CreateDate = new DateTime(2024, 6, 24, 1, 35, 13, 200, DateTimeKind.Local).AddTicks(729),
                             Description = "",
                             Name = "XS",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("643fc63e-5533-4602-ab04-a370717f7d08"),
+                            ID = new Guid("caa64749-1526-4523-8817-27169bfeaaee"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 21, 16, 42, 18, 174, DateTimeKind.Local).AddTicks(8973),
+                            CreateDate = new DateTime(2024, 6, 24, 1, 35, 13, 200, DateTimeKind.Local).AddTicks(749),
                             Description = "",
                             Name = "S",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("84f2c96a-ca33-45f7-8463-70139fe87fce"),
+                            ID = new Guid("6613b56f-113b-4230-9cf8-8b52a9671d82"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 21, 16, 42, 18, 174, DateTimeKind.Local).AddTicks(8976),
+                            CreateDate = new DateTime(2024, 6, 24, 1, 35, 13, 200, DateTimeKind.Local).AddTicks(751),
                             Description = "",
                             Name = "M",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("22169530-a992-4608-bb2b-9ed7c6f62b16"),
+                            ID = new Guid("8a0d8e85-8d8d-4578-9e13-ca81370bbbf9"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 21, 16, 42, 18, 174, DateTimeKind.Local).AddTicks(8978),
+                            CreateDate = new DateTime(2024, 6, 24, 1, 35, 13, 200, DateTimeKind.Local).AddTicks(753),
                             Description = "",
                             Name = "L",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("27944c6e-ae29-4f87-a52a-cb7c6cd03b5f"),
+                            ID = new Guid("60847095-04b8-45fd-93cb-147827793277"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 21, 16, 42, 18, 174, DateTimeKind.Local).AddTicks(8980),
+                            CreateDate = new DateTime(2024, 6, 24, 1, 35, 13, 200, DateTimeKind.Local).AddTicks(754),
                             Description = "",
                             Name = "XL",
                             Status = 1
@@ -1083,13 +1086,13 @@ namespace DataAccessLayer.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f9aba027-6d9d-4d0f-8bf2-9268ee7243f6",
+                            Id = "051b7b1b-3937-4e21-b488-b349a80887c0",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "168a8488-8987-4a88-8c19-bc6c85b9dd58",
+                            Id = "811cbc73-2ff6-4017-bf6c-baa613eafe03",
                             Name = "Client",
                             NormalizedName = "Client"
                         });
@@ -1199,17 +1202,17 @@ namespace DataAccessLayer.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f2458623-a48d-47c6-b50b-f1f57f38643d",
+                            Id = "80e46676-ea00-4c23-911d-b1f01f63f68b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "332fc48b-2274-4396-8242-607087f56ed4",
+                            ConcurrencyStamp = "6f7711b1-85ff-4c49-8552-70e62f2ddbd6",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAIAAYagAAAAENOlWRkjmPkG4NTqWermXIWIVn4oFqNhelScHquyVo3zuMv15bBG0qgnu8sfhPJHTQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKTsZf3waPLwBvim+hw/TFzrhqf2OS9B++AGB7LRiAPGSLGupx0QbF4M/FBN9Btq6Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0058309f-0a54-4ec8-a38d-256837cde611",
+                            SecurityStamp = "e9fdb850-c00d-4b28-8fa4-ba7cd4217bd4",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -1307,6 +1310,13 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("FirstAndLastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Sex")
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");

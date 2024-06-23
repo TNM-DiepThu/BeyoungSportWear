@@ -5,7 +5,7 @@ namespace DataAccessLayer.Entity
     {
         public Guid IDProductDetails { get; set; }
         public Guid IDCart { get; set; }
-
+        public int Quantity { get; set; }
         public virtual ProductDetails ProductDetails { get; set; } = null!;
         public virtual Cart Cart { get; set; } = null!;
     }
