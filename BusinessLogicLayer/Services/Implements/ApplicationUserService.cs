@@ -15,6 +15,8 @@ using System.Text;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using BusinessLogicLayer.Viewmodels.Address;
+using static DataAccessLayer.Entity.Base.EnumBase;
 namespace BusinessLogicLayer.Services.Implements
 {
     public class ApplicationUserService : IApplicationUserService
@@ -157,6 +159,7 @@ namespace BusinessLogicLayer.Services.Implements
                 FirstAndLastName = u.FirstAndLastName,
                 PhoneNumber = u.PhoneNumber,
                 Status = u.Status,
+
             }).ToList();
 
             return userDataList;
@@ -299,21 +302,16 @@ namespace BusinessLogicLayer.Services.Implements
                         CreateDate = DateTime.Now,
                     };
                     await _dbContext.Cart.AddRangeAsync(cart);
-                    var city = registerUser.AddressCreateVM.FirstOrDefault()?.City;
-                    var Commune = registerUser.AddressCreateVM.FirstOrDefault()?.Commune;
-                    var DistrictCounty = registerUser.AddressCreateVM.FirstOrDefault()?.DistrictCounty;
-                    var SpecificAddress = registerUser.AddressCreateVM.FirstOrDefault()?.SpecificAddress;
+                    var aName = registerUser.AddressCreateVM.FirstOrDefault()?.Name;
+                    var addressType = registerUser.AddressCreateVM.FirstOrDefault()?.AddressType;
+                    var parentID = registerUser.AddressCreateVM.FirstOrDefault()?.ParentID;
                     var address = new Address
                     {
                         ID = Guid.NewGuid(),
                         IDUser = newUser.Id,
-                        City = city,
-                        Commune = Commune,
-                        DistrictCounty = DistrictCounty,
-                        SpecificAddress = SpecificAddress,
-                        Status = 1,
-                        CreateBy = newUser.Id,
-                        CreateDate = DateTime.Now,
+                        Name = aName,
+                        AdressType = addressType.Value,
+                        ParentID = parentID,
                     };
                     await _dbContext.Address.AddRangeAsync(address);
 
@@ -390,6 +388,11 @@ namespace BusinessLogicLayer.Services.Implements
                     return false;
                 }
             }
+        }
+
+        public async Task<List<Address>> GetAddressesByTypeAsync(AdressType type)
+        {
+            return await _dbContext.Address.Where(a => a.AdressType == type).ToListAsync();
         }
     }
 }

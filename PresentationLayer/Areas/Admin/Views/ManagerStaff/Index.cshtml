@@ -1,5 +1,5 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
+@model IEnumerable<DataAccessLayer.Entity.ApplicationUser>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
@@ -59,40 +59,34 @@
                        id="sampleTable">
                     <thead>
                         <tr>
-                            <th width="10"><input type="checkbox" id="all"></th>
-                            <th>ID nhân viên</th>
-                            <th width="150">Họ và tên</th>
-                            <th width="20">Ảnh thẻ</th>
-                            <th width="300">Địa chỉ</th>
-                            <th>Ngày sinh</th>
-                            <th>Giới tính</th>
-                            <th>SĐT</th>
-                            <th>Chức vụ</th>
-                            <th width="100">Tính năng</th>
+                            <th width="150">@Html.DisplayNameFor(model => model.FirstAndLastName)</th>
+                            <th width="150">@Html.DisplayNameFor(model => model.Address)</th>
+                            <th width="150">@Html.DisplayNameFor(model => model.Email)</th>
+                            <th width="150">@Html.DisplayNameFor(model => model.Status)</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>#CD12837</td>
-                            <td>Hồ Thị Thanh Ngân</td>
-                            <td><img class="img-card-person" src="/images/customerApp.png" alt=""></td>
-                            <td>155-157 Trần Quốc Thảo, Quận 3, Hồ Chí Minh </td>
-                            <td>12/02/1999</td>
-                            <td>Nữ</td>
-                            <td>0926737168</td>
-                            <td>Bán hàng</td>
-                            <td class="table-td-center">
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                        onclick="myFunction(this)">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                                        data-toggle="modal" data-target="#ModalUP">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                            </td>
-                        </tr>
+                        @if(Model != null)
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.FirstAndLastName)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Status)</td>
+
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                                    </td>
+
+                                </tr>
+
+                            }
+                        }
                     </tbody>
                 </table>
             </div>

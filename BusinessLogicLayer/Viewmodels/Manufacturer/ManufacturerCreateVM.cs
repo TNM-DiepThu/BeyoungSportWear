@@ -8,7 +8,7 @@ namespace BusinessLogicLayer.Viewmodels.Manufacturer
 {
     public class ManufacturerCreateVM
     {
-        public string CreateBy { get; set; } = null!;
+        public string CreateBy { get; set; } = "admin";
         public string Name { get; set; } = null!;
         public string? Description { get; set; }
         public string Address { get; set; } = null!;

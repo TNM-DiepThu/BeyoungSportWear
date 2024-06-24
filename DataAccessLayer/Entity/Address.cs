@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Entity
 {
-    public partial class Address : EntityBase
+    public partial class Address : EnumBase
     {
+        public Guid ID { get; set; }
         public string IDUser { get; set; } 
-        public string City { get; set; }
-        public string DistrictCounty { get; set; }
-        public string Commune { get; set; }
-        public string SpecificAddress { get; set; }
+
+        public string Name { get; set; }
+
+        public AdressType AdressType { get; set; }
+
+        public int? ParentID { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
 
     }

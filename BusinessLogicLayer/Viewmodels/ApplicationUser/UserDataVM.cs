@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLogicLayer.Viewmodels.Address;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace BusinessLogicLayer.Viewmodels.ApplicationUser
         public string Username { get; set; } = null!;
         public string Email { get; set; } = null!;
         public string? PhoneNumber { get; set; }
+        public List<AddressCreateVM> AddressCreateVM { get; set; }
+
         public int Status { get; set; } = 1;
     }
 }

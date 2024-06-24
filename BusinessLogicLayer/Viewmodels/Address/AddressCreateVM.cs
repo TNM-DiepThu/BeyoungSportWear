@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DataAccessLayer.Entity.Base.EnumBase;
 
 namespace BusinessLogicLayer.Viewmodels.Address
 {
     public class AddressCreateVM
     {
-        public string CreateBy { get; set; }
+        public string CreateBy { get; set; } = "admin";
         public string IDUser { get; set; }
-        public string City { get; set; }
-        public string DistrictCounty { get; set; }
-        public string Commune { get; set; }
-        public string SpecificAddress { get; set; }
-        public int Status { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int? ParentID { get; set; }
+        public AdressType AddressType { get; set; }
     }
 }

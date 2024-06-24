@@ -2,6 +2,7 @@
 using BusinessLogicLayer.Viewmodels.ApplicationUser;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
 
 namespace ExternalInterfaceLayer.Controllers
 {
@@ -86,5 +87,64 @@ namespace ExternalInterfaceLayer.Controllers
             }
             return Ok(new { status = "Success", message = "Successfully." });
         }
+        [HttpGet("getprovince")]
+        public async Task<IActionResult> GetProvince()
+        {
+            string requestURL = "https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/province";
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("token", "55a7ce93-3111-11ef-8e53-0a00184fe694");
+            var response = await httpClient.GetAsync(requestURL);
+            if (response.IsSuccessStatusCode)
+            {
+                var responseData = await response.Content.ReadAsStringAsync();
+                return Ok(responseData);
+            }
+            else
+            {
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                // Log the error message or inspect it for further details
+                return BadRequest($"Server returned error: {errorMessage}");
+            }
+        }
+        [HttpGet("getdistrict")]
+        public async Task<IActionResult> GetDistrict(int provinceID)
+        {
+            string requestURL = $"https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/district?province_id={provinceID}";
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("token", "55a7ce93-3111-11ef-8e53-0a00184fe694");
+            var response = await httpClient.GetAsync(requestURL);
+            if (response.IsSuccessStatusCode)
+            {
+                var responseData = await response.Content.ReadAsStringAsync();
+                return Ok(responseData);
+            }
+            else
+            {
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                // Log the error message or inspect it for further details
+                return BadRequest($"Server returned error: {errorMessage}");
+            }
+        }
+        [HttpGet("getward")]
+        public async Task<IActionResult> GetWard(int districtID)
+        {
+            string requestURL = $"https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/ward?district_id={districtID}";
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("token", "55a7ce93-3111-11ef-8e53-0a00184fe694");
+            var response = await httpClient.GetAsync(requestURL);
+            if (response.IsSuccessStatusCode)
+            {
+                var responseData = await response.Content.ReadAsStringAsync();
+                return Ok(responseData);
+            }
+            else
+            {
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                // Log the error message or inspect it for further details
+                return BadRequest($"Server returned error: {errorMessage}");
+            }
+        }
+
+
     }
 }

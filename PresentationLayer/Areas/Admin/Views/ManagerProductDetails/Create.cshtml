@@ -1,6 +1,6 @@
-﻿@using PresentationLayer.Areas.Admin.Models
+﻿@using PresentationLayer.Areas.Models
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model CompositeViewModel
+@model PresentationLayer.Areas.Models.ViewModelShare
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
@@ -199,7 +199,7 @@
 
                 </div>
                 <form id="productForm">
-                    <input type="hidden" asp-for="@Model.ProductDetailsCreateVM.ID" value="@ViewBag.ID" id="ID" />
+                    <input type="hidden" asp-for="ProductDetailsCreateVM.ID" value="@ViewBag.ID" id="ID" />
                     <div class="row">
                         <div class="form-group col-md-3">
                             <label class="control-label">Mã sản phẩm </label>

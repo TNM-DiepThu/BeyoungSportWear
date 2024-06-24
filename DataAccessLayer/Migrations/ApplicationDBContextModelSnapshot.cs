@@ -28,46 +28,19 @@ namespace DataAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Commune")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CreateBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DeleteBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("DeleteDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DistrictCounty")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AdressType")
+                        .HasColumnType("int");
 
                     b.Property<string>("IDUser")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SpecificAddress")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Status")
+                    b.Property<int?>("ParentID")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -188,7 +161,8 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreateDate")
+                    b.Property<DateTime?>("CreateDate")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeleteBy")
@@ -295,45 +269,45 @@ namespace DataAccessLayer.Migrations
                     b.HasData(
                         new
                         {
-                            ID = new Guid("11b8ddc2-4f0d-4def-a6fb-95034fdbbc4b"),
+                            ID = new Guid("712d2647-4788-461c-a1fb-58f4f7cca507"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 16, 23, 34, 7, 945, DateTimeKind.Local).AddTicks(2177),
+                            CreateDate = new DateTime(2024, 6, 24, 10, 30, 58, 263, DateTimeKind.Local).AddTicks(8976),
                             Description = "",
                             Name = "White",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("07443cfa-4074-4954-b311-68376abe435b"),
+                            ID = new Guid("0db998ce-889a-4489-89ed-3ca8f12797b4"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 16, 23, 34, 7, 945, DateTimeKind.Local).AddTicks(2198),
+                            CreateDate = new DateTime(2024, 6, 24, 10, 30, 58, 263, DateTimeKind.Local).AddTicks(8996),
                             Description = "",
                             Name = "Black",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("7f884502-1bf0-42a5-b481-4b30667b7510"),
+                            ID = new Guid("0b5b4ecf-a4b6-49cb-8f6e-4c99fcc31044"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 16, 23, 34, 7, 945, DateTimeKind.Local).AddTicks(2201),
+                            CreateDate = new DateTime(2024, 6, 24, 10, 30, 58, 263, DateTimeKind.Local).AddTicks(8998),
                             Description = "",
                             Name = "Red",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("ea865e38-2abc-4956-94c2-a7f9f5425bbb"),
+                            ID = new Guid("15b4c771-8f3f-4b1c-ae75-9cb7bd3478d6"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 16, 23, 34, 7, 945, DateTimeKind.Local).AddTicks(2203),
+                            CreateDate = new DateTime(2024, 6, 24, 10, 30, 58, 263, DateTimeKind.Local).AddTicks(9000),
                             Description = "",
                             Name = "Blue",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("beab1086-4398-4991-bff6-71da0a167203"),
+                            ID = new Guid("7b8528b6-3bc2-497c-ae71-950e86cb5286"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 16, 23, 34, 7, 945, DateTimeKind.Local).AddTicks(2224),
+                            CreateDate = new DateTime(2024, 6, 24, 10, 30, 58, 263, DateTimeKind.Local).AddTicks(9002),
                             Description = "",
                             Name = "Green",
                             Status = 1
@@ -872,7 +846,6 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CreateBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateDate")
@@ -907,45 +880,45 @@ namespace DataAccessLayer.Migrations
                     b.HasData(
                         new
                         {
-                            ID = new Guid("2097e0ad-3a6d-411a-8034-5e7b4401a183"),
+                            ID = new Guid("93134f97-ef77-4bca-920c-e89f81ad5306"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 16, 23, 34, 8, 8, DateTimeKind.Local).AddTicks(9659),
+                            CreateDate = new DateTime(2024, 6, 24, 10, 30, 58, 314, DateTimeKind.Local).AddTicks(2584),
                             Description = "",
                             Name = "XS",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("b5a72d6b-8f4f-4039-b748-ea806ee7dca9"),
+                            ID = new Guid("9e8369b6-2dbd-4119-95aa-340e7422bbe5"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 16, 23, 34, 8, 8, DateTimeKind.Local).AddTicks(9681),
+                            CreateDate = new DateTime(2024, 6, 24, 10, 30, 58, 314, DateTimeKind.Local).AddTicks(2602),
                             Description = "",
                             Name = "S",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("aecb6878-93d1-4f0d-b3de-86cb8990512e"),
+                            ID = new Guid("1abd1702-6f9d-4973-8486-3e96fd28dfae"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 16, 23, 34, 8, 8, DateTimeKind.Local).AddTicks(9683),
+                            CreateDate = new DateTime(2024, 6, 24, 10, 30, 58, 314, DateTimeKind.Local).AddTicks(2604),
                             Description = "",
                             Name = "M",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("5c483497-292e-42f7-aa3e-c8d44f1cd714"),
+                            ID = new Guid("1520b20b-86dc-447e-9adb-899f97b8ffb4"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 16, 23, 34, 8, 8, DateTimeKind.Local).AddTicks(9685),
+                            CreateDate = new DateTime(2024, 6, 24, 10, 30, 58, 314, DateTimeKind.Local).AddTicks(2608),
                             Description = "",
                             Name = "L",
                             Status = 1
                         },
                         new
                         {
-                            ID = new Guid("4bb86da0-5916-4662-b2c3-0bf1fcbc5c22"),
+                            ID = new Guid("3f18852d-a98b-4279-9f9e-125bca1e0bfa"),
                             CreateBy = "",
-                            CreateDate = new DateTime(2024, 6, 16, 23, 34, 8, 8, DateTimeKind.Local).AddTicks(9687),
+                            CreateDate = new DateTime(2024, 6, 24, 10, 30, 58, 314, DateTimeKind.Local).AddTicks(2610),
                             Description = "",
                             Name = "XL",
                             Status = 1
@@ -1026,7 +999,8 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreateDate")
+                    b.Property<DateTime?>("CreateDate")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeleteBy")
@@ -1080,13 +1054,13 @@ namespace DataAccessLayer.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9a401284-b734-4185-ad63-337c9d4929ba",
+                            Id = "fea7922e-85b2-4324-8eb9-d2edfbdab5df",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "1fcb4923-d61c-4cd4-9210-38cd062cba20",
+                            Id = "9bd7a165-0b30-4f73-a0b1-2572cc18a1cf",
                             Name = "Client",
                             NormalizedName = "Client"
                         });
@@ -1196,17 +1170,17 @@ namespace DataAccessLayer.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3283be2b-0d5b-4d75-995a-720c73b2d147",
+                            Id = "58022c6d-dc31-4ff5-960e-6d1629e68d7a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9aba5586-e50c-4570-acdb-b519057fb776",
+                            ConcurrencyStamp = "660008bc-02cc-4daf-b178-b41871581f85",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFW9FQ8S9atSr/6SpxexnzxnKkjvqWvyjn7kIE993L7n2iDYjaLsHA0JjVIoOwe7Iw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGG92AlFpiemDzoHHrSezE3VHV/3isybM3EDvUjLPS76Q6VZeGTCDQWsReF//a+3/Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "233a0fe0-7b31-4571-8a59-5022c542d3e1",
+                            SecurityStamp = "1df2e871-b076-471b-bfce-7595ae7689c8",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });

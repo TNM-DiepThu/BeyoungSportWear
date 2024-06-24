@@ -8,7 +8,7 @@ namespace BusinessLogicLayer.Viewmodels.Material
 {
     public class MaterialCreateVM
     {
-        public string CreateBy { get; set; } = null!;
+        public string CreateBy { get; set; } = "admin";
         public string Name { get; set; } = null!;
         public string? Description { get; set; }
         public int Status { get; set; }
