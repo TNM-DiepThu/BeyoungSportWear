@@ -23,6 +23,7 @@ namespace PresentationLayer.Controllers
             _httpClientFactory = httpClientFactory;
             _httpClient = httpClient;
             _httpContextAccessor = httpContextAccessor;
+            
         }
 
         public IActionResult Index()
@@ -65,7 +66,7 @@ namespace PresentationLayer.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Exception occurred: {ex.Message}");
-                return StatusCode(500); // Trả về lỗi 500 nếu có lỗi xảy ra
+                return StatusCode(500); 
             }
         }
         public async Task<IActionResult> Test(int a = 0)

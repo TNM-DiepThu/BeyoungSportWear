@@ -45,12 +45,15 @@
                         </select>
                     </div>
                 </div>
-                <div class="product-page-cart">
-                    <div class="product-quantity">
-                        <input id="product-quantity" type="text" value="1" readonly class="form-control input-sm">
+                <form id="add-to-cart-form" asp-action="AddToCart" asp-controller="CartM" method="post">
+                    <div class="product-page-cart">
+                        <div class="product-quantity">
+                            <input id="id" name="productId" type="hidden" value="@Model.ID">
+                            <input id="sl" name="quantity" type="text" value="1" readonly class="form-control input-sm">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
                     </div>
-                    <button class="btn btn-primary" type="submit">Add to cart</button>
-                </div>
+                </form>
                 <ul class="social-icons">
                     <li><a class="facebook" data-original-title="facebook" href="javascript:;"></a></li>
                     <li><a class="twitter" data-original-title="twitter" href="javascript:;"></a></li>

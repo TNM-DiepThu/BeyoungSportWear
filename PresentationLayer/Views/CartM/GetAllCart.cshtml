@@ -1,0 +1,65 @@
+﻿@using BusinessLogicLayer.Viewmodels.ViewKH
+@model List<GetCartDetailVM>
+<div class="col-md-12 col-sm-12">
+    <h1> Giỏ hàng</h1>
+    <div class="goods-page">
+        <div class="goods-data clearfix">
+            <div class="table-wrapper-responsive">
+                <table summary="Shopping cart">
+
+                    @if (Model == null || !Model.Any())
+                    {
+                        <p>No cart details found.</p>
+                    }
+                    else
+                    {
+                        <tr>
+                            <th class="goods-page-image">Image</th>
+                            <th class="goods-page-description">Description</th>
+                            <th class="goods-page-quantity">Quantity</th>
+                            <th class="goods-page-price">Unit price</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="goods-page-image">
+                                    <a href="javascript:;"><img src="@item.Url" alt="Berry Lace Dress"></a>
+                                </td>
+                                <td class="goods-page-description">
+                                    <h3><a asp-action="ProductDetail" asp-controller="Home" asp-route-id="@item.IDProductDetails">@item.Name</a></h3>
+                                    <p><strong></strong> @item.Description</p>
+                                </td>
+                                <td class="goods-page-quantity">
+                                    <div class="product-quantity">
+                                        <input id="product-quantity" type="text" value="@item.Quantity" readonly class="form-control input-sm">
+                                    </div>
+                                </td>
+                                <td class="goods-page-price">
+                                    <strong>@item.Price<span>.vnd</span></strong>
+                                </td>                               
+                                <td class="del-goods-col">
+                                <td class="del-goods-col">
+                                    <a class="del-goods"  asp-action="Delete" asp-route-id="@item.IDProductDetails"></a>
+                                </td>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    
+                </table>
+            </div>
+
+            @* <div class="shopping-total">
+                <ul>
+
+                    <li class="shopping-total-price">
+                        <em>Total</em>
+                        <strong class="price"><span>$</span>50.00</strong>
+                    </li>
+                </ul>
+            </div> *@
+        </div>
+        <button class="btn btn-default" type="submit"><a asp-controller="Home" asp-action="Home" style="color:whitesmoke">Tiếp tục mua sắm</a> <i class="fa fa-shopping-cart"></i></button>
+        <button class="btn btn-primary" type="submit">Thanh toán <i class="fa fa-check"></i></button>
+    </div>
+</div>
