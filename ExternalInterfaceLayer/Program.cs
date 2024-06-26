@@ -37,6 +37,7 @@ builder.Services.AddTransient<IColorService, ColorService>();
 builder.Services.AddTransient<IApplicationUserService, ApplicationUserService>();
 builder.Services.AddTransient<ApplicationDBContext>();
 builder.Services.AddTransient<IViewKHServiece, ViewKHServiece>();
+builder.Services.AddTransient<ICartServieceM,CartServieceM>();
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDBContext>()
