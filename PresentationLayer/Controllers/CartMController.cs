@@ -72,8 +72,7 @@ namespace PresentationLayer.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-
-                    return RedirectToAction("Home", "Home");
+                    return RedirectToAction("ListProduct", "Home");
                 }
                 else
                 {
