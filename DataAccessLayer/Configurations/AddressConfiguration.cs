@@ -15,9 +15,6 @@ namespace DataAccessLayer.Configurations
         {
             //BASE
             builder.HasKey(c => c.ID);
-            builder.Property(c => c.Name).IsRequired();
-            builder.Property(c => c.AdressType).IsRequired();
-            builder.Property(c => c.ParentID).IsRequired();
 
             builder.HasOne<ApplicationUser>(c => c.ApplicationUser)
                 .WithMany(c => c.Addresss)

@@ -8,6 +8,8 @@ namespace PresentationLayer.Areas.Models
     {
         public AddressCreateVM Address { get; set; } 
         public RegisterUser RegisterUser { get; set; }
+
+        public UserDataVM UserData { get; set; }
         public ProductDetailsCreateVM ProductDetailsCreateVM { get; set; }
     }
 }

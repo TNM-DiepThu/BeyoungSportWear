@@ -35,12 +35,6 @@
             Cancelled,      //Đã hủy
             Returned,       //Trả lại
         }
-        public enum  AdressType
-        {
-            Province,
-            Ward,
-            District
-        }
 
     }
 }

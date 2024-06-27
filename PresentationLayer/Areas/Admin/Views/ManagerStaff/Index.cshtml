@@ -60,21 +60,23 @@
                     <thead>
                         <tr>
                             <th width="150">@Html.DisplayNameFor(model => model.FirstAndLastName)</th>
-                            <th width="150">@Html.DisplayNameFor(model => model.Address)</th>
+                            <th width="150">@Html.DisplayNameFor(model => model.PhoneNumber)</th>
                             <th width="150">@Html.DisplayNameFor(model => model.Email)</th>
+                            <th width="150">@Html.DisplayNameFor(model => model.Address)</th>
                             <th width="150">@Html.DisplayNameFor(model => model.Status)</th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        @if(Model != null)
+                        @if (Model != null)
                         {
-                            @foreach (var item in Model)
+                            foreach (var item in Model)
                             {
                                 <tr>
                                     <td>@Html.DisplayFor(modelItem => item.FirstAndLastName)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Address)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Status)</td>
 
                                     <td>
@@ -86,6 +88,7 @@
                                 </tr>
 
                             }
+
                         }
                     </tbody>
                 </table>

@@ -1,4 +1,5 @@
 ﻿using BusinessLogicLayer.Viewmodels;
+using BusinessLogicLayer.Viewmodels.Address;
 using BusinessLogicLayer.Viewmodels.ApplicationUser;
 using DataAccessLayer.Entity;
 using System;
@@ -18,7 +19,6 @@ namespace BusinessLogicLayer.Services.Interface
         Task<bool> RemoveAsync(string ID, string IDUserDelete);
         Task<Response> RegisterAsync(RegisterUser registerUser, string role);
         public Task<Response> Login(UserLoginModel model);
-        Task<List<Address>> GetAddressesByTypeAsync(AdressType type);
 
     }
 }

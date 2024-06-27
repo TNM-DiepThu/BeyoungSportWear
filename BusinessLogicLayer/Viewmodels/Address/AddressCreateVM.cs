@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static DataAccessLayer.Entity.Base.EnumBase;
+using CloudinaryDotNet.Actions;
+using DataAccessLayer.Entity;
 
 namespace BusinessLogicLayer.Viewmodels.Address
 {
@@ -11,9 +12,7 @@ namespace BusinessLogicLayer.Viewmodels.Address
     {
         public string CreateBy { get; set; } = "admin";
         public string IDUser { get; set; }
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public int? ParentID { get; set; }
-        public AdressType AddressType { get; set; }
+        public string MainAddress { get; set; }
+
     }
 }

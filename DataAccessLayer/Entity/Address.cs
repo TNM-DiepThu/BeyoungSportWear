@@ -1,22 +1,19 @@
 ﻿using DataAccessLayer.Entity.Base;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAccessLayer.Entity
 {
-    public partial class Address : EnumBase
+    public partial class Address : EntityBase
     {
-        public Guid ID { get; set; }
-        public string IDUser { get; set; } 
+        public string IDUser { get; set; }
 
-        public string Name { get; set; }
+        public string MainAddress { get; set; }
 
-        public AdressType AdressType { get; set; }
-
-        public int? ParentID { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
 
     }

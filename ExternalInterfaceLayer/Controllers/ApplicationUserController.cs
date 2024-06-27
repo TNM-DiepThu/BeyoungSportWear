@@ -1,8 +1,10 @@
 ﻿using BusinessLogicLayer.Services.Interface;
+using BusinessLogicLayer.Viewmodels.Address;
 using BusinessLogicLayer.Viewmodels.ApplicationUser;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
+using System.Text;
 
 namespace ExternalInterfaceLayer.Controllers
 {
@@ -64,7 +66,7 @@ namespace ExternalInterfaceLayer.Controllers
         }
         [HttpPost]
         [Route("Register")]
-        public async Task<IActionResult> Register([FromBody] RegisterUser registerUser, string role)
+        public async Task<IActionResult> Register([FromBody]RegisterUser registerUser, string role)
         {
 
             var result = await _IUserService.RegisterAsync(registerUser, role);
@@ -87,7 +89,7 @@ namespace ExternalInterfaceLayer.Controllers
             }
             return Ok(new { status = "Success", message = "Successfully." });
         }
-        [HttpGet("getprovince")]
+        [HttpGet("get-province")]
         public async Task<IActionResult> GetProvince()
         {
             string requestURL = "https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/province";
@@ -106,7 +108,7 @@ namespace ExternalInterfaceLayer.Controllers
                 return BadRequest($"Server returned error: {errorMessage}");
             }
         }
-        [HttpGet("getdistrict")]
+        [HttpGet("get-district")]
         public async Task<IActionResult> GetDistrict(int provinceID)
         {
             string requestURL = $"https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/district?province_id={provinceID}";
@@ -125,7 +127,7 @@ namespace ExternalInterfaceLayer.Controllers
                 return BadRequest($"Server returned error: {errorMessage}");
             }
         }
-        [HttpGet("getward")]
+        [HttpGet("get-ward")]
         public async Task<IActionResult> GetWard(int districtID)
         {
             string requestURL = $"https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/ward?district_id={districtID}";
@@ -145,6 +147,21 @@ namespace ExternalInterfaceLayer.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("get-password")]
+        public async Task<string> GenerateRandomPassword(int length)
+        {
+            length = 10;
+            const string validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()";
+            StringBuilder password = new StringBuilder();
+            Random random = new Random();
 
+            while (0 < length--)
+            {
+                password.Append(validChars[random.Next(validChars.Length)]);
+            }
+
+            return password.ToString();
+        }
     }
 }

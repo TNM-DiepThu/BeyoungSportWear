@@ -271,16 +271,6 @@ namespace BusinessLogicLayer.Services.Implements
                     };
                 }
 
-                if (registerUser.Password != registerUser.ConfirmPassword)
-                {
-                    return new Response
-                    {
-                        IsSuccess = false,
-                        StatusCode = 400,
-                        Message = "The password and confirmation password do not match."
-                    };
-                }
-
                 var newUser = new ApplicationUser
                 {
                     UserName = registerUser.Username,
@@ -290,7 +280,8 @@ namespace BusinessLogicLayer.Services.Implements
                     Status = 1,
                     EmailConfirmed = false
                 };
-                var result = await _userManager.CreateAsync(newUser, registerUser.Password);
+                var password = GenerateRandomPassword(10).ToString();
+                var result = await _userManager.CreateAsync(newUser, password);
                 if(result.Succeeded)
                 {
                     var cart = new Cart
@@ -301,19 +292,9 @@ namespace BusinessLogicLayer.Services.Implements
                         CreateBy = newUser.Id,
                         CreateDate = DateTime.Now,
                     };
+                    
                     await _dbContext.Cart.AddRangeAsync(cart);
-                    var aName = registerUser.AddressCreateVM.FirstOrDefault()?.Name;
-                    var addressType = registerUser.AddressCreateVM.FirstOrDefault()?.AddressType;
-                    var parentID = registerUser.AddressCreateVM.FirstOrDefault()?.ParentID;
-                    var address = new Address
-                    {
-                        ID = Guid.NewGuid(),
-                        IDUser = newUser.Id,
-                        Name = aName,
-                        AdressType = addressType.Value,
-                        ParentID = parentID,
-                    };
-                    await _dbContext.Address.AddRangeAsync(address);
+                    await _dbContext.Address.AddRangeAsync();
 
                 }
                 await _dbContext.SaveChangesAsync();
@@ -389,10 +370,20 @@ namespace BusinessLogicLayer.Services.Implements
                 }
             }
         }
-
-        public async Task<List<Address>> GetAddressesByTypeAsync(AdressType type)
+        public async Task<string> GenerateRandomPassword(int length)
         {
-            return await _dbContext.Address.Where(a => a.AdressType == type).ToListAsync();
+            length = 10;
+            const string validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()";
+            StringBuilder password = new StringBuilder();
+            Random random = new Random();
+
+            while (0 < length--)
+            {
+                password.Append(validChars[random.Next(validChars.Length)]);
+            }
+
+            return password.ToString();
         }
+
     }
 }

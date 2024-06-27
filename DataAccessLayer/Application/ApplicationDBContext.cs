@@ -83,6 +83,7 @@ namespace DataAccessLayer.Application
         {
             builder.Entity<IdentityRole>().HasData(
                     new IdentityRole() { Name = "Admin", NormalizedName = "Admin" },
+                    new IdentityRole() { Name = "Staff", NormalizedName = "Staff" },
                     new IdentityRole() { Name = "Client", NormalizedName = "Client" }
                 );
         }
