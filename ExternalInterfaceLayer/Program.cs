@@ -24,6 +24,7 @@ builder.Services.AddTransient<ICartProductDetailsService, CartProductDetailsServ
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 builder.Services.AddTransient<IManufacturerService, ManufacturerService>();
 builder.Services.AddTransient<IVoucherUserService, VoucherUserService>();
+builder.Services.AddTransient<IAddressService, AddressService>();
 builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddTransient<IOrderDetailsService, OrderDetailsService>();
 builder.Services.AddTransient<IImageService, ImageService>();

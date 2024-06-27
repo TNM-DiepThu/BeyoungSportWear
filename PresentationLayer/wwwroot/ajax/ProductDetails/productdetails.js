@@ -1,12 +1,231 @@
 ﻿
+//document.addEventListener('DOMContentLoaded', function () {
+//    const productForm = document.getElementById('productForm');
+//    productForm.addEventListener('submit', function (event) {
+//        event.preventDefault(); 
+//    });
+
+//    const btnSave = document.getElementById('btn_saveproductdetails');
+//    btnSave.addEventListener('click', function () {
+//        var product_product = document.getElementById("product_name").value;
+//        var product_category = document.getElementById("category_name").value;
+//        var product_manufacture = document.getElementById("manufacture_name").value;
+//        var product_material = document.getElementById("material_name").value;
+//        var select_brand = document.getElementById("brand_name").value;
+//        var product_style = document.getElementById("product_style").value;
+//        var product_origin = document.getElementById("product_origin").value;
+//        var product_description = document.getElementById("product_description").value;
+//        var product_images = document.getElementById("image-upload").files;
+//        console.log(product_images)
+//        var productId = guid();
+//        if (!product_product || !product_category || !product_manufacture || !product_material || !select_brand || !product_style || !product_origin || !product_description) {
+//            Swal.fire({
+//                icon: 'error',
+//                title: 'Lỗi',
+//                text: 'Vui lòng điền đầy đủ tất cả các trường thông tin!',
+//            });
+//            return;
+//        }
+
+//        Swal.fire({
+//            title: 'Xác nhận',
+//            text: 'Bạn có muốn lưu sản phẩm này?',
+//            icon: 'question',
+//            showCancelButton: true,
+//            confirmButtonText: 'Đồng ý',
+//            cancelButtonText: 'Hủy bỏ'
+//        }).then((result) => {
+//            if (result.isConfirmed) {
+//                Swal.fire({
+//                    title: 'Đang lưu sản phẩm...',
+//                    html: 'Vui lòng chờ...',
+//                    timerProgressBar: true,
+//                    didOpen: () => {
+//                        Swal.showLoading();
+//                    }
+//                });
+
+//                var productData = {
+//                    CreateBy: "John Doe",
+//                    ID: productId,
+//                    ProductName: product_product,
+//                    CategoryName: product_category,
+//                    ManufacturersName: product_manufacture,
+//                    MaterialName: product_material,
+//                    BrandName: select_brand,
+//                    Style: product_style,
+//                    Origin: product_origin,
+//                    Description: product_description,
+//                    ImagePaths: [], 
+//                    OptionsCreateVM: createOptionsData(),
+//                };
+
+//                saveProduct(productData, product_images);
+//                console.log(productData);
+//                console.log(product_images);
+
+//            }
+//        });
+//    });
+//    function uploadImages(productId, product_images) {
+
+//        if (product_images.length === 0) {
+//            console.error('Không có tệp nào để tải lên.');
+//            return;
+//        }
+
+//        var formData = new FormData();
+//        var maxFileSize = 2 * 1024 * 1024; 
+//        for (var i = 0; i < product_images.length; i++) {
+//            var file = product_images[i];
+//            if (file.size > maxFileSize) {
+//                Swal.fire({
+//                    icon: 'error',
+//                    title: 'Tệp quá lớn',
+//                    text: 'Kích thước tệp ' + file.name + ' vượt quá giới hạn 2MB.'
+//                });
+//                return;
+//            }
+//            formData.append('Path', file);
+//        }
+
+//        formData.append('IDProductDetails', productId);
+//        formData.append('CreateBy', 'John Doe'); 
+//        formData.append('Status', 1);
+
+
+//        var xhr = new XMLHttpRequest();
+//        xhr.open('POST', 'https://localhost:7241/api/images/upload_images', true);
+//        xhr.onreadystatechange = function () {
+//            if (xhr.readyState === 4) {
+//                if (xhr.status === 200) {
+//                    console.log('Ảnh đã được tải lên thành công');
+//                    Swal.fire({
+//                        icon: 'success',
+//                        title: 'Thành công',
+//                        text: 'Sản phẩm và ảnh đã được lưu thành công!'
+//                    });
+//                } else {
+//                    var errorMessage = 'Có lỗi xảy ra trong quá trình tải lên ảnh!';
+//                    if (xhr.responseText) {
+//                        errorMessage = `Lỗi từ máy chủ: ${xhr.responseText}`;
+//                    }
+//                    Swal.fire({
+//                        icon: 'error',
+//                        title: 'Tải ảnh thất bại',
+//                        text: errorMessage
+//                    });
+//                    console.error('Đã xảy ra lỗi khi tải lên ảnh:', xhr.responseText);
+//                }
+//            }
+//        };
+//        xhr.onerror = function () {
+//            Swal.fire({
+//                icon: 'error',
+//                title: 'Tải ảnh thất bại',
+//                text: 'Đã xảy ra lỗi khi gửi yêu cầu tải ảnh!'
+//            });
+//            console.error('Đã xảy ra lỗi khi gửi yêu cầu tải ảnh!');
+//        };
+//        xhr.send(formData);
+//    }
+//    function saveProduct(productData, product_images) {
+//        var xhr = new XMLHttpRequest();
+//        var url = 'https://localhost:7241/api/ProductDetails/productdetails_create';
+//        xhr.open('POST', url, true);
+//        xhr.setRequestHeader('Content-Type', 'application/json');
+//        xhr.onreadystatechange = function () {
+//            if (xhr.readyState === 4) {
+//                if (xhr.status === 200) {
+//                    var response = JSON.parse(xhr.responseText);
+//                    console.log('Đã lưu sản phẩm thành công:', response);
+
+//                    uploadImages(productData.ID, product_images);
+//                } else {
+//                    var errorMessage = 'Có lỗi xảy ra trong quá trình lưu dữ liệu!';
+//                    if (xhr.responseText) {
+//                        errorMessage = `Lỗi từ máy chủ: ${xhr.responseText}`;
+//                    }
+//                    Swal.fire({
+//                        icon: 'error',
+//                        title: 'Lưu thất bại',
+//                        text: errorMessage
+//                    });
+//                    console.error('Đã xảy ra lỗi khi lưu sản phẩm:', xhr.status);
+//                }
+//            }
+//        };
+//        xhr.onerror = function () {
+//            Swal.fire({
+//                icon: 'error',
+//                title: 'Lưu thất bại',
+//                text: 'Đã xảy ra lỗi khi gửi yêu cầu lưu sản phẩm!'
+//            });
+//            console.error('Đã xảy ra lỗi khi gửi yêu cầu lưu sản phẩm!');
+//        };
+//        xhr.send(JSON.stringify(productData));
+//    }
+
+//    function createOptionsData() {
+//        const optionsData = [];
+//        const rows = document.getElementById('classificationBody').getElementsByTagName('tr');
+//        for (let i = 0; i < rows.length; i++) {
+//            const cells = rows[i].getElementsByTagName('td');
+//            if (cells.length === 7) {
+//                const color = cells[1].textContent.trim();
+//                const size = cells[2].textContent.trim();
+//                const giaNhap = cells[3].querySelector('input').value;
+//                const giaBan = cells[4].querySelector('input').value;
+//                const soLuong = cells[5].querySelector('input').value;
+
+
+//                const imagePreviewId = cells[0].id;
+//                const imagePaths = cells[0].querySelector('img')?.src || '';
+
+//                const option = {
+//                    ID: guid(),
+//                    CreateBy: "John Doe",
+//                    ColorName: color,
+//                    SizesName: size,
+//                    StockQuantity: parseInt(soLuong) || 0,
+//                    CostPrice: parseFloat(giaNhap) || 0,
+//                    RetailPrice: parseFloat(giaBan) || 0,
+//                    Discount: null,
+//                    ImageURL: imagePaths,
+//                    Status: 1,
+//                };
+
+//                optionsData.push(option);
+//            }
+//        }
+//        return optionsData;
+//    }
+//    const addColorButton = document.getElementById('addColorButton');
+//    addColorButton.addEventListener('click', function () {
+//        addColor();
+//    });
+
+//    const addSizeButton = document.getElementById('addSizeButton');
+//    addSizeButton.addEventListener('click', function () {
+//        addSize();
+//    });
+
+//    function guid() {
+//        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+//            var r = Math.random() * 16 | 0,
+//                v = c === 'x' ? r : (r & 0x3 | 0x8);
+//            return v.toString(16);
+//        });
+//    }
+//});
 document.addEventListener('DOMContentLoaded', function () {
     const productForm = document.getElementById('productForm');
     productForm.addEventListener('submit', function (event) {
-        event.preventDefault(); 
+        event.preventDefault();
     });
 
     const btnSave = document.getElementById('btn_saveproductdetails');
-    btnSave.addEventListener('click', function () {
+    btnSave.addEventListener('click', async function () {
         var product_product = document.getElementById("product_name").value;
         var product_category = document.getElementById("category_name").value;
         var product_manufacture = document.getElementById("manufacture_name").value;
@@ -16,8 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var product_origin = document.getElementById("product_origin").value;
         var product_description = document.getElementById("product_description").value;
         var product_images = document.getElementById("image-upload").files;
-        console.log(product_images)
-        var productId = guid();
+
         if (!product_product || !product_category || !product_manufacture || !product_material || !select_brand || !product_style || !product_origin || !product_description) {
             Swal.fire({
                 icon: 'error',
@@ -27,62 +245,82 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        Swal.fire({
-            title: 'Xác nhận',
-            text: 'Bạn có muốn lưu sản phẩm này?',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonText: 'Đồng ý',
-            cancelButtonText: 'Hủy bỏ'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: 'Đang lưu sản phẩm...',
-                    html: 'Vui lòng chờ...',
-                    timerProgressBar: true,
-                    didOpen: () => {
-                        Swal.showLoading();
-                    }
-                });
+        try {
+            // Lưu sản phẩm
+            const productId = await saveProduct({
+                CreateBy: "John Doe",
+                ID: guid(),
+                ProductName: product_product,
+                CategoryName: product_category,
+                ManufacturersName: product_manufacture,
+                MaterialName: product_material,
+                BrandName: select_brand,
+                Style: product_style,
+                Origin: product_origin,
+                Description: product_description,
+                ImagePaths: [], // Chưa có đường dẫn hình ảnh, sẽ cập nhật sau
+                OptionsCreateVM: createOptionsData(),
+            });
 
-                var productData = {
-                    CreateBy: "John Doe",
-                    ID: productId,
-                    ProductName: product_product,
-                    CategoryName: product_category,
-                    ManufacturersName: product_manufacture,
-                    MaterialName: product_material,
-                    BrandName: select_brand,
-                    Style: product_style,
-                    Origin: product_origin,
-                    Description: product_description,
-                    ImagePaths: [], 
-                    OptionsCreateVM: createOptionsData(),
-                };
-
-                saveProduct(productData, product_images);
-                console.log(productData);
-                console.log(product_images);
-
-            }
-        });
+            // Tải lên ảnh
+            await uploadImages(productId.ID, product_images);
+            console.log(productId.ID)
+            // Thông báo thành công
+            Swal.fire({
+                icon: 'success',
+                title: 'Thành công',
+                text: 'Sản phẩm và ảnh đã được lưu thành công!'
+            });
+        } catch (error) {
+            console.error('Đã xảy ra lỗi:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Lỗi',
+                text: 'Đã xảy ra lỗi trong quá trình lưu sản phẩm hoặc tải ảnh!'
+            });
+        }
     });
-    function uploadImages(productId, product_images) {
 
+    async function saveProduct(productData) {
+        return new Promise((resolve, reject) => {
+            var xhr = new XMLHttpRequest();
+            var url = 'https://localhost:7241/api/ProductDetails/productdetails_create';
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        console.log('Đã lưu sản phẩm thành công:', response);
+                        console.log(productData);
+                        resolve(response.ID);
+                    } else {
+                        reject(xhr.responseText || 'Lỗi khi lưu sản phẩm');
+                    }
+                }
+            };
+            xhr.onerror = function () {
+                reject('Lỗi khi gửi yêu cầu lưu sản phẩm');
+            };
+            xhr.send(JSON.stringify(productData));
+        });
+    }
+
+    async function uploadImages(productId, product_images) {
         if (product_images.length === 0) {
             console.error('Không có tệp nào để tải lên.');
             return;
         }
 
-        var formData = new FormData();
-        var maxFileSize = 2 * 1024 * 1024; 
-        for (var i = 0; i < product_images.length; i++) {
-            var file = product_images[i];
+        const maxFileSize = 2 * 1024 * 1024; 
+        const formData = new FormData();
+        for (let i = 0; i < product_images.length; i++) {
+            const file = product_images[i];
             if (file.size > maxFileSize) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Tệp quá lớn',
-                    text: 'Kích thước tệp ' + file.name + ' vượt quá giới hạn 2MB.'
+                    text: `Kích thước tệp ${file.name} vượt quá giới hạn 2MB.`
                 });
                 return;
             }
@@ -90,80 +328,29 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         formData.append('IDProductDetails', productId);
-        formData.append('CreateBy', 'John Doe'); 
+        formData.append('CreateBy', 'John Doe');
         formData.append('Status', 1);
 
+        console.log(productId)
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://localhost:7241/api/images/upload_images', true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    console.log('Ảnh đã được tải lên thành công');
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Thành công',
-                        text: 'Sản phẩm và ảnh đã được lưu thành công!'
-                    });
-                } else {
-                    var errorMessage = 'Có lỗi xảy ra trong quá trình tải lên ảnh!';
-                    if (xhr.responseText) {
-                        errorMessage = `Lỗi từ máy chủ: ${xhr.responseText}`;
+        return new Promise((resolve, reject) => {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://localhost:7241/api/images/upload_images', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        console.log('Ảnh đã được tải lên thành công');
+                        resolve();
+                    } else {
+                        reject(xhr.responseText || 'Lỗi khi tải lên ảnh');
                     }
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Tải ảnh thất bại',
-                        text: errorMessage
-                    });
-                    console.error('Đã xảy ra lỗi khi tải lên ảnh:', xhr.responseText);
                 }
-            }
-        };
-        xhr.onerror = function () {
-            Swal.fire({
-                icon: 'error',
-                title: 'Tải ảnh thất bại',
-                text: 'Đã xảy ra lỗi khi gửi yêu cầu tải ảnh!'
-            });
-            console.error('Đã xảy ra lỗi khi gửi yêu cầu tải ảnh!');
-        };
-        xhr.send(formData);
-    }
-    function saveProduct(productData, product_images) {
-        var xhr = new XMLHttpRequest();
-        var url = 'https://localhost:7241/api/ProductDetails/productdetails_create';
-        xhr.open('POST', url, true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
-                    console.log('Đã lưu sản phẩm thành công:', response);
-
-                    uploadImages(productData.ID, product_images);
-                } else {
-                    var errorMessage = 'Có lỗi xảy ra trong quá trình lưu dữ liệu!';
-                    if (xhr.responseText) {
-                        errorMessage = `Lỗi từ máy chủ: ${xhr.responseText}`;
-                    }
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Lưu thất bại',
-                        text: errorMessage
-                    });
-                    console.error('Đã xảy ra lỗi khi lưu sản phẩm:', xhr.status);
-                }
-            }
-        };
-        xhr.onerror = function () {
-            Swal.fire({
-                icon: 'error',
-                title: 'Lưu thất bại',
-                text: 'Đã xảy ra lỗi khi gửi yêu cầu lưu sản phẩm!'
-            });
-            console.error('Đã xảy ra lỗi khi gửi yêu cầu lưu sản phẩm!');
-        };
-        xhr.send(JSON.stringify(productData));
+            };
+            xhr.onerror = function () {
+                reject('Lỗi khi gửi yêu cầu tải lên ảnh');
+            };
+            xhr.send(formData);
+        });
     }
 
     function createOptionsData() {
@@ -177,9 +364,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const giaNhap = cells[3].querySelector('input').value;
                 const giaBan = cells[4].querySelector('input').value;
                 const soLuong = cells[5].querySelector('input').value;
-
-
-                const imagePreviewId = cells[0].id;
                 const imagePaths = cells[0].querySelector('img')?.src || '';
 
                 const option = {
@@ -200,6 +384,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return optionsData;
     }
+
     const addColorButton = document.getElementById('addColorButton');
     addColorButton.addEventListener('click', function () {
         addColor();

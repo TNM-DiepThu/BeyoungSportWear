@@ -17,6 +17,9 @@ namespace BusinessLogicLayer.Services.Interface
         Task<Response> RegisterAsync(RegisterUser registerUser, string role);
         public Task<bool> UpdateUserAsync(string ID, UserUpdateVM userUpdateVM);
         public Task<Response> Login(UserLoginModel model);
-
+        Task<List<UserDataVM>> GetUsersByEmailAsync(string email);
+        Task<List<UserDataVM>> GetUsersByPhoneNumberAsync(string phoneNumber);
+        Task<List<UserDataVM>> GetUsersByStatusAsync(int status);
+        Task<List<UserDataVM>> GetUsersByNameAsync(string name);
     }
 }

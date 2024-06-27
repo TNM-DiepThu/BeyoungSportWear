@@ -454,5 +454,42 @@ namespace BusinessLogicLayer.Services.Implements
             var result = await _userManager.UpdateAsync(user);
             return result.Succeeded;
         }
+        private async Task<List<UserDataVM>> GetUsersByCriteriaAsync(Func<ApplicationUser, bool> criteria)
+        {
+            var users = await Task.Run(() => _userManager.Users.Where(criteria).ToList());
+            var userDataList = users.Select(u => new UserDataVM
+            {
+                ID = u.Id,
+                Username = u.UserName,
+                Email = u.Email,
+                Images = u.Images,
+                FirstAndLastName = u.FirstAndLastName,
+                PhoneNumber = u.PhoneNumber,
+                Status = u.Status,
+            }).ToList();
+
+            return userDataList;
+        }
+
+        public async Task<List<UserDataVM>> GetUsersByEmailAsync(string email)
+        {
+            return await GetUsersByCriteriaAsync(u => u.Email.Contains(email));
+        }
+
+        public async Task<List<UserDataVM>> GetUsersByPhoneNumberAsync(string phoneNumber)
+        {
+            return await GetUsersByCriteriaAsync(u => u.PhoneNumber.Contains(phoneNumber));
+        }
+
+        public async Task<List<UserDataVM>> GetUsersByStatusAsync(int status)
+        {
+            return await GetUsersByCriteriaAsync(u => u.Status == status);
+        }
+
+        public async Task<List<UserDataVM>> GetUsersByNameAsync(string name)
+        {
+            return await GetUsersByCriteriaAsync(u => u.FirstAndLastName.IndexOf(name, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
     }
 }

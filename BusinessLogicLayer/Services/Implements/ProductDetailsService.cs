@@ -405,6 +405,7 @@ namespace BusinessLogicLayer.Services.Implements
                     KeyCode = v.ProductDetails.KeyCode,
                     Description = v.ProductDetails.Description,
                     Origin = v.ProductDetails.Origin,
+                    Style = v.ProductDetails.Style,
                     Status = v.ProductDetails.Status,
                     SmallestPrice = v.Options.Any() ? v.Options.Min(opt => opt.RetailPrice) : 0,
                     BiggestPrice = v.Options.Any() ? v.Options.Max(opt => opt.RetailPrice) : 0,
@@ -446,6 +447,7 @@ namespace BusinessLogicLayer.Services.Implements
                     Description = v.ProductDetails.Description,
                     Origin = v.ProductDetails.Origin,
                     Status = v.ProductDetails.Status,
+                    Style = v.ProductDetails.Style,
                     SmallestPrice = v.Options.Any() ? v.Options.Min(opt => opt.RetailPrice) : 0,
                     BiggestPrice = v.Options.Any() ? v.Options.Max(opt => opt.RetailPrice) : 0,
                     ImagePaths = v.Images.Select(m => m.Path).ToList(),
@@ -804,16 +806,23 @@ namespace BusinessLogicLayer.Services.Implements
         }
         public IQueryable<ProductDetailsVM> Search(List<SearchCondition> conditions)
         {
-            var query = _dbcontext.Set<ProductDetailsVM>().AsQueryable();
+            var query = _dbcontext.ProductDetails
+                .Include(p => p.Products)
+                .Include(p => p.Brand)
+                .Include(p => p.Material)
+                .Include(p => p.Category)
+                .Include(p => p.Manufacturers)
+                .Include(p => p.Images.Where(i => i.Status == 1))
+                .AsQueryable();
 
             foreach (var condition in conditions)
             {
                 switch (condition.Criteria)
                 {
                     case SearchCriteria.Product:
-                        query = query.Where(p => p.ProductName.Contains(condition.Value));
+                        query = query.Where(p => p.Products.Name.Contains(condition.Value));
                         break;
-                   
+
                     case SearchCriteria.Material:
                         query = query.Join(_dbcontext.Set<Material>(),
                                            p => p.IDMaterial,
@@ -822,6 +831,7 @@ namespace BusinessLogicLayer.Services.Implements
                                      .Where(joined => joined.m.Name.Contains(condition.Value))
                                      .Select(joined => joined.p);
                         break;
+
                     case SearchCriteria.Brand:
                         query = query.Join(_dbcontext.Set<Brand>(),
                                            p => p.IDBrand,
@@ -830,6 +840,7 @@ namespace BusinessLogicLayer.Services.Implements
                                      .Where(joined => joined.b.Name.Contains(condition.Value))
                                      .Select(joined => joined.p);
                         break;
+
                     case SearchCriteria.Category:
                         query = query.Join(_dbcontext.Set<Category>(),
                                            p => p.IDCategory,
@@ -838,7 +849,7 @@ namespace BusinessLogicLayer.Services.Implements
                                      .Where(joined => joined.c.Name.Contains(condition.Value))
                                      .Select(joined => joined.p);
                         break;
-                   
+
                     case SearchCriteria.Manufacturer:
                         query = query.Join(_dbcontext.Set<Manufacturer>(),
                                            p => p.IDManufacturers,
@@ -847,12 +858,37 @@ namespace BusinessLogicLayer.Services.Implements
                                      .Where(joined => joined.mf.Name.Contains(condition.Value))
                                      .Select(joined => joined.p);
                         break;
+
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
             }
 
-            return query;
+            var result = query.Select(p => new ProductDetailsVM
+            {
+                ID = p.ID,
+                IDProduct = p.Products.ID,
+                ProductName = p.Products.Name,
+                IDBrand = p.Brand.ID,
+                BrandName = p.Brand.Name,
+                IDCategory = p.Category.ID,
+                CategoryName = p.Category.Name,
+                TotalQuantity = p.Options.Sum(opt => opt.StockQuantity),
+                IDManufacturers = p.Manufacturers.ID,
+                ManufacturersName = p.Manufacturers.Name,
+                IDMaterial = p.Material.ID,
+                MaterialName = p.Material.Name,
+                KeyCode = p.KeyCode,
+                Description = p.Description,
+                Origin = p.Origin,
+                Status = p.Status,
+                Style = p.Style,
+                SmallestPrice = p.Options.Any() ? p.Options.Min(opt => opt.RetailPrice) : 0,
+                BiggestPrice = p.Options.Any() ? p.Options.Max(opt => opt.RetailPrice) : 0,
+                ImagePaths = p.Images.Select(i => i.Path).ToList()
+            });
+
+            return result;
         }
     }
 }

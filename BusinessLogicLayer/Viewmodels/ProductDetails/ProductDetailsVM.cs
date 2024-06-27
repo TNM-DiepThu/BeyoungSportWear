@@ -12,7 +12,6 @@ namespace BusinessLogicLayer.Viewmodels.ProductDetails
     public class ProductDetailsVM
     {
         public string KeyCode { get; set; }
-
         public Guid ID { get; set; }
         public string CreateBy { get; set; }
         public DateTime CreateDate { get; set; }

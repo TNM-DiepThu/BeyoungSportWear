@@ -1,4 +1,5 @@
-﻿using BusinessLogicLayer.Services.Interface;
+﻿using BusinessLogicLayer.Services.Implements;
+using BusinessLogicLayer.Services.Interface;
 using BusinessLogicLayer.Viewmodels.ApplicationUser;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,10 +23,10 @@ namespace ExternalInterfaceLayer.Controllers
 
             if (user == null)
             {
-                return NotFound(); // Trả về mã lỗi 404 nếu không tìm thấy người dùng
+                return NotFound();
             }
 
-            return Ok(user); // Trả về dữ liệu người dùng dưới dạng JSON
+            return Ok(user);
         }
         [HttpGet]
         [Route("GetAllInformationUserAsync")]
@@ -68,7 +69,7 @@ namespace ExternalInterfaceLayer.Controllers
             return Ok(new
             {
                 token = response.Token,
-                role = response.Roles.FirstOrDefault() // Sử dụng Roles từ phản hồi
+                role = response.Roles.FirstOrDefault()
             });
         }
         [HttpPost]
@@ -95,6 +96,31 @@ namespace ExternalInterfaceLayer.Controllers
                 return NoContent();
             }
             return Ok(new { status = "Success", message = "Successfully." });
+        }
+
+        [HttpGet("GetUsersByEmail")]
+        public async Task<IActionResult> GetUsersByEmail([FromQuery] string email)
+        {
+            var users = await _IUserService.GetUsersByEmailAsync(email);
+            return Ok(users);
+        }
+        [HttpGet("GetUsersByPhoneNumber")]
+        public async Task<IActionResult> GetUsersByPhoneNumber([FromQuery] string phoneNumber)
+        {
+            var users = await _IUserService.GetUsersByPhoneNumberAsync(phoneNumber);
+            return Ok(users);
+        }
+        [HttpGet("GetUsersByStatus")]
+        public async Task<IActionResult> GetUsersByStatus([FromQuery] int status)
+        {
+            var users = await _IUserService.GetUsersByStatusAsync(status);
+            return Ok(users);
+        }
+        [HttpGet("GetUsersByName")]
+        public async Task<IActionResult> GetUsersByName([FromQuery] string name)
+        {
+            var users = await _IUserService.GetUsersByNameAsync(name);
+            return Ok(users);
         }
     }
 }
