@@ -90,6 +90,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.19, )"
+            },
+            "Quartz": {
+              "target": "Package",
+              "version": "[3.9.0, )"
             }
           },
           "imports": [

@@ -8,12 +8,10 @@ namespace BusinessLogicLayer.Viewmodels.Address
 {
     public class AddressCreateVM
     {
-        public string CreateBy { get; set; }
-        public string IDUser { get; set; }
-        public string City { get; set; }
-        public string DistrictCounty { get; set; }
-        public string Commune { get; set; }
-        public string SpecificAddress { get; set; }
-        public int Status { get; set; }
+        public string CreateBy { get; set; } = null!;
+        public string City { get; set; } = null!;//Thành phố
+        public string DistrictCounty { get; set; } = null!;//Quận
+        public string Commune { get; set; } = null!;//Xã
+        public string SpecificAddress { get; set; } = null!;//Cụ thể
     }
 }

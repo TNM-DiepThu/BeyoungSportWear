@@ -43,6 +43,11 @@
             Category,
             Manufacturer
         }
-
+        public enum StatusVoucher
+        {
+            HasntStartedYet,
+            IsBeginning,
+            Finished
+        }
     }
 }

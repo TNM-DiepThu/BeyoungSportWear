@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZJiYXWQprUCOpbP5/5dR2Rg3b8Ky7ScnC41TwKuOoAcsGmcWmSORn+B8W+UeRYxbwIUsvrmE246Wxa15V0DPTg==",
+  "dgSpecHash": "7YQFBRRmEM7Yxb1or3Ey08fCodDuviVUGiFqChtmzkZqofKwd3rO2sA4BwmN+82psiw/1gbj8GdURo8wwsSWdw==",
   "success": true,
   "projectFilePath": "D:\\BeyoungSportWear\\ExternalInterfaceLayer\\ExternalInterfaceLayer.csproj",
   "expectedPackageFiles": [
@@ -69,6 +69,7 @@
     "C:\\Users\\nhamt\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\nhamt\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\nhamt\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\nhamt\\.nuget\\packages\\quartz\\3.9.0\\quartz.3.9.0.nupkg.sha512",
     "C:\\Users\\nhamt\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\nhamt\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\nhamt\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",

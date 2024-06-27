@@ -35,7 +35,17 @@ namespace ExternalInterfaceLayer.Controllers
 
             return Ok(objCollection);
         }
-
+        [HttpPut]
+        [Route("UpdateUser/{ID}")]
+        public async Task<IActionResult> UpdateUser( string ID, [FromForm] UserUpdateVM userUpdateVM)
+        {
+            var result = await _IUserService.UpdateUserAsync(ID, userUpdateVM);
+            if (!result)
+            {
+                return BadRequest("Cập nhật thông tin người dùng thất bại.");
+            }
+            return Ok("Cập nhật thông tin người dùng thành công.");
+        }
         [HttpGet]
         [Route("GetAllActiveInformationUserAsync")]
         public async Task<IActionResult> GetAllActiveInformationUserAsync()
@@ -63,7 +73,7 @@ namespace ExternalInterfaceLayer.Controllers
         }
         [HttpPost]
         [Route("Register")]
-        public async Task<IActionResult> Register([FromBody] RegisterUser registerUser, string role)
+        public async Task<IActionResult> Register([FromForm] RegisterUser registerUser, string role)
         {
 
             var result = await _IUserService.RegisterAsync(registerUser, role);

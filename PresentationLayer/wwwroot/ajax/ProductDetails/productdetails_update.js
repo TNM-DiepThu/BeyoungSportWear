@@ -144,9 +144,7 @@ function getProductDetailsById(ID) {
                             '<td>' + option.costPrice + '</td>' +
                             '<td>' + option.retailPrice + '</td>' +
                             '<td>' + option.stockQuantity + '</td>' +
-                            '<td>' +
-                            '<button class="btn btn-danger btn-sm delete-option" type="button" data-option-id="' + option.id + '">Xóa</button>' +
-                            '</td>' +
+                            '<td><button class="remove-button" onclick="removeRow(this)">Xóa</button></td>' +
                             '</tr>';
                         optionsTableBody.insertAdjacentHTML('beforeend', row);
                     });
@@ -393,7 +391,6 @@ function updateProduct(ID, productData) {
         });
     }
 }
-
 function handleImageUpload(event, imagePreviewId) {
     const file = event.target.files[0];
 

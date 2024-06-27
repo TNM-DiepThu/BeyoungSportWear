@@ -266,4 +266,5 @@ D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\BusinessLogicLayer.dll
 D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\DataAccessLayer.dll
 D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\BusinessLogicLayer.pdb
 D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\DataAccessLayer.pdb
+D:\BeyoungSportWear\PresentationLayer\bin\Debug\net7.0\Quartz.dll
 D:\BeyoungSportWear\PresentationLayer\obj\Debug\net7.0\PresentationLayer.MvcApplicationPartsAssemblyInfo.cs

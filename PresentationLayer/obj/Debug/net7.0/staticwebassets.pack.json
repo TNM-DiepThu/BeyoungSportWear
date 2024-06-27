@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\ajax\\ProductDetails\\productdetails_update.js"
     },
     {
+      "Id": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\SalesAtTheCounter\\sales_at_the_counter.js",
+      "PackagePath": "staticwebassets\\ajax\\SalesAtTheCounter\\sales_at_the_counter.js"
+    },
+    {
       "Id": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\Voucher\\voucher_created.js",
       "PackagePath": "staticwebassets\\ajax\\Voucher\\voucher_created.js"
     },

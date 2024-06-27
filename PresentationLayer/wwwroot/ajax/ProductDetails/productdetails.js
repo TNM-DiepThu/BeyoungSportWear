@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
         var product_style = document.getElementById("product_style").value;
         var product_origin = document.getElementById("product_origin").value;
         var product_description = document.getElementById("product_description").value;
+        var product_images = document.getElementById("image-upload").files;
+        console.log(product_images)
         var productId = guid();
         if (!product_product || !product_category || !product_manufacture || !product_material || !select_brand || !product_style || !product_origin || !product_description) {
             Swal.fire({
@@ -58,12 +60,76 @@ document.addEventListener('DOMContentLoaded', function () {
                     OptionsCreateVM: createOptionsData(),
                 };
 
-                saveProduct(productData);
+                saveProduct(productData, product_images);
+                console.log(productData);
+                console.log(product_images);
+
             }
         });
     });
+    function uploadImages(productId, product_images) {
 
-    function saveProduct(productData) {
+        if (product_images.length === 0) {
+            console.error('Không có tệp nào để tải lên.');
+            return;
+        }
+
+        var formData = new FormData();
+        var maxFileSize = 2 * 1024 * 1024; 
+        for (var i = 0; i < product_images.length; i++) {
+            var file = product_images[i];
+            if (file.size > maxFileSize) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Tệp quá lớn',
+                    text: 'Kích thước tệp ' + file.name + ' vượt quá giới hạn 2MB.'
+                });
+                return;
+            }
+            formData.append('Path', file);
+        }
+
+        formData.append('IDProductDetails', productId);
+        formData.append('CreateBy', 'John Doe'); 
+        formData.append('Status', 1);
+
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://localhost:7241/api/images/upload_images', true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    console.log('Ảnh đã được tải lên thành công');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thành công',
+                        text: 'Sản phẩm và ảnh đã được lưu thành công!'
+                    });
+                } else {
+                    var errorMessage = 'Có lỗi xảy ra trong quá trình tải lên ảnh!';
+                    if (xhr.responseText) {
+                        errorMessage = `Lỗi từ máy chủ: ${xhr.responseText}`;
+                    }
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Tải ảnh thất bại',
+                        text: errorMessage
+                    });
+                    console.error('Đã xảy ra lỗi khi tải lên ảnh:', xhr.responseText);
+                }
+            }
+        };
+        xhr.onerror = function () {
+            Swal.fire({
+                icon: 'error',
+                title: 'Tải ảnh thất bại',
+                text: 'Đã xảy ra lỗi khi gửi yêu cầu tải ảnh!'
+            });
+            console.error('Đã xảy ra lỗi khi gửi yêu cầu tải ảnh!');
+        };
+        xhr.send(formData);
+    }
+    function saveProduct(productData, product_images) {
         var xhr = new XMLHttpRequest();
         var url = 'https://localhost:7241/api/ProductDetails/productdetails_create';
         xhr.open('POST', url, true);
@@ -74,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     var response = JSON.parse(xhr.responseText);
                     console.log('Đã lưu sản phẩm thành công:', response);
 
-                    uploadImages(productData);
+                    uploadImages(productData.ID, product_images);
                 } else {
                     var errorMessage = 'Có lỗi xảy ra trong quá trình lưu dữ liệu!';
                     if (xhr.responseText) {
@@ -100,40 +166,6 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.send(JSON.stringify(productData));
     }
 
-    function uploadImages(productData) {
-        var fileInput = document.getElementById('image-upload');
-        var files = fileInput.files;
-        var formData = new FormData();
-        for (var i = 0; i < files.length; i++) {
-            formData.append('Path', files[i]);
-        }
-        formData.append('IDProductDetails', productData.ID);
-        formData.append('ID', guid());
-        formData.append('CreateBy', productData.CreateBy);
-        formData.append('Status', '1');
-
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://localhost:7241/api/images/upload_images', true);
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                var response = JSON.parse(xhr.responseText);
-                console.log('Đường dẫn ảnh đã được lưu:', response.imageUrl);
-                productData.ImagePaths.push(response.imageUrl);
-
-                saveProduct(productData);
-            } else {
-                console.error('Lỗi khi gửi yêu cầu:', xhr.statusText);
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Lỗi',
-                    text: 'Đã xảy ra lỗi khi gửi yêu cầu lưu ảnh!\n' + xhr.responseText
-                });
-            }
-        };
-
-        xhr.send(formData);
-    }
-
     function createOptionsData() {
         const optionsData = [];
         const rows = document.getElementById('classificationBody').getElementsByTagName('tr');
@@ -145,6 +177,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 const giaNhap = cells[3].querySelector('input').value;
                 const giaBan = cells[4].querySelector('input').value;
                 const soLuong = cells[5].querySelector('input').value;
+
+
                 const imagePreviewId = cells[0].id;
                 const imagePaths = cells[0].querySelector('img')?.src || '';
 
@@ -166,63 +200,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return optionsData;
     }
-
-    function saveProduct(productData) {
-        var xhr = new XMLHttpRequest();
-        var url = 'https://localhost:7241/api/ProductDetails/productdetails_create';
-        xhr.open('POST', url, true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.upload.addEventListener('progress', function (event) {
-            if (event.lengthComputable) {
-                const percentComplete = (event.loaded / event.total) * 100;
-                console.log('Tiến độ tải lên: ' + percentComplete.toFixed(2) + '%');
-                Swal.fire({
-                    title: 'Đang tải lên...',
-                    html: 'Tiến độ: ' + percentComplete.toFixed(2) + '%',
-                    timerProgressBar: true,
-                    didOpen: () => {
-                        Swal.showLoading();
-                    }
-                });
-            }
-        });
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
-                    console.log('Đã lưu sản phẩm thành công:', response);
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Thành công',
-                        text: 'Đã lưu sản phẩm thành công!'
-                    }).then(function () {
-                        window.location.href = 'index_productdetails'; 
-                    });
-                } else {
-                    var errorMessage = 'Có lỗi xảy ra trong quá trình lưu dữ liệu!';
-                    if (xhr.responseText) {
-                        errorMessage = `Lỗi từ máy chủ: ${xhr.responseText}`;
-                    }
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Lưu thất bại',
-                        text: errorMessage
-                    });
-                    console.error('Đã xảy ra lỗi khi lưu sản phẩm:', xhr.status);
-                }
-            }
-        };
-        xhr.onerror = function () {
-            Swal.fire({
-                icon: 'error',
-                title: 'Lưu thất bại',
-                text: 'Đã xảy ra lỗi khi gửi yêu cầu lưu sản phẩm!'
-            });
-            console.error('Đã xảy ra lỗi khi gửi yêu cầu lưu sản phẩm!');
-        };
-        xhr.send(JSON.stringify(productData));
-    }
-
     const addColorButton = document.getElementById('addColorButton');
     addColorButton.addEventListener('click', function () {
         addColor();
@@ -326,7 +303,6 @@ function updateTable() {
             `;
             tableBody.appendChild(row);
 
-            // Add event listener to handle file upload and image preview
             const fileInput = document.getElementById(imageUploadId);
             fileInput.addEventListener('change', function (event) {
                 handleImageUpload(event, imagePreviewId);
@@ -470,8 +446,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    loadData("https://localhost:7241/api/Product/GetAllActive", 'product_product', '-- Chọn sản phẩm --');
-    addChangeListener('product_product', 'product_name');
 
     loadData("https://localhost:7241/api/Material/GetAllActive", 'product_material', '-- Chọn chất liệu --');
     addChangeListener('product_material', 'material_name');

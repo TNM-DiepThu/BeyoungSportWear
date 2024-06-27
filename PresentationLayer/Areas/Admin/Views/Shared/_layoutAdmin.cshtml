@@ -9,6 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="~/css/main_v2.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" type="text/css"
@@ -44,7 +46,7 @@
         <hr>
         <ul class="app-menu">
             <li>
-                <a class="app-menu__item haha" href="phan-mem-ban-hang.html">
+                <a class="app-menu__item haha" asp-area="Admin" asp-controller="SalesAtTheCounter" asp-action="Index">
                     <i class='app-menu__icon bx bx-cart-alt'></i>
                     <span class="app-menu__label">POS Bán Hàng</span>
                 </a>
@@ -89,30 +91,9 @@
                 </a>
             </li>
             <li>
-                <a class="app-menu__item" href="table-data-money.html">
-                    <i class='app-menu__icon bx bx-dollar'></i>
-                    <span class="app-menu__label">Bảng kê lương</span>
-                </a>
-            </li>
-            <li>
                 <a class="app-menu__item" asp-area="Admin" asp-controller="ManagementRevenue" asp-action="Index">
                     <i class='app-menu__icon bx bx-pie-chart-alt-2'></i>
                     <span class="app-menu__label">Báo cáo doanh thu</span>
-                </a>
-            </li>
-            <li>
-                <a class="app-menu__item" href="page-calendar.html">
-                    <i class='app-menu__icon bx bx-calendar-check'></i>
-                    <span class="app-menu__label">Lịch công tác </span>
-                </a>
-            </li>
-            <li>
-                <a class="app-menu__item" href="#">
-                    <i class='app-menu__icon bx bx-cog'></i>
-                    <span class="app-menu__label">
-                        Cài
-                        đặt hệ thống
-                    </span>
                 </a>
             </li>
         </ul>
@@ -131,6 +112,9 @@
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
     <script src="~/js/jquery-3.2.1.min.js"></script>
     <script src="~/js/popper.min.js"></script>
     <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>

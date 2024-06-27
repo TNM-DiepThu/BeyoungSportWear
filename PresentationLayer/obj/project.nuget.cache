@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "d6O2XJ2m75yp9+IbSvnEd5EAEZTupW/XP0+DVPTM4/I6BjyRMhKLhrAOwAyyf5YZWtbsisjggk7vI5vqLQhcXQ==",
+  "dgSpecHash": "IfWMfASvp++/q9IDsNq/vWR0a8adQHEIMUo1cm113l/N8pUQpYETBf/AjGL6iFJjMiOR3FLkc+fa5jd6Z96atw==",
   "success": true,
   "projectFilePath": "D:\\BeyoungSportWear\\PresentationLayer\\PresentationLayer.csproj",
   "expectedPackageFiles": [
@@ -153,6 +153,7 @@
     "C:\\Users\\nhamt\\.nuget\\packages\\nuget.projectmodel\\6.6.1\\nuget.projectmodel.6.6.1.nupkg.sha512",
     "C:\\Users\\nhamt\\.nuget\\packages\\nuget.protocol\\6.6.1\\nuget.protocol.6.6.1.nupkg.sha512",
     "C:\\Users\\nhamt\\.nuget\\packages\\nuget.versioning\\6.6.1\\nuget.versioning.6.6.1.nupkg.sha512",
+    "C:\\Users\\nhamt\\.nuget\\packages\\quartz\\3.9.0\\quartz.3.9.0.nupkg.sha512",
     "C:\\Users\\nhamt\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\nhamt\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\nhamt\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",

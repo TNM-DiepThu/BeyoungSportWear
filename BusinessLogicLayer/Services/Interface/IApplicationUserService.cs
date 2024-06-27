@@ -15,6 +15,7 @@ namespace BusinessLogicLayer.Services.Interface
         Task<UserDataVM> GetInformationByID(string ID);
         Task<bool> RemoveAsync(string ID, string IDUserDelete);
         Task<Response> RegisterAsync(RegisterUser registerUser, string role);
+        public Task<bool> UpdateUserAsync(string ID, UserUpdateVM userUpdateVM);
         public Task<Response> Login(UserLoginModel model);
 
     }

@@ -90,6 +90,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.19, )"
+            },
+            "Quartz": {
+              "target": "Package",
+              "version": "[3.9.0, )"
             }
           },
           "imports": [
@@ -263,6 +267,10 @@
             "CloudinaryDotNet": {
               "target": "Package",
               "version": "[1.26.2, )"
+            },
+            "Quartz": {
+              "target": "Package",
+              "version": "[3.9.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

@@ -12,6 +12,7 @@ namespace BusinessLogicLayer.Viewmodels.ApplicationUser
         public string FirstAndLastName { get; set; } = null!;
         public string Username { get; set; } = null!;
         public string Email { get; set; } = null!;
+        public string? Images { get; set; }
         public string? PhoneNumber { get; set; }
         public int Status { get; set; } = 1;
     }

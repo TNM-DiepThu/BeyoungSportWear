@@ -145,6 +145,27 @@ function submitForm() {
         });
         return;
     }
+    if (type === 0) {
+        var reducedValue = parseFloat(reduce);
+        if (isNaN(reducedValue) || reducedValue <= 0 || reducedValue > 100) {
+            Swal.fire({
+                title: 'Lỗi',
+                text: 'Giá trị giảm (%) phải là một số lớn hơn 0 và nhỏ hơn hoặc bằng 100.',
+                icon: 'error',
+            });
+            return;
+        }
+    } else if (type === 1) { 
+        var reducedValue = parseFloat(reduce);
+        if (isNaN(reducedValue) || reducedValue <= 0) {
+            Swal.fire({
+                title: 'Lỗi',
+                text: 'Giá trị giảm (tiền mặt) phải là một số lớn hơn 0.',
+                icon: 'error',
+            });
+            return;
+        }
+    }
     var data = {
         CreateBy: 'acb',
         Code: code,

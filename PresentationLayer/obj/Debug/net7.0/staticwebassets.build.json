@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oJDRDIMIFFfzzfVY8LQKP0KE9NrU4JOcWwrhmsPylfs=",
+  "Hash": "XHzZr3YddZ//gJUdxbSrTdy8NzPoiZXWN7OF16aoaMs=",
   "Source": "PresentationLayer",
   "BasePath": "_content/PresentationLayer",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\ajax\\ProductDetails\\productdetails_update.js"
+    },
+    {
+      "Identity": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\SalesAtTheCounter\\sales_at_the_counter.js",
+      "SourceId": "PresentationLayer",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\",
+      "BasePath": "_content/PresentationLayer",
+      "RelativePath": "ajax/SalesAtTheCounter/sales_at_the_counter.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ajax\\SalesAtTheCounter\\sales_at_the_counter.js"
     },
     {
       "Identity": "D:\\BeyoungSportWear\\PresentationLayer\\wwwroot\\ajax\\Voucher\\voucher_created.js",

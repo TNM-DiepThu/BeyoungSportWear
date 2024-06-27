@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExternalInterfaceLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+041410478c861e428d607b88fb5829c61881ebfd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8b018b9da897ff0dffd8501067f9748a34a99a38")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExternalInterfaceLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExternalInterfaceLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -27,8 +27,10 @@
             </td>
             <td>${priceToShow}</td>
             <td>${productdetails.categoryName}</td>
+            <td>${productdetails.status == 1 ? '<span class="badge bg-success">Đang bán</span>' : '<span class="badge bg-danger">Đã ngừng bán</span>'}</td>
+
             <td>
-                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa" onclick="confirmDelete('${productdetails.id}', 'userID')">
+                <button class="btn btn-primary btn-sm trash" type="button" title="Ẩn bán" onclick="confirmDelete('${productdetails.id}', 'userID')">
                     <i class="fas fa-trash-alt"></i>
                 </button>
                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" onclick="navigateToUpdatePage('${productdetails.id}')">
@@ -55,7 +57,7 @@
 }
 function fetchData() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://localhost:7241/api/ProductDetails/GetAllActive', true);
+    xhr.open('GET', 'https://localhost:7241/api/ProductDetails/GetAll', true);
 
     document.getElementById('loading-spinner').style.display = 'block';
 

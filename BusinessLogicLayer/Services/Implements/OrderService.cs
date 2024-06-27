@@ -90,7 +90,7 @@ namespace BusinessLogicLayer.Services.Implements
                 if (!string.IsNullOrWhiteSpace(request.VoucherCode))
                 {
                     var voucher = await _dbcontext.Voucher.FirstOrDefaultAsync(v => v.Code == request.VoucherCode);
-                    if (voucher == null || !voucher.IsActive || voucher.Quantity <= 0)
+                    if (voucher == null || voucher.IsActive == StatusVoucher.IsBeginning|| voucher.Quantity <= 0)
                     {
                         await transaction.RollbackAsync();
                         return false;
@@ -102,7 +102,7 @@ namespace BusinessLogicLayer.Services.Implements
                     voucher.Quantity -= 1;
                     if (voucher.Quantity <= 0)
                     {
-                        voucher.IsActive = false;
+                        voucher.IsActive = StatusVoucher.Finished;
                     }
                     _dbcontext.Voucher.Update(voucher);
                 }

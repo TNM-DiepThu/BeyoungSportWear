@@ -295,27 +295,27 @@ namespace BusinessLogicLayer.Services.Implements
                         IDCategory = checkCategory.ID,
                         Origin = request.Origin,
                         Style = request.Style,
-                        KeyCode = GenerateKeyCode(request.ProductName),
+                        KeyCode = GenerateKeyCode(request.ProductName + request.CategoryName),
                         Description = request.Description,
                         CreateBy = request.CreateBy,
                         CreateDate = DateTime.Now,
                         Status = 1,
                     };
                     await _dbcontext.ProductDetails.AddAsync(productDetails);
-                    foreach (var imageUrl in request.ImagePaths)
-                    {
-                        var imageEntity = new Images
-                        {
-                            ID = Guid.NewGuid(),
-                            IDProductDetails = productDetails.ID,
-                            Path = imageUrl,
-                            Status = 1,
-                            CreateDate = DateTime.Now,
-                            CreateBy = ""
-                        };
+                    //foreach (var imageUrl in request.ImagePaths)
+                    //{
+                    //    var imageEntity = new Images
+                    //    {
+                    //        ID = Guid.NewGuid(),
+                    //        IDProductDetails = productDetails.ID,
+                    //        Path = imageUrl,
+                    //        Status = 1,
+                    //        CreateDate = DateTime.Now,
+                    //        CreateBy = ""
+                    //    };
 
-                        await _dbcontext.Images.AddAsync(imageEntity);
-                    }
+                    //    await _dbcontext.Images.AddAsync(imageEntity);
+                    //}
                     if (request.OptionsCreateVM == null || !request.OptionsCreateVM.Any())
                     {
                         throw new Exception("OptionsCreateVM is null or empty");
@@ -416,40 +416,48 @@ namespace BusinessLogicLayer.Services.Implements
         }
         public async Task<List<ProductDetailsVM>> GetAllAsync()
         {
-            var result = await (from pd in _dbcontext.ProductDetails
-                                join p in _dbcontext.Product on pd.IDProduct equals p.ID
-                                join c in _dbcontext.Category on pd.IDCategory equals c.ID
-                                join m in _dbcontext.Manufacturer on pd.IDManufacturers equals m.ID
-                                join mt in _dbcontext.Material on pd.IDMaterial equals mt.ID
-                                join b in _dbcontext.Brand on pd.IDBrand equals b.ID
-                                select new ProductDetailsVM
-                                {
-                                    ID = pd.ID,
-                                    CreateBy = pd.CreateBy,
-                                    CreateDate = pd.CreateDate,
-                                    IDProduct = p.ID,
-                                    ProductName = p.Name,
-                                    IDCategory = c.ID,
-                                    CategoryName = c.Name,
-                                    IDManufacturers = m.ID,
-                                    ManufacturersName = m.Name,
-                                    IDMaterial = mt.ID,
-                                    MaterialName = mt.Name,
-                                    IDBrand = b.ID,
-                                    SmallestPrice = pd.Options.Any() ? pd.Options.Min(opt => opt.RetailPrice) : 0,
-                                    BiggestPrice = pd.Options.Any() ? pd.Options.Max(opt => opt.RetailPrice) : 0,
+            var activeVariants = await _dbcontext.ProductDetails
+                   .AsNoTracking()
+                   .Select(v => new
+                   {
+                       ProductDetails = v,
+                       Product = v.Products,
+                       Brand = v.Brand,
+                       Material = v.Material,
+                       Category = v.Category,
+                       Options = v.Options,
+                       Manufacturers = v.Manufacturers,
+                       Images = v.Images.Where(m => m.Status == 1),
+                       CreateDate = v.CreateDate
+                   }).ToListAsync();
 
-                                    BrandName = b.Name,
-                                    KeyCode = pd.KeyCode,
-                                    Description = pd.Description,
-                                    Style = pd.Style,
-                                    Origin = pd.Origin,
-                                    ImagePaths = (from img in _dbcontext.Images
-                                                  where img.IDProductDetails == pd.ID
-                                                  select img.Path).ToList(),
-                                    Status = pd.Status,
-                                }).ToListAsync();
-            return result;
+            var variantsVMList = activeVariants.Select(v =>
+            {
+                return new ProductDetailsVM
+                {
+                    ID = v.ProductDetails.ID,
+                    ProductName = v.Product.Name,
+                    BrandName = v.Brand.Name,
+                    CategoryName = v.Category.Name,
+                    TotalQuantity = v.Options.Sum(opt => opt.StockQuantity),
+                    ManufacturersName = v.Manufacturers.Name,
+                    MaterialName = v.Material.Name,
+                    KeyCode = v.ProductDetails.KeyCode,
+                    Description = v.ProductDetails.Description,
+                    Origin = v.ProductDetails.Origin,
+                    Status = v.ProductDetails.Status,
+                    SmallestPrice = v.Options.Any() ? v.Options.Min(opt => opt.RetailPrice) : 0,
+                    BiggestPrice = v.Options.Any() ? v.Options.Max(opt => opt.RetailPrice) : 0,
+                    ImagePaths = v.Images.Select(m => m.Path).ToList(),
+                    CreateDate = v.CreateDate
+                };
+            }).ToList();
+            variantsVMList = variantsVMList
+                   .OrderBy(p => p.Status == 0 ? 1 : 0)
+                   .ThenByDescending(p => p.CreateDate)
+                   .ToList();
+
+            return variantsVMList;
         }
         public async Task<ProductDetailsVM> GetByIDAsync(Guid ID)
         {
@@ -794,7 +802,6 @@ namespace BusinessLogicLayer.Services.Implements
                 }
             }
         }
-
         public IQueryable<ProductDetailsVM> Search(List<SearchCondition> conditions)
         {
             var query = _dbcontext.Set<ProductDetailsVM>().AsQueryable();

@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DataAccessLayer.Entity.Base.EnumBase;
 
 namespace BusinessLogicLayer.Services.Implements
 {
@@ -32,7 +33,7 @@ namespace BusinessLogicLayer.Services.Implements
                 return false;
             }
 
-            voucher.IsActive = true;
+            voucher.IsActive = StatusVoucher.IsBeginning;
             _dbcontext.Voucher.Update(voucher);
             await _dbcontext.SaveChangesAsync();
 
@@ -54,7 +55,7 @@ namespace BusinessLogicLayer.Services.Implements
                     MinimumAmount = request.MinimumAmount,
                     MaximumAmount = request.MaximumAmount,
                     ReducedValue = request.ReducedValue,
-                    IsActive = request.IsActive,
+                    IsActive = CalculateVoucherStatus(request.StartDate, request.EndDate),
                     Status = 1,
                     CreateBy = request.CreateBy,
                 };
@@ -80,7 +81,22 @@ namespace BusinessLogicLayer.Services.Implements
                 return false;
             }
         }
-
+        private StatusVoucher CalculateVoucherStatus(DateTime startDate, DateTime endDate)
+        {
+            var now = DateTime.UtcNow;
+            if (now < startDate)
+            {
+                return StatusVoucher.HasntStartedYet;
+            }
+            else if (now >= startDate && now <= endDate)
+            {
+                return StatusVoucher.IsBeginning;
+            }
+            else 
+            {
+                return StatusVoucher.Finished;
+            }
+        }
         public async Task<bool> DeactivateVoucherAsync(Guid ID)
         {
             var voucher = await _dbcontext.Voucher.FindAsync(ID);
@@ -89,7 +105,7 @@ namespace BusinessLogicLayer.Services.Implements
                 return false; 
             }
 
-            voucher.IsActive = false; 
+            voucher.IsActive = StatusVoucher.HasntStartedYet; 
             _dbcontext.Voucher.Update(voucher);
             await _dbcontext.SaveChangesAsync();
 
@@ -126,6 +142,11 @@ namespace BusinessLogicLayer.Services.Implements
                 return vouchervm;
             }).ToList();
 
+            mappedvoucher = mappedvoucher
+                               .OrderBy(p => p.Status == 0 ? 1 : 0)
+                               .ThenByDescending(p => p.CreateDate)
+                               .ToList();
+
             return mappedvoucher;
         }
 
@@ -143,7 +164,7 @@ namespace BusinessLogicLayer.Services.Implements
         public async Task<List<VoucherUserVM>> GetUserInPromotionAsync(Guid ID)
         {
             var specificPromotion = await _dbcontext.Voucher
-                                         .FirstOrDefaultAsync(p => p.ID == ID && p.IsActive);
+                                         .FirstOrDefaultAsync(p => p.ID == ID && p.IsActive == StatusVoucher.IsBeginning);
             if (specificPromotion == null)
             {
                 return new List<VoucherUserVM>();
@@ -173,7 +194,6 @@ namespace BusinessLogicLayer.Services.Implements
                               Type = v.Type,
                               MinimumAmount = v.MinimumAmount,
                               MaximumAmount = v.MaximumAmount,
-
                               ReducedValue = v.ReducedValue,
                               IsActive = v.IsActive,
                               Status = (DateTime.Now >= v.StartDate && DateTime.Now <= v.EndDate && v.Quantity > 0) ? 1 : 0
@@ -202,10 +222,12 @@ namespace BusinessLogicLayer.Services.Implements
                     if (obj != null)
                     {
                         obj.Status = 0;
+                        obj.IsActive = StatusVoucher.Finished;
                         obj.DeleteDate = DateTime.Now;
                         obj.DeleteBy = IDUserdelete;
 
                         _dbcontext.Voucher.Attach(obj);
+
                         await _dbcontext.SaveChangesAsync();
 
 

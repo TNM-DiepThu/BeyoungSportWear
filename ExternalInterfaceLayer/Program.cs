@@ -1,4 +1,4 @@
-using BusinessLogicLayer.Services.Implements;
+﻿using BusinessLogicLayer.Services.Implements;
 using BusinessLogicLayer.Services.Interface;
 using BusinessLogicLayer.Viewmodels;
 using CloudinaryDotNet;
@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Quartz.Impl;
+using Quartz;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -109,7 +111,24 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+IScheduler scheduler = await StdSchedulerFactory.GetDefaultScheduler();
+await scheduler.Start();
+IJobDetail job = JobBuilder.Create<UpdateVoucherStatusJob>()
+    .WithIdentity("myJob", "group1")
+    .Build();
+ITrigger trigger = TriggerBuilder.Create()
+    .WithIdentity("myTrigger", "group1")
+    .StartNow()
+    .WithSimpleSchedule(x => x
+        .WithIntervalInSeconds(10)
+        .RepeatForever())
+    .Build();
 
+await scheduler.ScheduleJob(job, trigger);
+
+await Task.Delay(TimeSpan.FromSeconds(60));
+
+await scheduler.Shutdown();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

@@ -1,5 +1,5 @@
 ﻿function fetchVouchers() {
-    var url = 'https://localhost:7241/api/Voucher/getallactive';
+    var url = 'https://localhost:7241/api/Voucher/getall';
     var xhr = new XMLHttpRequest();
 
     xhr.open('GET', url, true);
@@ -9,13 +9,12 @@
                 var data = JSON.parse(xhr.responseText);
                 displayVouchers(data);
             } else {
-                console.error('Error fetching data. Status:', xhr.status);
+                console.error('Error fetching data. Status:', xhr.responseText);
             }
         }
     };
     xhr.send();
 }
-
 function displayVouchers(vouchers) {
     var voucherBody = document.getElementById('voucherBody');
     voucherBody.innerHTML = '';
@@ -25,8 +24,8 @@ function displayVouchers(vouchers) {
         row.innerHTML = `
             <td>${voucher.code}</td>
             <td>${voucher.name}</td>
-            <td>
-                ${new Date(voucher.startDate).toLocaleString('en-GB')} - ${new Date(voucher.endDate).toLocaleString('en-GB')}
+            <td style="font-weight: bold;">
+                ${new Date(voucher.startDate).toLocaleString('en-GB')} <br> ${new Date(voucher.endDate).toLocaleString('en-GB')}
             </td>
             <td>${voucher.quantity}</td>
             <td>

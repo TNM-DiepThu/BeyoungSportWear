@@ -15,6 +15,8 @@ using System.Text;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using CloudinaryDotNet.Actions;
+using CloudinaryDotNet;
 namespace BusinessLogicLayer.Services.Implements
 {
     public class ApplicationUserService : IApplicationUserService
@@ -26,6 +28,7 @@ namespace BusinessLogicLayer.Services.Implements
         private readonly MailSettings _mailSettings;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IConfiguration _configuration;
+        private readonly Cloudinary _cloudinary;
 
         public ApplicationUserService(ApplicationDBContext ApplicationDBContext,
             RoleManager<IdentityRole> roleManager,
@@ -33,7 +36,8 @@ namespace BusinessLogicLayer.Services.Implements
             IOptions<MailSettings> mailSettings,
             UserManager<ApplicationUser> userManager,
                            IHttpContextAccessor httpContextAccessor,
-                           IConfiguration IConfiguration)
+                           IConfiguration IConfiguration,
+                           Cloudinary cloudinary)
         {
             _mapper = mapper;
             _userManager = userManager;
@@ -42,7 +46,7 @@ namespace BusinessLogicLayer.Services.Implements
             _mailSettings = mailSettings.Value;
             _httpContextAccessor = httpContextAccessor;
             _configuration = IConfiguration;
-
+            _cloudinary = cloudinary;
         }
         private async Task<string> GenerateJwtToken(ApplicationUser user)
         {
@@ -139,6 +143,7 @@ namespace BusinessLogicLayer.Services.Implements
                 Email = u.Email,
                 FirstAndLastName = u.FirstAndLastName,
                 PhoneNumber = u.PhoneNumber,
+                Images = u.Images,
                 Status = u.Status,
             }).ToList();
 
@@ -154,6 +159,7 @@ namespace BusinessLogicLayer.Services.Implements
                 ID = u.Id,
                 Username = u.UserName,
                 Email = u.Email,
+                Images = u.Images,
                 FirstAndLastName = u.FirstAndLastName,
                 PhoneNumber = u.PhoneNumber,
                 Status = u.Status,
@@ -178,6 +184,7 @@ namespace BusinessLogicLayer.Services.Implements
                 FirstAndLastName = user.FirstAndLastName,
                 PhoneNumber = user.PhoneNumber,
                 Email = user.Email,
+                Images = user.Images,
                 Username = user.UserName,
                 Status = user.Status,
             };
@@ -244,6 +251,7 @@ namespace BusinessLogicLayer.Services.Implements
         }
         public async Task<Response> RegisterAsync(RegisterUser registerUser, string role)
         {
+            using var transaction = await _dbContext.Database.BeginTransactionAsync();
             try
             {
                 var existingUser = await _userManager.FindByEmailAsync(registerUser.Email);
@@ -284,40 +292,62 @@ namespace BusinessLogicLayer.Services.Implements
                     Email = registerUser.Email,
                     FirstAndLastName = registerUser.FirstAndLastName,
                     PhoneNumber = registerUser.PhoneNumber,
+                    Gender = registerUser.Gender,
+                    DateOfBirth = registerUser.DateOfBirth,
                     Status = 1,
-                    EmailConfirmed = false
+                    EmailConfirmed = false,
                 };
-                var result = await _userManager.CreateAsync(newUser, registerUser.Password);
-                if(result.Succeeded)
-                {
-                    var cart = new Cart
-                    {
-                        ID = Guid.NewGuid(),
-                        IDUser = newUser.Id,
-                        Status = 1,
-                        CreateBy = newUser.Id,
-                        CreateDate = DateTime.Now,
-                    };
-                    await _dbContext.Cart.AddRangeAsync(cart);
-                    var city = registerUser.AddressCreateVM.FirstOrDefault()?.City;
-                    var Commune = registerUser.AddressCreateVM.FirstOrDefault()?.Commune;
-                    var DistrictCounty = registerUser.AddressCreateVM.FirstOrDefault()?.DistrictCounty;
-                    var SpecificAddress = registerUser.AddressCreateVM.FirstOrDefault()?.SpecificAddress;
-                    var address = new Address
-                    {
-                        ID = Guid.NewGuid(),
-                        IDUser = newUser.Id,
-                        City = city,
-                        Commune = Commune,
-                        DistrictCounty = DistrictCounty,
-                        SpecificAddress = SpecificAddress,
-                        Status = 1,
-                        CreateBy = newUser.Id,
-                        CreateDate = DateTime.Now,
-                    };
-                    await _dbContext.Address.AddRangeAsync(address);
 
+                if (registerUser.Images != null)
+                {
+                    var uploadParams = new ImageUploadParams()
+                    {
+                        File = new FileDescription(registerUser.Images.FileName, registerUser.Images.OpenReadStream()),
+                        Folder = "BeyoungSportWear",
+                        Overwrite = true
+                    };
+
+                    var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+
+                    newUser.Images = uploadResult.SecureUri.AbsoluteUri;
                 }
+
+                var result = await _userManager.CreateAsync(newUser, registerUser.Password);
+                if (!result.Succeeded)
+                {
+                    await transaction.RollbackAsync();
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        StatusCode = 500,
+                        Message = "User creation failed."
+                    };
+                }
+
+                var cart = new Cart
+                {
+                    ID = Guid.NewGuid(),
+                    IDUser = newUser.Id,
+                    Status = 1,
+                    CreateBy = newUser.Id,
+                    CreateDate = DateTime.Now,
+                };
+                await _dbContext.Cart.AddAsync(cart);
+
+                var addresss = new Address
+                {
+                    ID = Guid.NewGuid(),
+                    CreateBy = newUser.Id,
+                    CreateDate = DateTime.Now,
+                    IDUser = newUser.Id,
+                    City = registerUser.City,
+                    DistrictCounty = registerUser.DistrictCounty,
+                    Commune = registerUser.Commune,
+                    SpecificAddress = registerUser.SpecificAddress,
+                    Status = 1,
+                };
+                await _dbContext.Address.AddAsync(addresss);
+
                 await _dbContext.SaveChangesAsync();
 
                 if (await _roleManager.RoleExistsAsync(role))
@@ -333,6 +363,8 @@ namespace BusinessLogicLayer.Services.Implements
                     var callbackUri = new Uri(callbackUrl);
                     await SendConfirmationEmailAsync(newUser.Email, callbackUri);
 
+                    await transaction.CommitAsync();
+
                     return new Response
                     {
                         IsSuccess = true,
@@ -342,6 +374,7 @@ namespace BusinessLogicLayer.Services.Implements
                 }
                 else
                 {
+                    await transaction.RollbackAsync();
                     return new Response
                     {
                         IsSuccess = false,
@@ -352,12 +385,12 @@ namespace BusinessLogicLayer.Services.Implements
             }
             catch (Exception ex)
             {
+                await transaction.RollbackAsync();
                 return new Response
                 {
                     IsSuccess = false,
                     StatusCode = 500,
                     Message = "An error occurred while saving the entity changes. See the inner exception for details.",
-
                 };
             }
         }
@@ -390,6 +423,36 @@ namespace BusinessLogicLayer.Services.Implements
                     return false;
                 }
             }
+        }
+        public async Task<bool> UpdateUserAsync(string ID, UserUpdateVM userUpdateVM)
+        {
+            var user = await _userManager.FindByIdAsync(ID);
+            if (user == null)
+            {
+                return false;
+            }
+
+            user.FirstAndLastName = userUpdateVM.FirstAndLastName ?? user.FirstAndLastName;
+            user.Email = userUpdateVM.Email ?? user.Email;
+            user.PhoneNumber = userUpdateVM.PhoneNumber ?? user.PhoneNumber;
+            user.Gender = userUpdateVM.Gender ?? user.Gender;
+            user.DateOfBirth = userUpdateVM.DateOfBirth ?? user.DateOfBirth;
+
+            if (userUpdateVM.Images != null)
+            {
+                var uploadParams = new ImageUploadParams()
+                {
+                    File = new FileDescription(userUpdateVM.Images.FileName, userUpdateVM.Images.OpenReadStream()),
+                    Folder = "BeyoungSportWear",
+                    Overwrite = true
+                };
+
+                var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+                user.Images = uploadResult.SecureUri.AbsoluteUri;
+            }
+
+            var result = await _userManager.UpdateAsync(user);
+            return result.Succeeded;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace DataAccessLayer.Entity
 {
     public partial class Address : EntityBase
     {
-        public string IDUser { get; set; } 
+        public string? IDUser { get; set; } 
         public string City { get; set; }
         public string DistrictCounty { get; set; }
         public string Commune { get; set; }

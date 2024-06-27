@@ -10,7 +10,8 @@
         "dependencies": {
           "BusinessLogicLayer": "1.0.0",
           "CloudinaryDotNet": "1.26.2",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.12"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.12",
+          "Quartz": "3.9.0"
         },
         "runtime": {
           "PresentationLayer.dll": {}
@@ -1881,6 +1882,18 @@
           }
         }
       },
+      "Quartz/3.9.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "System.Configuration.ConfigurationManager": "6.0.1"
+        },
+        "runtime": {
+          "lib/net6.0/Quartz.dll": {
+            "assemblyVersion": "3.9.0.0",
+            "fileVersion": "3.9.0.0"
+          }
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
@@ -2725,7 +2738,8 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.19",
           "Microsoft.AspNetCore.OpenApi": "7.0.14",
           "Microsoft.EntityFrameworkCore": "7.0.19",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.19"
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.19",
+          "Quartz": "3.9.0"
         },
         "runtime": {
           "BusinessLogicLayer.dll": {}
@@ -3794,6 +3808,13 @@
       "sha512": "sha512-Wm/AOFICTIrCgbVxv9dNWusraTzcggbo5W4ao7hD8NNVq911an9TGwW+uNuYc8I5PkpTeMuSXneV2u6hbi1P4w==",
       "path": "nuget.versioning/6.6.1",
       "hashPath": "nuget.versioning.6.6.1.nupkg.sha512"
+    },
+    "Quartz/3.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vfdug3lRbLYagkrOkeSKqmfT8pBLPY7c/qUsbif+qAJXVkmRQvDbF83fRAK4vzrfz07uDuPJQD+HbIWuliGKiQ==",
+      "path": "quartz/3.9.0",
+      "hashPath": "quartz.3.9.0.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",

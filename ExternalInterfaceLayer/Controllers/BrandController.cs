@@ -82,7 +82,7 @@ namespace ExternalInterfaceLayer.Controllers
             {
                 return Ok(new { status = "Success", message = "Successfully." });
             }
-            return NotFound();
+            return BadRequest();
         }
     }
 }

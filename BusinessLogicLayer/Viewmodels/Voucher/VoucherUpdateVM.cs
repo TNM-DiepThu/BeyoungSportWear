@@ -1,4 +1,5 @@
-﻿using static DataAccessLayer.Entity.Voucher;
+﻿using static DataAccessLayer.Entity.Base.EnumBase;
+using static DataAccessLayer.Entity.Voucher;
 
 namespace BusinessLogicLayer.Viewmodels.Voucher
 {
@@ -14,7 +15,7 @@ namespace BusinessLogicLayer.Viewmodels.Voucher
         public decimal MinimumAmount { get; set; }
         public decimal MaximumAmount { get; set; }
         public decimal ReducedValue { get; set; }
-        public bool IsActive { get; set; }
+        public StatusVoucher IsActive { get; set; }
         public List<string> SelectedUser { get; set; } = new List<string>();
         public int Status { get; set; }
     }
